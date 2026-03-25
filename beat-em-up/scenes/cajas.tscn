@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://brqaupkti02qx"]
+
+[ext_resource type="Texture2D" uid="uid://bpghwg3i0804b" path="res://assets/Free-Pixel-Art-Street-2D-Backgrounds/Mis_modificaciones/cajas.png" id="1_y8v6v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bvo3r"]
+size = Vector2(708, 152)
+
+[node name="Cajas" type="Node2D" unique_id=935702323]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=957013440]
+texture = ExtResource("1_y8v6v")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1987821684]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=668082883]
+position = Vector2(-18, 66)
+shape = SubResource("RectangleShape2D_bvo3r")

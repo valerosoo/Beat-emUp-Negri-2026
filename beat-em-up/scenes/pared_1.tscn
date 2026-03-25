@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bjdm6ook6maps"]
+
+[ext_resource type="Texture2D" uid="uid://c7wn8o0tfhbba" path="res://assets/Free-Pixel-Art-Street-2D-Backgrounds/PNG/City1/Bright/wall1.png" id="1_dnylu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_puhf0"]
+size = Vector2(1918, 488)
+
+[node name="Pared1" type="Node2D" unique_id=1722310172]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=420083486]
+texture = ExtResource("1_dnylu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1621504327]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1116120843]
+position = Vector2(-1, -120)
+shape = SubResource("RectangleShape2D_puhf0")

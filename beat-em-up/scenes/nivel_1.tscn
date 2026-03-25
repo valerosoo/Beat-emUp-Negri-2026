@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://csetkee61f26"]
+
+[node name="Nivel1" type="Node2D" unique_id=128139099]
+
+[node name="Background" type="Node2D" parent="." unique_id=463723375]
+
+[node name="Collision" type="Node2D" parent="." unique_id=198708881]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Collision" unique_id=1661776423]

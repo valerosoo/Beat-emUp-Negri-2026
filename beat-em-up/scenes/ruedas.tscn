@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ccg6lrj5u3yni"]
+
+[ext_resource type="Texture2D" uid="uid://c6xmg1std5lk8" path="res://assets/Free-Pixel-Art-Street-2D-Backgrounds/Mis_modificaciones/ruedas.png" id="1_aql1k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frffj"]
+size = Vector2(201, 183)
+
+[node name="Ruedas" type="Node2D" unique_id=601711903]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=125096906]
+texture = ExtResource("1_aql1k")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1617646309]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=960358149]
+shape = SubResource("RectangleShape2D_frffj")
