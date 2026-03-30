@@ -130,9 +130,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("20_i5aj2")
 }],
-"loop": true,
+"loop": false,
 "name": &"combo",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -318,32 +318,35 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhgvq"]
-radius = 20.0
-height = 72.0
+radius = 14.0
+height = 50.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_squte"]
-size = Vector2(20, 42)
+size = Vector2(20, 68)
 
 [node name="Jugador" type="Node2D" unique_id=90458823]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=552238131]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=552238131 groups=["jugador"]]
 script = ExtResource("1_pwri8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=769174717]
+scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_m5qm3")
 animation = &"combo"
-frame_progress = 0.9890749
+frame = 18
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1261918872]
-position = Vector2(-3, 96)
+position = Vector2(0, 74)
 shape = SubResource("CapsuleShape2D_vhgvq")
 
 [node name="AttackArea" type="Area2D" parent="CharacterBody2D" unique_id=2095739458]
-position = Vector2(108, 40)
+position = Vector2(91, 29)
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/AttackArea" unique_id=1631527815]
-position = Vector2(0, 1)
+position = Vector2(0, 14)
 shape = SubResource("RectangleShape2D_squte")
 
+[connection signal="animation_finished" from="CharacterBody2D/AnimatedSprite2D" to="CharacterBody2D" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="CharacterBody2D/AttackArea" to="CharacterBody2D" method="_on_attack_area_body_entered"]
