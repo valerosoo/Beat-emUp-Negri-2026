@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Jugador
 
 @export var walk_speed = 200
 @export var run_speed = 300
