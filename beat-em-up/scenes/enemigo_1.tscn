@@ -325,7 +325,7 @@ height = 50.0
 radius = 400.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gebxr"]
-size = Vector2(20, 68)
+size = Vector2(86, 68)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4q3jt"]
 size = Vector2(802, 797)
@@ -355,7 +355,7 @@ position = Vector2(91, 29)
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/AttackArea" unique_id=1784835694]
-position = Vector2(0, 14)
+position = Vector2(-33, 14)
 shape = SubResource("RectangleShape2D_gebxr")
 
 [node name="PatrolArea" type="Area2D" parent="." unique_id=1203950323]

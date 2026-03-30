@@ -1,9 +1,10 @@
 extends CharacterBody2D
-class_name Enemigo1
+class_name Enemigo2
 
 enum Estado {PATROL, IDLE, CHASE, ATTACK, RETURN_PATROL}
+var ataques = ["attack_hair", "attack_hair_2"]
 
-@export var speed = 120
+@export var speed = 100
 @export var wait_time = 2
 @export var distancia_para_atacar = 100
 
@@ -15,6 +16,7 @@ var posicion_inicial
 var objetivo_posicion
 var timer = 0
 var atacando = false
+var ataque_actual
 
 var player
 
@@ -110,11 +112,12 @@ func atacar():
 	if !atacando:
 		atacando = true
 		$AnimatedSprite2D.frame = 0
-		$AnimatedSprite2D.play("combo")
+		ataque_actual = ataques.pick_random()
+		$AnimatedSprite2D.play(ataque_actual)
 
 func _on_animated_sprite_2d_animation_finished():
 
-	if $AnimatedSprite2D.animation == "combo":
+	if $AnimatedSprite2D.animation == ataque_actual:
 		atacando = false
 		
 		var distancia = global_position.distance_to(player.global_position)
@@ -128,7 +131,7 @@ func _on_animated_sprite_2d_animation_finished():
 			
 func volver_a_patrullar(delta):
 
-	var direction = get_random_patrol_point().normalized()
+	var direction = (posicion_inicial - global_position).normalized()
 
 	velocity = direction * speed
 	move_and_slide()

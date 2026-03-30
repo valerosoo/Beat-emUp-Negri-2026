@@ -2,11 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://qadag0pij5sy" path="res://scenes/enemigo_1.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://tvv4letdju1q" path="res://scenes/jugador.tscn" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://kog3oqmrsvlh" path="res://scenes/enemigo_2.tscn" id="3_lnu2h"]
 
 [node name="Game" type="Node2D" unique_id=1125492244]
 
-[node name="Enemigo" parent="." unique_id=90458823 instance=ExtResource("1_yqjtg")]
+[node name="Enemigo_1" parent="." unique_id=90458823 instance=ExtResource("1_yqjtg")]
 position = Vector2(1147, 325)
 
 [node name="Jugador" parent="." unique_id=658956116 instance=ExtResource("2_lnu2h")]
 position = Vector2(373, 333)
+
+[node name="Enemigo_2" parent="." unique_id=1928914139 instance=ExtResource("3_lnu2h")]
+position = Vector2(934, 900)
