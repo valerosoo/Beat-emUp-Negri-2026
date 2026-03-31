@@ -1,13 +1,15 @@
 extends CharacterBody2D
 class_name Jugador
 
+@onready var attack_offset = $AttackArea.position.x
+
 @export var walk_speed = 200
 @export var run_speed = 300
 var attacking = false
 
 func _ready() -> void:
-	$AttackArea.position.x = 108
-
+	pass
+	
 func _physics_process(delta: float) -> void:
 	
 	var direction = Vector2.ZERO
@@ -17,10 +19,10 @@ func _physics_process(delta: float) -> void:
 	
 	if direction.x > 0:
 		$AnimatedSprite2D.flip_h = false
-		$AttackArea.position.x = 108
+		$AttackArea.position.x = attack_offset
 	elif direction.x < 0:
 		$AnimatedSprite2D.flip_h = true
-		$AttackArea.position.x = -108
+		$AttackArea.position.x = -attack_offset
 	
 	var current_speed = walk_speed
 	
