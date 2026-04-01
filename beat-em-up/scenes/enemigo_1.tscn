@@ -327,6 +327,9 @@ radius = 400.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gebxr"]
 size = Vector2(86, 68)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4q3jt"]
+size = Vector2(85, 129)
+
 [node name="Enemigo_1" type="Node2D" unique_id=90458823]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=393589074 groups=["enemigo"]]
@@ -336,9 +339,7 @@ script = ExtResource("1_dl1qm")
 modulate = Color(0.9942289, 0.6286426, 0.59701854, 1)
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_g5iph")
-animation = &"combo"
-frame = 18
-frame_progress = 1.0
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=22725252]
 position = Vector2(0, 74)
@@ -355,6 +356,12 @@ monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/AttackArea" unique_id=1784835694]
 shape = SubResource("RectangleShape2D_gebxr")
+
+[node name="HurtBox" type="Area2D" parent="CharacterBody2D" unique_id=929895682]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/HurtBox" unique_id=1555455257]
+position = Vector2(-2.5, 35)
+shape = SubResource("RectangleShape2D_4q3jt")
 
 [connection signal="animation_finished" from="CharacterBody2D/AnimatedSprite2D" to="CharacterBody2D" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="CharacterBody2D/Radar" to="CharacterBody2D" method="_on_radar_body_entered"]

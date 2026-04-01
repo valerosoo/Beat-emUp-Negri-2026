@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df3cu5w86njea"
-path="res://.godot/imported/Ramen_AnimationSpritesheet.png-c2798d0e09c484d7e5cf187aeb408def.ctex"
+uid="uid://be38n6skat0xq"
+path="res://.godot/imported/idle.png-0fa3879b476e385fe976397eae6f4e78.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/RamenFighter/RamenFighter/Ramen_AnimationSpritesheet.png"
-dest_files=["res://.godot/imported/Ramen_AnimationSpritesheet.png-c2798d0e09c484d7e5cf187aeb408def.ctex"]
+source_file="res://assets/enemy-biker-free/enemy-biker/idle.png"
+dest_files=["res://.godot/imported/idle.png-0fa3879b476e385fe976397eae6f4e78.ctex"]
 
 [params]
 

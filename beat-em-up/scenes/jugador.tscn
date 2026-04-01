@@ -324,6 +324,9 @@ height = 50.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_squte"]
 size = Vector2(86, 68)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwri8"]
+size = Vector2(85, 129)
+
 [node name="Jugador" type="Node2D" unique_id=90458823]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=552238131 groups=["jugador"]]
@@ -332,9 +335,7 @@ script = ExtResource("1_pwri8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=769174717]
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_m5qm3")
-animation = &"combo"
-frame = 18
-frame_progress = 1.0
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1261918872]
 position = Vector2(0, 74)
@@ -346,6 +347,12 @@ monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/AttackArea" unique_id=1631527815]
 shape = SubResource("RectangleShape2D_squte")
+
+[node name="HurtBox" type="Area2D" parent="CharacterBody2D" unique_id=717136432]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/HurtBox" unique_id=1052329291]
+position = Vector2(-2.5, 35)
+shape = SubResource("RectangleShape2D_pwri8")
 
 [connection signal="animation_finished" from="CharacterBody2D/AnimatedSprite2D" to="CharacterBody2D" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="CharacterBody2D/AttackArea" to="CharacterBody2D" method="_on_attack_area_body_entered"]
