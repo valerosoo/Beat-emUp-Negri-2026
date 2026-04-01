@@ -1,0 +1,17 @@
+1-Agregar que el attackBox funcione (en cada frame exacto para hacer daño. No se si me va a hacer falta un cooldown para los ataques)
+2- Barras de vida
+3- Definir los daños de los golpes de los enemigos y los daños que hace mi jugador
+4- Hacer los niveles
+5- Modelar al boss
+
+Cosas que planeo para la batalla final
+1- Batalla por fases (según la vida):
+va a estar dividido en 3 partes iguales
+--1-- Boss con bate, ataca (después vemos como)
+--2-- Boss con aka, ataca (después vemos como)
+--3-- Boss en el fondo de la pantalla, lanza balas el personaje esquiva, ataca (después vemos como)
+2- Encontrar una manera para que el jugador haga daño al boss
+
+Lo que se me ocurre para la batalla final para ataques
+-1 ataques del boss invocando enemigos, al matarlos el boss se cansa por un tiempo, el jugador golpea
+-2 para la fase 3, el boss dispara balas, caen al mapa, el jugador (si golpea una bala especifica iluminada de otro color) la devolverá y hara daño
