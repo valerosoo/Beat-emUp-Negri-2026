@@ -23,7 +23,7 @@ var puede_hacer_dano = false
 func _ready():
 	attack_offset = attack_area.position.x
 	player = get_tree().get_first_node_in_group("jugador")
-	player_hurtBox = player.get_node("HurtBox")
+	player_hurtBox = player.get_node("Pivote/HurtBox")
 	
 func _physics_process(delta):
 	
@@ -119,7 +119,8 @@ func _on_animated_sprite_2d_frame_changed() -> void:
 		var areas = attack_area.get_overlapping_areas()
 		
 		for area in areas:
-			if area.is_in_group("HurtBox") and area.get_parent().is_in_group("jugador"):
+			print("Detecté:", area.name)
+			if area.is_in_group("HurtBox") and area.get_parent().get_parent().is_in_group("jugador"):
 				player.restar_vida(dano_golpe)
 
 func restar_vida(dano):

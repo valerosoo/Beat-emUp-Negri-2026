@@ -1,5 +1,7 @@
-2- Barras de vida (enemigos)
-4- Hacer los niveles
+1-Death Screens
+2- Movimiento del salto
+3- Barras de vida (enemigos)
+4- Hacer los niveles (y camara)
 5- Modelar al boss
 
 Cosas que planeo para la batalla final
