@@ -1,13 +1,16 @@
 extends CharacterBody2D
-class_name Enemigo1
+class_name Enemigo2
 
-enum Estado {IDLE, CHASE, ATTACK}
+enum Estado {IDLE, CHASE, ATTACK, DEATH}
 
 @onready var attack_area = get_node("AttackArea")
 
 @export var speed = 120
 @export var distancia_para_atacar = 140
 @export var nombre_animacion_atacar = "combo"
+@export var frames_de_ataque = [1,5,15]
+@export var dano = [5, 15, 20]
+@export var vida = 50
 
 var estado = Estado.IDLE
 var atacando = false
@@ -15,6 +18,7 @@ var attack_offset
 var player
 var player_hurtBox
 var distancia
+var puede_hacer_dano = false
 
 func _ready():
 	attack_offset = attack_area.position.x
@@ -22,6 +26,9 @@ func _ready():
 	player_hurtBox = player.get_node("HurtBox")
 	
 func _physics_process(delta):
+	
+	if estado == Estado.DEATH:
+		return 
 	
 	distancia = global_position.distance_to(player_hurtBox.global_position)
 	
@@ -75,14 +82,16 @@ func atacar():
 		$AnimatedSprite2D.play(nombre_animacion_atacar)
 
 func _on_animated_sprite_2d_animation_finished():
-
+	
 	if $AnimatedSprite2D.animation == nombre_animacion_atacar:
 		atacando = false
 		
 		if distancia < distancia_para_atacar:
 			estado = Estado.ATTACK
 			
-	
+	elif $AnimatedSprite2D.animation == "death":
+		queue_free()
+		
 func girar_sprite():
 	if velocity.x > 0:
 		$AnimatedSprite2D.flip_h = false
@@ -92,5 +101,38 @@ func girar_sprite():
 		$AttackArea.position.x = -attack_offset
 		
 func _on_radar_body_exited(body: Node2D) -> void:
+	if estado == Estado.DEATH:
+		return
 	if body.is_in_group("jugador"):
 		estado = Estado.IDLE
+
+func _on_animated_sprite_2d_frame_changed() -> void:
+	puede_hacer_dano = false
+	if atacando and $AnimatedSprite2D.frame in frames_de_ataque:
+		if puede_hacer_dano:
+			return
+			
+		var frame = $AnimatedSprite2D.frame
+		var index = frames_de_ataque.find(frame)
+		var dano_golpe = dano[index]
+		puede_hacer_dano = true
+		var areas = attack_area.get_overlapping_areas()
+		
+		for area in areas:
+			if area.is_in_group("HurtBox") and area.get_parent().is_in_group("jugador"):
+				player.restar_vida(dano_golpe)
+
+func restar_vida(dano):
+	vida -= dano
+	print("Me pegaron")
+	verificar_muerte()
+	
+func sumar_vida(suma):
+	vida += suma
+	
+func verificar_muerte():
+	if vida <= 0:
+		print("enemigo murio")
+		estado = Estado.DEATH
+		velocity = Vector2.ZERO
+		$AnimatedSprite2D.play("death")

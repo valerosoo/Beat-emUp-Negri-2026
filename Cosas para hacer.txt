@@ -1,6 +1,4 @@
-1-Agregar que el attackBox funcione (en cada frame exacto para hacer daño. No se si me va a hacer falta un cooldown para los ataques)
-2- Barras de vida
-3- Definir los daños de los golpes de los enemigos y los daños que hace mi jugador
+2- Barras de vida (enemigos)
 4- Hacer los niveles
 5- Modelar al boss
 
@@ -15,3 +13,7 @@ va a estar dividido en 3 partes iguales
 Lo que se me ocurre para la batalla final para ataques
 -1 ataques del boss invocando enemigos, al matarlos el boss se cansa por un tiempo, el jugador golpea
 -2 para la fase 3, el boss dispara balas, caen al mapa, el jugador (si golpea una bala especifica iluminada de otro color) la devolverá y hara daño
+
+Posibles Ideas Originales:
+-Al morir (solo cuenta 1 vez) vas a un gulag como en warzone y te enfrentas contra el enemigo que te mató pero este último tiene mejores stats (x2). Si lo matas revivis en donde estabas, sino al lobby (No cuenta contra bosses)
+-Tener un inventario (2 o 3 Items) que puedas agarrar y poder revolear a un enemigo para hacer otro ataque

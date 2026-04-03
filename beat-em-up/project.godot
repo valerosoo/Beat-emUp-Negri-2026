@@ -25,6 +25,10 @@ window/stretch/mode="canvas_items"
 
 enemigo=""
 jugador=""
+AttackArea=""
+HurtBox=""
+Radar=""
+barra_vida=""
 
 [input]
 
