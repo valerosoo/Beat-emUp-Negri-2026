@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bjdm6ook6maps"]
 
-[ext_resource type="Texture2D" uid="uid://c7wn8o0tfhbba" path="res://assets/Free-Pixel-Art-Street-2D-Backgrounds/PNG/City1/Bright/wall1.png" id="1_dnylu"]
+[ext_resource type="Texture2D" uid="uid://c7wn8o0tfhbba" path="res://assets/Mapas/1/Bright/wall1.png" id="1_dnylu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_puhf0"]
 size = Vector2(1918, 488)

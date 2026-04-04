@@ -482,9 +482,7 @@ size = Vector2(40, 44)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mcpf"]
 size = Vector2(27, 114)
 
-[node name="Enemigo_2" type="Node2D" unique_id=1928914139]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1536837749 groups=["enemigo"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1324663299 groups=["enemigo"]]
 collision_layer = 2
 script = ExtResource("1_qyty8")
 speed = 200
@@ -494,39 +492,39 @@ frames_de_ataque = [15]
 dano = [15]
 vida = 40
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=312493141]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1638484041]
 scale = Vector2(2.3, 2.3)
 sprite_frames = SubResource("SpriteFrames_p6pw3")
 animation = &"death"
 frame = 9
 frame_progress = 1.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1862959758]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=693700688]
 position = Vector2(0.5, 31)
 shape = SubResource("RectangleShape2D_4p076")
 
-[node name="Radar" type="Area2D" parent="CharacterBody2D" unique_id=1787242434 groups=["Radar"]]
+[node name="Radar" type="Area2D" parent="." unique_id=17521094 groups=["Radar"]]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Radar" unique_id=2070112379]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Radar" unique_id=1821304064]
 scale = Vector2(40, 40)
 shape = SubResource("RectangleShape2D_e56v4")
 
-[node name="AttackArea" type="Area2D" parent="CharacterBody2D" unique_id=1530016857 groups=["AttackArea"]]
+[node name="AttackArea" type="Area2D" parent="." unique_id=780575301 groups=["AttackArea"]]
 position = Vector2(47, -7)
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/AttackArea" unique_id=791051757]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1905773799]
 shape = SubResource("RectangleShape2D_0qnj6")
 
-[node name="HurtBox" type="Area2D" parent="CharacterBody2D" unique_id=522150308 groups=["HurtBox"]]
+[node name="HurtBox" type="Area2D" parent="." unique_id=1252704614 groups=["HurtBox"]]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/HurtBox" unique_id=33521742]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1639077602]
 position = Vector2(0.5, -1)
 shape = SubResource("RectangleShape2D_5mcpf")
 
-[connection signal="animation_finished" from="CharacterBody2D/AnimatedSprite2D" to="CharacterBody2D" method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="frame_changed" from="CharacterBody2D/AnimatedSprite2D" to="CharacterBody2D" method="_on_animated_sprite_2d_frame_changed"]
-[connection signal="body_entered" from="CharacterBody2D/Radar" to="CharacterBody2D" method="_on_radar_body_entered"]
-[connection signal="body_exited" from="CharacterBody2D/Radar" to="CharacterBody2D" method="_on_radar_body_exited"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
+[connection signal="body_entered" from="Radar" to="." method="_on_radar_body_entered"]
+[connection signal="body_exited" from="Radar" to="." method="_on_radar_body_exited"]

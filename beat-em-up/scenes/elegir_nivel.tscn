@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cp5dirsnuyop"]
+
+[ext_resource type="PackedScene" uid="uid://cgga8pmngjtra" path="res://scenes/tarjeta_nivel.tscn" id="1_kk3j4"]
+[ext_resource type="Texture2D" uid="uid://cvxpctopf4j1b" path="res://assets/Mapas/1/Bright/City1.png" id="2_gj4wv"]
+[ext_resource type="Texture2D" uid="uid://oqd0hyu1xnjb" path="res://assets/Mapas/2/Bright/City2.png" id="3_316kx"]
+
+[node name="ElegirNivel" type="Node2D" unique_id=698094812]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=825277756]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="TarjetaNivel1" parent="." unique_id=392754529 instance=ExtResource("1_kk3j4")]
+offset_left = 230.0
+offset_top = 390.0
+offset_right = 730.0
+offset_bottom = 690.0
+imagen_nivel = ExtResource("2_gj4wv")
+
+[node name="TarjetaNivel2" parent="." unique_id=566643614 instance=ExtResource("1_kk3j4")]
+offset_left = 1190.0
+offset_top = 390.0
+offset_right = 1690.0
+offset_bottom = 690.0
+nivel = 2
+imagen_nivel = ExtResource("3_316kx")
+
+[connection signal="pressed" from="TarjetaNivel1" to="TarjetaNivel1" method="_on_pressed"]
+[connection signal="pressed" from="TarjetaNivel2" to="TarjetaNivel1" method="_on_tarjeta_nivel_2_pressed"]

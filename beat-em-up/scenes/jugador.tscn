@@ -69,7 +69,6 @@
 [ext_resource type="Texture2D" uid="uid://beqgvloibalcp" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_walk_0014.png" id="67_4mjjj"]
 [ext_resource type="Texture2D" uid="uid://badlk164f51cd" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_walk_0015.png" id="68_jm126"]
 [ext_resource type="Texture2D" uid="uid://8tp157jwfgfl" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_walk_0016.png" id="69_mkon8"]
-[ext_resource type="Texture2D" uid="uid://cvxpctopf4j1b" path="res://assets/Free-Pixel-Art-Street-2D-Backgrounds/PNG/City1/Bright/City1.png" id="70_145tk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhgvq"]
 radius = 14.0
@@ -343,9 +342,8 @@ shape = SubResource("CapsuleShape2D_vhgvq")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D/Pivote" unique_id=769174717]
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_m5qm3")
-animation = &"death"
-frame = 9
-frame_progress = 1.0
+animation = &"idle"
+frame_progress = 0.80755216
 
 [node name="AttackArea" type="Area2D" parent="CharacterBody2D/Pivote" unique_id=2095739458 groups=["AttackArea"]]
 position = Vector2(59, 43)
@@ -361,18 +359,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Pivote/HurtBox" unique_id=1052329291]
 position = Vector2(-2.5, 35)
 shape = SubResource("RectangleShape2D_pwri8")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=269297617]
-position = Vector2(960, 540)
-texture = ExtResource("70_145tk")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2137127508]
-position = Vector2(1032, 616)
-scale = Vector2(1.3748046, 1.3318357)
-sprite_frames = SubResource("SpriteFrames_m5qm3")
-animation = &"death"
-frame = 9
-frame_progress = 1.0
 
 [connection signal="animation_finished" from="CharacterBody2D/Pivote/AnimatedSprite2D" to="CharacterBody2D" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="CharacterBody2D/Pivote/AnimatedSprite2D" to="CharacterBody2D" method="_on_animated_sprite_2d_frame_changed"]

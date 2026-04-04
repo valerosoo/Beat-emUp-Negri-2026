@@ -17,11 +17,15 @@ var velocidad_z := 0
 var gravedad := 1200
 var fuerza_salto := 500
 var saltando := false
+var muerto = false
 
 func _ready() -> void:
 	pass
 	
 func _physics_process(delta: float) -> void:
+	
+	if muerto:
+		return
 	
 	var direction = Vector2.ZERO
 	
@@ -85,6 +89,11 @@ func _on_animated_sprite_2d_animation_finished():
 		
 		if Input.is_action_pressed("Click_izq"):
 			attack()
+	elif $Pivote/AnimatedSprite2D.animation == "death":
+		if GameManager.puede_ir_gulag:
+			get_tree().change_scene_to_file("res://scenes/death_screen.tscn")
+		else:
+			get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
 func cancel_attacking():
 	attacking = false
@@ -113,17 +122,23 @@ func _on_animated_sprite_2d_frame_changed():
 	else:
 		desactivar_hitbox_golpeo()
 
-func restar_vida(dano):
+func restar_vida(dano, enemigo):
 	vida -= dano
 	barra_vida.value = vida
-	verificar_muerte()
+	verificar_muerte(enemigo)
 	
 func sumar_vida(suma):
 	vida += suma
 	
-func verificar_muerte():
+func verificar_muerte(enemigo):
+	if muerto:
+		return
 	if vida <= 0:
-		print("Morir")
+		muerto = true
+		$Pivote/AnimatedSprite2D.play("death")
+		
+		GameManager.gulag.enemigo = enemigo.scene_file_path
+		GameManager.gulag.fondo = "res://assets/Mapas/" + str(GameManager.nivel_actual) + "/Bright/City" + str(GameManager.nivel_actual) + ".png"
 
 func _on_attack_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("HurtBox") and area.get_parent().is_in_group("enemigo"):
@@ -134,7 +149,6 @@ func _on_attack_area_area_entered(area: Area2D) -> void:
 		enemigo.restar_vida(dano_golpe)
 
 func saltar():
-	
 	saltando = true
 	velocidad_z = fuerza_salto
 	$Pivote/AnimatedSprite2D.play("jump")

@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://ccuib6wxxyf2r"]
+
+[ext_resource type="Script" uid="uid://cdjuqcy02mk0p" path="res://scripts/menu.gd" id="1_vjb58"]
+[ext_resource type="FontFile" uid="uid://bu816dpc8fepl" path="res://fonts/ARCADECLASSIC.TTF" id="2_con2f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhnvy"]
+bg_color = Color(0, 0, 0, 0)
+
+[node name="Menu" type="Node2D" unique_id=828316489]
+script = ExtResource("1_vjb58")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=748709815]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="BeatEmUp" type="Label" parent="." unique_id=1517972484]
+offset_left = 507.0
+offset_top = 200.0
+offset_right = 1413.0
+offset_bottom = 403.0
+theme_override_fonts/font = ExtResource("2_con2f")
+theme_override_font_sizes/font_size = 200
+text = "BeaTEm Up"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=4113813]
+offset_left = 740.0
+offset_top = 640.0
+offset_right = 1198.0
+offset_bottom = 954.0
+
+[node name="Jugar" type="Button" parent="VBoxContainer" unique_id=1194352291]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.73120064, 0.5182523, 0.10681784, 1)
+theme_override_colors/font_hover_color = Color(0.4862745, 0.34117648, 0.0627451, 1)
+theme_override_fonts/font = ExtResource("2_con2f")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_mhnvy")
+text = "Jugar"
+alignment = 0
+
+[node name="Opciones" type="Button" parent="VBoxContainer" unique_id=1904083242]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.73120064, 0.5182523, 0.10681784, 1)
+theme_override_colors/font_hover_color = Color(0.4862745, 0.34117648, 0.0627451, 1)
+theme_override_fonts/font = ExtResource("2_con2f")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_mhnvy")
+text = "Opciones"
+alignment = 0
+
+[node name="Salir" type="Button" parent="VBoxContainer" unique_id=1113054272]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.73120064, 0.5182523, 0.10681784, 1)
+theme_override_colors/font_hover_color = Color(0.4862745, 0.34117648, 0.0627451, 1)
+theme_override_fonts/font = ExtResource("2_con2f")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_mhnvy")
+text = "Salir
+"
+alignment = 0
+
+[connection signal="pressed" from="VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Opciones" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]

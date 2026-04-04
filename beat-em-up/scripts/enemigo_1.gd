@@ -1,10 +1,11 @@
 extends CharacterBody2D
-class_name Enemigo2
+class_name Enemigo
 
 enum Estado {IDLE, CHASE, ATTACK, DEATH}
 
 @onready var attack_area = get_node("AttackArea")
 
+@export var escena_original : PackedScene
 @export var speed = 120
 @export var distancia_para_atacar = 140
 @export var nombre_animacion_atacar = "combo"
@@ -121,7 +122,7 @@ func _on_animated_sprite_2d_frame_changed() -> void:
 		for area in areas:
 			print("Detecté:", area.name)
 			if area.is_in_group("HurtBox") and area.get_parent().get_parent().is_in_group("jugador"):
-				player.restar_vida(dano_golpe)
+				player.restar_vida(dano_golpe, self)
 
 func restar_vida(dano):
 	vida -= dano

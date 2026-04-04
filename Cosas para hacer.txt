@@ -1,8 +1,10 @@
-1-Death Screens
-2- Movimiento del salto
+1- Game Over Screen
+2- Particulas al pegar
 3- Barras de vida (enemigos)
 4- Hacer los niveles (y camara)
-5- Modelar al boss
+5- Hacer que el enemigo ya no tenga radar y que siga al jugador si esta en la misma escena
+6- Modelar al boss
+7- Para el menú de opciones, poner controles, volumen sonido, (resolución si se puede)
 
 Cosas que planeo para la batalla final
 1- Batalla por fases (según la vida):
@@ -17,5 +19,4 @@ Lo que se me ocurre para la batalla final para ataques
 -2 para la fase 3, el boss dispara balas, caen al mapa, el jugador (si golpea una bala especifica iluminada de otro color) la devolverá y hara daño
 
 Posibles Ideas Originales:
--Al morir (solo cuenta 1 vez) vas a un gulag como en warzone y te enfrentas contra el enemigo que te mató pero este último tiene mejores stats (x2). Si lo matas revivis en donde estabas, sino al lobby (No cuenta contra bosses)
 -Tener un inventario (2 o 3 Items) que puedas agarrar y poder revolear a un enemigo para hacer otro ataque

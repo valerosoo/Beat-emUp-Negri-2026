@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cgga8pmngjtra"]
+
+[ext_resource type="Script" uid="uid://dwtm5crw2re52" path="res://scripts/tarjeta.gd" id="1_by07s"]
+[ext_resource type="FontFile" uid="uid://bu816dpc8fepl" path="res://fonts/ARCADECLASSIC.TTF" id="3_b18ld"]
+
+[node name="Button" type="Button" unique_id=392754529]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_by07s")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1228170794]
+layout_mode = 0
+offset_right = 5000.0
+offset_bottom = 2999.9995
+scale = Vector2(0.1, 0.1)
+stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2091897074]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 300.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Label" type="Label" parent="." unique_id=176281159]
+layout_mode = 0
+offset_left = 198.0
+offset_top = 260.0
+offset_right = 301.0
+offset_bottom = 291.0
+theme_override_fonts/font = ExtResource("3_b18ld")
+theme_override_font_sizes/font_size = 30
+text = "Nivel 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

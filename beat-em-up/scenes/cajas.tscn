@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://brqaupkti02qx"]
 
-[ext_resource type="Texture2D" uid="uid://bpghwg3i0804b" path="res://assets/Free-Pixel-Art-Street-2D-Backgrounds/Mis_modificaciones/cajas.png" id="1_y8v6v"]
+[ext_resource type="Texture2D" uid="uid://bpghwg3i0804b" path="res://assets/Mapas/Mis_modificaciones/cajas.png" id="1_y8v6v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bvo3r"]
 size = Vector2(708, 152)
