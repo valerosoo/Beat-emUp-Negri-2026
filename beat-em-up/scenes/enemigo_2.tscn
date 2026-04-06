@@ -425,6 +425,68 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1m7o6")
 }],
+"loop": false,
+"name": &"hit",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8oix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ai71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ro0s5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6pw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4p076")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylvsm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4o75e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6i17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kmyb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8el7x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2wjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2u8k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85cpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxdwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uc7ih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdbb7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oym5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0na1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1m7o6")
+}],
 "loop": true,
 "name": &"idle",
 "speed": 15.0
@@ -491,13 +553,12 @@ nombre_animacion_atacar = "attack"
 frames_de_ataque = [15]
 dano = [15]
 vida = 40
+frames_bloqueo = [14, 15, 16]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1638484041]
 scale = Vector2(2.3, 2.3)
 sprite_frames = SubResource("SpriteFrames_p6pw3")
-animation = &"death"
-frame = 9
-frame_progress = 1.0
+animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=693700688]
 position = Vector2(0.5, 31)

@@ -126,6 +126,9 @@ func desactivar_hitbox_golpeo():
 func _on_animated_sprite_2d_frame_changed():
 	if !attacking:
 		return
+	
+	if muerto:
+		return
 		
 	var frame = $Pivote/AnimatedSprite2D.frame
 	
@@ -183,9 +186,7 @@ func bloquear():
 func _on_escudo_area_entered(area: Area2D) -> void:
 	if area.is_in_group("AttackArea") and area.get_parent().is_in_group("enemigo"):
 		var enemigo = area.get_parent()
-		enemigo.stun()
+		var frame_ataque_actual_enemigo = enemigo.get_node("AnimatedSprite2D").frame
+		if frame_ataque_actual_enemigo in enemigo.frames_bloqueo:
+			enemigo.stun()
 		
-
-
-func _on_animated_sprite_2d_animation_changed() -> void:
-	pass # Replace with function body.

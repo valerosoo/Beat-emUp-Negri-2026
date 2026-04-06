@@ -12,7 +12,8 @@ enum Estado {IDLE, CHASE, ATTACK, DEATH, STUN}
 @export var frames_de_ataque = [1,5,15]
 @export var dano = [5, 15, 20]
 @export var vida = 50
-@export var duracion_stun = 1
+@export var duracion_stun = 0.7
+@export var frames_bloqueo = [0,1,2,4,5,6,14,15,16]
 
 var estado = Estado.IDLE
 var atacando = false
@@ -105,6 +106,10 @@ func _on_radar_body_exited(body: Node2D) -> void:
 
 func _on_animated_sprite_2d_frame_changed() -> void:
 	puede_hacer_dano = false
+	
+	if estado == Estado.DEATH:
+		return
+		
 	if atacando and $AnimatedSprite2D.frame in frames_de_ataque:
 		if puede_hacer_dano:
 			return
@@ -140,11 +145,7 @@ func stun():
 	estado = Estado.STUN #Para que no quiera hacer otra cosa
 	atacando = false
 	$AnimatedSprite2D.play("hit")
-	var duracion_animacion = $AnimatedSprite2D.sprite_frames.get_frame_count("hit") / $AnimatedSprite2D.sprite_frames.get_animation_speed("hit")   
-	var tiempo_restante = duracion_stun - duracion_animacion
-	if tiempo_restante < 0:
-		tiempo_restante = 0
-	await get_tree().create_timer(tiempo_restante).timeout
+	await get_tree().create_timer(duracion_stun).timeout
 	estado = estado_anterior
 	
 	

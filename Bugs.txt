@@ -1,2 +1,2 @@
 -Arreglar que te mande al gulag por run hecha y no por tener que resetear el juego
--Arreglar el stun. no se stunea por completo el personaje, deja de hacer la animacion de ataque y al toque golpea devuelta
+-Verificar que el enemigo 2 se stunee bien
