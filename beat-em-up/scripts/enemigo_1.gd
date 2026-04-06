@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Enemigo
 
-enum Estado {IDLE, CHASE, ATTACK, DEATH}
+enum Estado {IDLE, CHASE, ATTACK, DEATH, STUN}
 
 @onready var attack_area = get_node("AttackArea")
 
@@ -12,6 +12,7 @@ enum Estado {IDLE, CHASE, ATTACK, DEATH}
 @export var frames_de_ataque = [1,5,15]
 @export var dano = [5, 15, 20]
 @export var vida = 50
+@export var duracion_stun = 1
 
 var estado = Estado.IDLE
 var atacando = false
@@ -68,7 +69,6 @@ func perseguir(delta):
 func atacar():
 	velocity = Vector2.ZERO
 	
-	
 	if distancia > distancia_para_atacar:
 		atacando = false
 		estado = Estado.CHASE
@@ -80,7 +80,6 @@ func atacar():
 		$AnimatedSprite2D.play(nombre_animacion_atacar)
 
 func _on_animated_sprite_2d_animation_finished():
-	
 	if $AnimatedSprite2D.animation == nombre_animacion_atacar:
 		atacando = false
 		
@@ -135,3 +134,17 @@ func verificar_muerte():
 		estado = Estado.DEATH
 		velocity = Vector2.ZERO
 		$AnimatedSprite2D.play("death")
+
+func stun():
+	var estado_anterior = estado
+	estado = Estado.STUN #Para que no quiera hacer otra cosa
+	atacando = false
+	$AnimatedSprite2D.play("hit")
+	var duracion_animacion = $AnimatedSprite2D.sprite_frames.get_frame_count("hit") / $AnimatedSprite2D.sprite_frames.get_animation_speed("hit")   
+	var tiempo_restante = duracion_stun - duracion_animacion
+	if tiempo_restante < 0:
+		tiempo_restante = 0
+	await get_tree().create_timer(tiempo_restante).timeout
+	estado = estado_anterior
+	
+	

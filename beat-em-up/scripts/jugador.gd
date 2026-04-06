@@ -9,7 +9,11 @@ class_name Jugador
 @export var dano = [10, 15, 30]
 @export var vida = 100
 @export var frames_de_ataque = [1,5,15]
+@export var tiempo_escudo = 0.5
+@export var tiempo_para_otro_escudo = 2
+
 var attacking = false
+var puede_bloquear = true
 
 #Para los saltos
 var z := 0
@@ -20,7 +24,7 @@ var saltando := false
 var muerto = false
 
 func _ready() -> void:
-	pass
+	$Pivote/Escudo/AnimatedSprite2D.visible = false
 	
 func _physics_process(delta: float) -> void:
 	
@@ -51,7 +55,8 @@ func _physics_process(delta: float) -> void:
 			current_speed = walk_speed
 		else:
 			$Pivote/AnimatedSprite2D.play("idle")
-			
+			current_speed = walk_speed
+		
 	velocity = direction.normalized() * current_speed
 	move_and_slide()
 	
@@ -78,6 +83,10 @@ func _physics_process(delta: float) -> void:
 	
 	if z <= 0 and saltando:
 		$Pivote/AnimatedSprite2D.play("idle")
+		
+	if Input.is_action_just_pressed("Click_der") and !attacking:
+		bloquear()
+		
 func attack():
 	attacking = true
 	$Pivote/AnimatedSprite2D.play("combo")
@@ -94,6 +103,9 @@ func _on_animated_sprite_2d_animation_finished():
 			get_tree().change_scene_to_file("res://scenes/death_screen.tscn")
 		else:
 			get_tree().change_scene_to_file("res://scenes/menu.tscn")
+			
+	if $Pivote/Escudo/AnimatedSprite2D.animation == "destroy":
+		$Pivote/Escudo/AnimatedSprite2D.visible = false
 
 func cancel_attacking():
 	attacking = false
@@ -117,12 +129,15 @@ func _on_animated_sprite_2d_frame_changed():
 		
 	var frame = $Pivote/AnimatedSprite2D.frame
 	
-	if frame == 0 or frame == 5 or frame == 15:
+	if frame in frames_de_ataque:
 		activar_hitbox_golpeo()
 	else:
 		desactivar_hitbox_golpeo()
 
 func restar_vida(dano, enemigo):
+	if $Pivote/Escudo.monitoring == true:
+		return
+		
 	vida -= dano
 	barra_vida.value = vida
 	verificar_muerte(enemigo)
@@ -152,3 +167,25 @@ func saltar():
 	saltando = true
 	velocidad_z = fuerza_salto
 	$Pivote/AnimatedSprite2D.play("jump")
+
+func bloquear():
+	if !puede_bloquear:
+		return
+	$Pivote/Escudo/AnimatedSprite2D.visible = true
+	puede_bloquear = false
+	$Pivote/Escudo.monitoring = true
+	await get_tree().create_timer(tiempo_escudo).timeout
+	$Pivote/Escudo/AnimatedSprite2D.play("destroy")
+	$Pivote/Escudo.monitoring = false
+	await get_tree().create_timer(tiempo_para_otro_escudo).timeout
+	puede_bloquear = true
+
+func _on_escudo_area_entered(area: Area2D) -> void:
+	if area.is_in_group("AttackArea") and area.get_parent().is_in_group("enemigo"):
+		var enemigo = area.get_parent()
+		enemigo.stun()
+		
+
+
+func _on_animated_sprite_2d_animation_changed() -> void:
+	pass # Replace with function body.
