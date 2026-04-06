@@ -57,12 +57,9 @@ func _on_radar_body_entered(body):
 		estado = Estado.CHASE
 		
 func perseguir(delta):
-
 	var direction = (player.global_position - global_position).normalized()
-
 	velocity = direction * speed
 	move_and_slide()
-
 	$AnimatedSprite2D.play("walk")
 	
 	if distancia < distancia_para_atacar:
