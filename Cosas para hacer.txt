@@ -1,3 +1,4 @@
+0- Cambiar el combate, tengo que hacer que exista la animación de recibir daño, que se pueda parrear. Parreas solo de un lado
 1- Game Over Screen
 2- Particulas al pegar
 3- Barras de vida (enemigos)
