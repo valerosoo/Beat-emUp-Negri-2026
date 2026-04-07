@@ -553,7 +553,7 @@ nombre_animacion_atacar = "attack"
 frames_de_ataque = [15]
 dano = [15]
 vida = 40
-frames_bloqueo = [14, 15, 16]
+frames_bloqueo = [13, 14, 15, 16, 17]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1638484041]
 scale = Vector2(2.3, 2.3)

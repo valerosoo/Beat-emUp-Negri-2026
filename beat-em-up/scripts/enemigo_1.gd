@@ -33,6 +33,9 @@ func _physics_process(delta):
 	if estado == Estado.DEATH:
 		return 
 	
+	if player.muerto == true:
+		return
+	
 	distancia = global_position.distance_to(player_hurtBox.global_position)
 	
 	girar_sprite()
@@ -68,6 +71,9 @@ func perseguir(delta):
 		estado = Estado.ATTACK
 
 func atacar():
+	if player.muerto == true:
+		return
+	
 	velocity = Vector2.ZERO
 	
 	if distancia > distancia_para_atacar:

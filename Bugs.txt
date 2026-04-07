@@ -1,2 +1,3 @@
--Arreglar que te mande al gulag por run hecha y no por tener que resetear el juego
+--Preguntar al profe sobre var nombre: tipo = valor y porque si no pongo eso me salta error de Nil 
+-Arreglar la muerte al gulag
 -Verificar que el enemigo 2 se stunee bien

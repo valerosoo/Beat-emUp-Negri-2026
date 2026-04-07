@@ -17,3 +17,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func retry_level():
+	var nivel_a_resetear = "res://scenes/nivel_" + str(GameManager.nivel_actual) + ".tscn"
+	get_tree().change_scene_to_file(nivel_a_resetear)

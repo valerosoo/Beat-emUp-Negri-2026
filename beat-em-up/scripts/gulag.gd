@@ -5,6 +5,8 @@ extends Node2D
 @onready var spawn_jugador = $SpawnJugador
 @onready var jugador = $Jugador
 
+var enemigo
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	jugador.global_position = spawn_jugador.global_position
@@ -16,7 +18,7 @@ func _ready() -> void:
 		
 	var enemigo_scene = load(GameManager.gulag.enemigo)
 	print("Enemigo:", GameManager.gulag.enemigo)
-	var enemigo = enemigo_scene.instantiate()
+	enemigo = enemigo_scene.instantiate()
 	add_child(enemigo)
 	
 	enemigo.global_position = spawn_enemigo.global_position
@@ -28,4 +30,5 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if enemigo.vida <= 0:
+		GameManager.retry_level()

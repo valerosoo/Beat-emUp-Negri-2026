@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://tvv4letdju1q" path="res://scenes/jugador.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://kog3oqmrsvlh" path="res://scenes/enemigo_2.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://el43f433qnmu" path="res://scenes/barra_vida.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://b6o6rbhkny6uu" path="res://scenes/death_screen.tscn" id="5_iywne"]
 
 [node name="Game" type="Node2D" unique_id=1125492244]
 
@@ -12,9 +13,18 @@ position = Vector2(1147, 325)
 
 [node name="Jugador" parent="." unique_id=658956116 instance=ExtResource("2_lnu2h")]
 position = Vector2(514, 215)
+walk_speed = null
+run_speed = null
+dano = null
+vida = null
+frames_de_ataque = null
+tiempo_escudo = null
+tiempo_para_otro_escudo = null
 
 [node name="Enemigo_2" parent="." unique_id=1928914139 instance=ExtResource("3_lnu2h")]
 position = Vector2(447, 802)
 escena_original = ExtResource("3_lnu2h")
 
 [node name="Barra_vida" parent="." unique_id=560939158 instance=ExtResource("4_lbhrr")]
+
+[node name="DeathScreen" parent="." unique_id=49019461 groups=["death_screen"] instance=ExtResource("5_iywne")]

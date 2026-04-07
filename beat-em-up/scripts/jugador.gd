@@ -4,13 +4,13 @@ class_name Jugador
 @onready var attack_offset = $Pivote/AttackArea.position.x
 @onready var barra_vida = get_tree().get_first_node_in_group("barra_vida")
 
-@export var walk_speed = 200
-@export var run_speed = 300
-@export var dano = [10, 15, 30]
-@export var vida = 100
-@export var frames_de_ataque = [1,5,15]
-@export var tiempo_escudo = 0.5
-@export var tiempo_para_otro_escudo = 2
+@export var walk_speed: int = 200
+@export var run_speed: int = 300
+@export var dano: Array = [10, 15, 30]
+@export var vida: int = 100
+@export var frames_de_ataque: Array = [1,5,15]
+@export var tiempo_escudo: float = 0.5
+@export var tiempo_para_otro_escudo: int = 2
 
 var attacking = false
 var puede_bloquear = true
@@ -22,9 +22,12 @@ var gravedad := 1200
 var fuerza_salto := 500
 var saltando := false
 var muerto = false
+var pantalla_muerte
 
 func _ready() -> void:
 	$Pivote/Escudo/AnimatedSprite2D.visible = false
+	pantalla_muerte = get_tree().get_first_node_in_group("death_screen")
+	pantalla_muerte.visible = false
 	
 func _physics_process(delta: float) -> void:
 	
@@ -151,13 +154,18 @@ func sumar_vida(suma):
 func verificar_muerte(enemigo):
 	if muerto:
 		return
-	if vida <= 0:
-		muerto = true
-		$Pivote/AnimatedSprite2D.play("death")
 		
-		GameManager.gulag.enemigo = enemigo.scene_file_path
-		GameManager.gulag.fondo = "res://assets/Mapas/" + str(GameManager.nivel_actual) + "/Bright/City" + str(GameManager.nivel_actual) + ".png"
-
+	if vida <= 0:
+		if GameManager.puede_ir_gulag:
+			muerto = true
+			$Pivote/AnimatedSprite2D.play("death")
+			
+			GameManager.gulag.enemigo = enemigo.scene_file_path
+			GameManager.gulag.fondo = "res://assets/Mapas/" + str(GameManager.nivel_actual) + "/Bright/City" + str(GameManager.nivel_actual) + ".png"
+		
+		else:
+			pantalla_muerte.visible = true
+			
 func _on_attack_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("HurtBox") and area.get_parent().is_in_group("enemigo"):
 		var enemigo = area.get_parent()

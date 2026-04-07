@@ -1,11 +1,11 @@
-0- Cambiar el combate, tengo que hacer que exista la animación de recibir daño, que se pueda parrear. Parreas solo de un lado
-1- Game Over Screen
+1- Game Over Screen (Se pone el texto de game over delante de donde moriste)
 2- Particulas al pegar
 3- Barras de vida (enemigos)
 4- Hacer los niveles (y camara)
 5- Hacer que el enemigo ya no tenga radar y que siga al jugador si esta en la misma escena
 6- Modelar al boss
 7- Para el menú de opciones, poner controles, volumen sonido, (resolución si se puede)
+8- Tengo que crear la animación de hit para el enemigo 2
 
 Cosas que planeo para la batalla final
 1- Batalla por fases (según la vida):
@@ -21,3 +21,6 @@ Lo que se me ocurre para la batalla final para ataques
 
 Posibles Ideas Originales:
 -Tener un inventario (2 o 3 Items) que puedas agarrar y poder revolear a un enemigo para hacer otro ataque
+
+Ideas extra si me da el tiempo
+-Agregar estadísticas de la partida para la pantalla de game over
