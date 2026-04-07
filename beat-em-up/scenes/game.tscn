@@ -1,30 +1,34 @@
 [gd_scene format=3 uid="uid://c3ixy5aj6d3xc"]
 
+[ext_resource type="Script" uid="uid://bahrtehua1exv" path="res://scripts/game.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://qadag0pij5sy" path="res://scenes/enemigo_1.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://tvv4letdju1q" path="res://scenes/jugador.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://kog3oqmrsvlh" path="res://scenes/enemigo_2.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://el43f433qnmu" path="res://scenes/barra_vida.tscn" id="4_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://b6o6rbhkny6uu" path="res://scenes/death_screen.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://b6o6rbhkny6uu" path="res://scenes/game_over.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://brqaupkti02qx" path="res://scenes/cajas.tscn" id="5_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://ccg6lrj5u3yni" path="res://scenes/ruedas.tscn" id="8_gee14"]
 
 [node name="Game" type="Node2D" unique_id=1125492244]
+y_sort_enabled = true
+script = ExtResource("1_p57ef")
 
-[node name="Enemigo_1" parent="." unique_id=90458823 instance=ExtResource("1_yqjtg")]
-position = Vector2(1147, 325)
+[node name="GameOver" parent="." unique_id=49019461 instance=ExtResource("5_iywne")]
 
 [node name="Jugador" parent="." unique_id=658956116 instance=ExtResource("2_lnu2h")]
-position = Vector2(514, 215)
-walk_speed = null
-run_speed = null
-dano = null
-vida = null
-frames_de_ataque = null
-tiempo_escudo = null
-tiempo_para_otro_escudo = null
-
-[node name="Enemigo_2" parent="." unique_id=1928914139 instance=ExtResource("3_lnu2h")]
-position = Vector2(447, 802)
-escena_original = ExtResource("3_lnu2h")
+position = Vector2(176, 185)
 
 [node name="Barra_vida" parent="." unique_id=560939158 instance=ExtResource("4_lbhrr")]
 
-[node name="DeathScreen" parent="." unique_id=49019461 groups=["death_screen"] instance=ExtResource("5_iywne")]
+[node name="Enemigo_2" parent="." unique_id=1928914139 instance=ExtResource("3_lnu2h")]
+position = Vector2(1857, 201)
+escena_original = ExtResource("3_lnu2h")
+
+[node name="Enemigo_1" parent="." unique_id=90458823 instance=ExtResource("1_yqjtg")]
+position = Vector2(1880, 308)
+
+[node name="Cajas" parent="." unique_id=935702323 instance=ExtResource("5_u5sy4")]
+position = Vector2(595, 716)
+
+[node name="Ruedas" parent="." unique_id=601711903 instance=ExtResource("8_gee14")]
+position = Vector2(531, 247)

@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://qf1v8g8kon43"]
+
+[ext_resource type="Script" uid="uid://hqggln3x0gnl" path="res://scripts/continue.gd" id="1_7ns25"]
+[ext_resource type="Texture2D" uid="uid://ccjxv8mqx3e82" path="res://assets/death_screens/death1.png" id="2_gwety"]
+[ext_resource type="FontFile" uid="uid://bu816dpc8fepl" path="res://fonts/ARCADECLASSIC.TTF" id="3_wfw3d"]
+[ext_resource type="Script" uid="uid://bmhjol7egdak8" path="res://scripts/temblortexto.gd" id="4_wtkkp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0sy7l"]
+bg_color = Color(0, 0, 0, 0)
+
+[node name="Continue" type="Node2D" unique_id=208376731]
+script = ExtResource("1_7ns25")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1055926247]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Img_muerte" type="Sprite2D" parent="." unique_id=296230953]
+position = Vector2(960, 480)
+texture = ExtResource("2_gwety")
+
+[node name="Continue" type="Label" parent="." unique_id=827935430]
+offset_left = 552.0
+offset_top = -1.0
+offset_right = 1133.0
+offset_bottom = 208.0
+theme_override_colors/font_color = Color(0.7294118, 0.5176471, 0.105882354, 1)
+theme_override_fonts/font = ExtResource("3_wfw3d")
+theme_override_font_sizes/font_size = 100
+text = "Continuar?"
+vertical_alignment = 1
+script = ExtResource("4_wtkkp")
+
+[node name="Timer" type="Timer" parent="." unique_id=1306072698]
+
+[node name="Timer_L" type="Label" parent="." unique_id=422661737]
+offset_left = 1172.0
+offset_top = 9.0
+offset_right = 1367.0
+offset_bottom = 217.0
+theme_override_colors/font_color = Color(0.7294118, 0.5176471, 0.105882354, 1)
+theme_override_fonts/font = ExtResource("3_wfw3d")
+theme_override_font_sizes/font_size = 100
+text = "10"
+vertical_alignment = 1
+script = ExtResource("4_wtkkp")
+
+[node name="Gulag" type="Button" parent="." unique_id=2106118396]
+offset_left = 552.0
+offset_top = 856.0
+offset_right = 952.0
+offset_bottom = 976.0
+theme_override_colors/font_color = Color(0.73120064, 0.5182523, 0.10681784, 1)
+theme_override_colors/font_hover_color = Color(0.4862745, 0.34117648, 0.0627451, 1)
+theme_override_fonts/font = ExtResource("3_wfw3d")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_0sy7l")
+text = "Gulag"
+script = ExtResource("4_wtkkp")
+
+[node name="Menu" type="Button" parent="." unique_id=1010839359]
+offset_left = 968.0
+offset_top = 856.0
+offset_right = 1368.0
+offset_bottom = 976.0
+theme_override_colors/font_color = Color(0.73120064, 0.5182523, 0.10681784, 1)
+theme_override_colors/font_hover_color = Color(0.4862745, 0.34117648, 0.0627451, 1)
+theme_override_fonts/font = ExtResource("3_wfw3d")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_0sy7l")
+text = "Menu"
+script = ExtResource("4_wtkkp")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Gulag" to="." method="_on_gulag_pressed"]
+[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]

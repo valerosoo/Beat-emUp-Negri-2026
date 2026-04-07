@@ -35,7 +35,7 @@ AttackArea=""
 HurtBox=""
 Radar=""
 barra_vida=""
-death_screen=""
+game_over=""
 
 [input]
 

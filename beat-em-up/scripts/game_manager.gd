@@ -19,5 +19,9 @@ func _process(delta: float) -> void:
 	pass
 
 func retry_level():
+	resetear_gulag()
 	var nivel_a_resetear = "res://scenes/nivel_" + str(GameManager.nivel_actual) + ".tscn"
 	get_tree().change_scene_to_file(nivel_a_resetear)
+
+func resetear_gulag():
+	puede_ir_gulag = true

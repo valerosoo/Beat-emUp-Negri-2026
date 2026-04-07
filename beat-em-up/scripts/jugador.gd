@@ -7,7 +7,7 @@ class_name Jugador
 @export var walk_speed: int = 200
 @export var run_speed: int = 300
 @export var dano: Array = [10, 15, 30]
-@export var vida: int = 100
+@export var vida_maxima: int = 100
 @export var frames_de_ataque: Array = [1,5,15]
 @export var tiempo_escudo: float = 0.5
 @export var tiempo_para_otro_escudo: int = 2
@@ -22,17 +22,18 @@ var gravedad := 1200
 var fuerza_salto := 500
 var saltando := false
 var muerto = false
-var pantalla_muerte
+var vida = vida_maxima
 
 func _ready() -> void:
 	$Pivote/Escudo/AnimatedSprite2D.visible = false
-	pantalla_muerte = get_tree().get_first_node_in_group("death_screen")
-	pantalla_muerte.visible = false
 	
 func _physics_process(delta: float) -> void:
 	
 	if muerto:
+		print("Mori")
 		return
+	
+	print("Vida: " + str(vida))
 	
 	var direction = Vector2.ZERO
 	
@@ -51,13 +52,16 @@ func _physics_process(delta: float) -> void:
 	if !attacking:
 		
 		if direction.length() > 0 and Input.is_action_pressed("Shift"):
-			correr()
+			if !saltando:
+				correr()
 			current_speed = run_speed
 		elif direction.length() > 0:
-			caminar()
+			if !saltando:
+				caminar()
 			current_speed = walk_speed
 		else:
-			$Pivote/AnimatedSprite2D.play("idle")
+			if !saltando:
+				$Pivote/AnimatedSprite2D.play("idle")
 			current_speed = walk_speed
 		
 	velocity = direction.normalized() * current_speed
@@ -101,11 +105,12 @@ func _on_animated_sprite_2d_animation_finished():
 		
 		if Input.is_action_pressed("Click_izq"):
 			attack()
+		
 	elif $Pivote/AnimatedSprite2D.animation == "death":
 		if GameManager.puede_ir_gulag:
-			get_tree().change_scene_to_file("res://scenes/death_screen.tscn")
+			get_tree().change_scene_to_file("res://scenes/continue.tscn")
 		else:
-			get_tree().change_scene_to_file("res://scenes/menu.tscn")
+			get_parent().mostrar_death_screen()
 			
 	if $Pivote/Escudo/AnimatedSprite2D.animation == "destroy":
 		$Pivote/Escudo/AnimatedSprite2D.visible = false
@@ -156,15 +161,13 @@ func verificar_muerte(enemigo):
 		return
 		
 	if vida <= 0:
+		muerto = true
+		if !GameManager.puede_ir_gulag:
+			$Pivote/AnimatedSprite2D.speed_scale = 0.6
+		$Pivote/AnimatedSprite2D.play("death")
 		if GameManager.puede_ir_gulag:
-			muerto = true
-			$Pivote/AnimatedSprite2D.play("death")
-			
 			GameManager.gulag.enemigo = enemigo.scene_file_path
 			GameManager.gulag.fondo = "res://assets/Mapas/" + str(GameManager.nivel_actual) + "/Bright/City" + str(GameManager.nivel_actual) + ".png"
-		
-		else:
-			pantalla_muerte.visible = true
 			
 func _on_attack_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("HurtBox") and area.get_parent().is_in_group("enemigo"):
@@ -198,3 +201,9 @@ func _on_escudo_area_entered(area: Area2D) -> void:
 		if frame_ataque_actual_enemigo in enemigo.frames_bloqueo:
 			enemigo.stun()
 		
+func resetear():
+	vida = vida_maxima
+	muerto = false
+	
+	barra_vida.value = vida_maxima
+	$Pivote/AnimatedSprite2D.play("idle")

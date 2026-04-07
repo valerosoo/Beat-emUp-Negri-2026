@@ -2,6 +2,7 @@ extends Node2D
 
 
 func _on_menu_pressed() -> void:
+	GameManager.resetear_gulag()
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
 func _on_retry_pressed() -> void:

@@ -7,22 +7,24 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wfw3d"]
 bg_color = Color(0, 0, 0, 0)
 
-[node name="DeathScreen" type="Node2D" unique_id=49019461]
+[node name="GameOver" type="Node2D" unique_id=49019461 groups=["game_over"]]
+z_index = 10
 script = ExtResource("1_mqh5l")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1829126523]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0.7764706)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=135228671]
 position = Vector2(960, 400)
 texture = ExtResource("2_7ns25")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1247394369]
+[node name="Menu" type="Button" parent="." unique_id=622829937]
 offset_left = 587.0
 offset_top = 680.0
-offset_right = 1332.0
+offset_right = 817.0
 offset_bottom = 782.0
-theme_override_constants/separation = 250
-
-[node name="Menu" type="Button" parent="HBoxContainer" unique_id=244771223]
-layout_mode = 2
 theme_override_colors/font_color = Color(0.73120064, 0.5182523, 0.10681784, 1)
 theme_override_colors/font_hover_color = Color(0.4862745, 0.34117648, 0.0627451, 1)
 theme_override_fonts/font = ExtResource("3_gwety")
@@ -31,8 +33,11 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_wfw3d")
 text = "Menu"
 alignment = 0
 
-[node name="Retry" type="Button" parent="HBoxContainer" unique_id=1081027118]
-layout_mode = 2
+[node name="Retry" type="Button" parent="." unique_id=222948029]
+offset_left = 1057.0
+offset_top = 680.0
+offset_right = 1343.0
+offset_bottom = 782.0
 theme_override_colors/font_color = Color(0.73120064, 0.5182523, 0.10681784, 1)
 theme_override_colors/font_hover_color = Color(0.4862745, 0.34117648, 0.0627451, 1)
 theme_override_fonts/font = ExtResource("3_gwety")
@@ -41,5 +46,5 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_wfw3d")
 text = "Retry"
 alignment = 0
 
-[connection signal="pressed" from="HBoxContainer/Menu" to="." method="_on_menu_pressed"]
-[connection signal="pressed" from="HBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]

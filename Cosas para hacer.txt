@@ -1,4 +1,4 @@
-1- Game Over Screen (Se pone el texto de game over delante de donde moriste)
+1- Contorno al jugador cuando no se lo ve (por el y-sort)
 2- Particulas al pegar
 3- Barras de vida (enemigos)
 4- Hacer los niveles (y camara)
