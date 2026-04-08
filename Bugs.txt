@@ -1,3 +1,2 @@
---Preguntar al profe sobre var nombre: tipo = valor y porque si no pongo eso me salta error de Nil 
 --Preguntar sobre que puedo hacer con la colision, y-sort y los sprites (los sprites se esconden por el y sorting)
 -Arreglar el y-sort para las ruedas

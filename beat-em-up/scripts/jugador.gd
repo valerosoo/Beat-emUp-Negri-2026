@@ -16,11 +16,11 @@ var attacking = false
 var puede_bloquear = true
 
 #Para los saltos
-var z := 0
-var velocidad_z := 0
-var gravedad := 1200
-var fuerza_salto := 500
-var saltando := false
+var z = 0
+var velocidad_z = 0
+var gravedad = 1200
+var fuerza_salto = 500
+var saltando = false
 var muerto = false
 var vida = vida_maxima
 

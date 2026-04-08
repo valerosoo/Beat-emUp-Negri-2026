@@ -1,11 +1,12 @@
 1- Contorno al jugador cuando no se lo ve (por el y-sort)
 2- Particulas al pegar
 3- Barras de vida (enemigos)
-4- Hacer los niveles (y camara)
-5- Hacer que el enemigo ya no tenga radar y que siga al jugador si esta en la misma escena
-6- Modelar al boss
-7- Para el menú de opciones, poner controles, volumen sonido, (resolución si se puede)
-8- Tengo que crear la animación de hit para el enemigo 2
+4- Modelar los objetos colisionables de los niveles
+5- Hacer los niveles (y camara)
+6- Hacer que el enemigo ya no tenga radar y que siga al jugador si esta en la misma escena
+7- Modelar al boss
+8- Para el menú de opciones, poner controles, volumen sonido, (resolución si se puede)
+9- Tengo que crear la animación de hit para el enemigo 2
 
 Cosas que planeo para la batalla final
 1- Batalla por fases (según la vida):
