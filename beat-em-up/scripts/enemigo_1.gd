@@ -1,4 +1,4 @@
-extends "res://scripts/enemigo_2.gd"
+extends Enemigo
 
 func parpadeo():
 	$AnimatedSprite2D.modulate = Color(0.851, 0.0, 0.0, 1)

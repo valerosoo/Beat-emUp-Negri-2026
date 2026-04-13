@@ -14,6 +14,7 @@ y_sort_enabled = true
 script = ExtResource("1_p57ef")
 
 [node name="GameOver" parent="." unique_id=49019461 instance=ExtResource("5_iywne")]
+visible = false
 
 [node name="Jugador" parent="." unique_id=658956116 instance=ExtResource("2_lnu2h")]
 position = Vector2(176, 185)

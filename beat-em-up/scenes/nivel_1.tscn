@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://bc4hdtcfunrco" path="res://assets/Mapas/1/Bright/Sky.png" id="1_gq86h"]
 [ext_resource type="PackedScene" uid="uid://el43f433qnmu" path="res://scenes/barra_vida.tscn" id="2_31big"]
 [ext_resource type="Texture2D" uid="uid://c604elrfp06cp" path="res://assets/Mapas/1/Bright/buildings.png" id="2_hrsa5"]
-[ext_resource type="PackedScene" uid="uid://bjdm6ook6maps" path="res://scenes/pared_1.tscn" id="3_0pjdr"]
 [ext_resource type="Texture2D" uid="uid://c861bc8wkwxsp" path="res://assets/Mapas/1/Bright/road&border.png" id="4_67o6f"]
 [ext_resource type="PackedScene" uid="uid://tvv4letdju1q" path="res://scenes/jugador.tscn" id="5_ag084"]
 [ext_resource type="PackedScene" uid="uid://ccg6lrj5u3yni" path="res://scenes/ruedas.tscn" id="7_31big"]
@@ -45,6 +44,20 @@ position = Vector2(3880, 800)
 [node name="enemigo_2_arr" type="Marker2D" parent="Spawnpoints/Oleada2" unique_id=1628414097]
 position = Vector2(2880, -50)
 
+[node name="Oleada3" type="Node2D" parent="Spawnpoints" unique_id=1129308281]
+
+[node name="enemigo_1_izq" type="Marker2D" parent="Spawnpoints/Oleada3" unique_id=732474827]
+position = Vector2(3800, 800)
+
+[node name="enemigo_1_der" type="Marker2D" parent="Spawnpoints/Oleada3" unique_id=2028338200]
+position = Vector2(5880, 800)
+
+[node name="enemigo_2_arr_izq" type="Marker2D" parent="Spawnpoints/Oleada3" unique_id=1918279421]
+position = Vector2(4600, -50)
+
+[node name="enemigo_2_arr_der" type="Marker2D" parent="Spawnpoints/Oleada3" unique_id=368274530]
+position = Vector2(5000, -50)
+
 [node name="Background" type="Node2D" parent="." unique_id=1583398593]
 
 [node name="Sky" type="Sprite2D" parent="Background" unique_id=617913219]
@@ -55,30 +68,13 @@ texture = ExtResource("1_gq86h")
 position = Vector2(960, 540)
 texture = ExtResource("2_hrsa5")
 
-[node name="Pared1" parent="Background" unique_id=1722310172 instance=ExtResource("3_0pjdr")]
-position = Vector2(960, 540)
-
 [node name="Road&border" type="Sprite2D" parent="Background" unique_id=971341189]
 position = Vector2(960, 540)
 texture = ExtResource("4_67o6f")
 
-[node name="Sky2" type="Sprite2D" parent="Background" unique_id=586206518]
-position = Vector2(2880, 540)
-texture = ExtResource("1_gq86h")
-
-[node name="Buildings2" type="Sprite2D" parent="Background" unique_id=2114032625]
-position = Vector2(2880, 540)
-texture = ExtResource("2_hrsa5")
-
-[node name="Pared2" parent="Background" unique_id=1697752062 instance=ExtResource("3_0pjdr")]
-position = Vector2(2880, 540)
-
-[node name="Road&border2" type="Sprite2D" parent="Background" unique_id=939494754]
-position = Vector2(2880, 540)
-texture = ExtResource("4_67o6f")
-
 [node name="Jugador" parent="." unique_id=1341022144 instance=ExtResource("5_ag084")]
 position = Vector2(230, 781)
+vida_maxima = 200
 
 [node name="Ruedas" parent="." unique_id=601711903 instance=ExtResource("7_31big")]
 position = Vector2(589, 652)

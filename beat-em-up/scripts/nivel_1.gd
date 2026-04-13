@@ -10,7 +10,11 @@ var oleadas = [
 	{"enemigo" : "res://scenes/enemigo_1.tscn", "spawn": "Spawnpoints/Oleada1/enemigo_1_der"}],
 	[{"enemigo" : "res://scenes/enemigo_1.tscn", "spawn": "Spawnpoints/Oleada2/enemigo_1_izq"},
 	{"enemigo" : "res://scenes/enemigo_1.tscn", "spawn": "Spawnpoints/Oleada2/enemigo_1_der"},
-	{"enemigo" : "res://scenes/enemigo_2.tscn", "spawn" : "Spawnpoints/Oleada2/enemigo_2_arr"}]
+	{"enemigo" : "res://scenes/enemigo_2.tscn", "spawn" : "Spawnpoints/Oleada2/enemigo_2_arr"}],
+	[{"enemigo" : "res://scenes/enemigo_1.tscn", "spawn": "Spawnpoints/Oleada3/enemigo_1_izq"},
+	{"enemigo" : "res://scenes/enemigo_1.tscn", "spawn": "Spawnpoints/Oleada3/enemigo_1_der"},
+	{"enemigo" : "res://scenes/enemigo_2.tscn", "spawn" : "Spawnpoints/Oleada3/enemigo_2_arr_izq"},
+	{"enemigo" : "res://scenes/enemigo_2.tscn", "spawn" : "Spawnpoints/Oleada3/enemigo_2_arr_der"}],
 ]
 var oleada = 0
 var oleada_iniciada = false
@@ -50,12 +54,6 @@ func spawnear_enemigo(enemigo_ruta, spawn_ruta):
 	if enemigo_ruta == "res://scenes/enemigo_2.tscn":
 		enemigo.cayendo = true
 		enemigo.global_position = Vector2(pos_final.x, -200)
-		var tween = create_tween()
-		tween.set_ease(Tween.EASE_OUT)
-		tween.set_trans(Tween.TRANS_BOUNCE)
-		tween.tween_property(enemigo, "global_position", pos_final, 1)
-		await tween.finished
-		enemigo.cayendo = false
 	else:
 		enemigo.global_position = pos_final
 func eliminar_enemigo():

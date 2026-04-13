@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bpghwg3i0804b" path="res://assets/Mapas/Mis_modificaciones/cajas.png" id="1_y8v6v"]
 
 [node name="Cajas" type="Node2D" unique_id=935702323]
+y_sort_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=957013440]
 texture = ExtResource("1_y8v6v")
@@ -12,4 +13,10 @@ collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1518622429]
-polygon = PackedVector2Array(-193, 176, -377, 176, -377, 147, -309, 108, -145, 108, -145, 78, -53, 78, -53, -26, 203, -26, 203, 78, 339, 78, 339, 96, -125, 96, -128, 108)
+position = Vector2(0, 16)
+polygon = PackedVector2Array(-145, 78, -53, 78, -53, -26, 203, -26, 203, 78, 339, 78, 339, 96, -125, 96)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=384944903]
+y_sort_enabled = true
+position = Vector2(-261, 163)
+polygon = PackedVector2Array(-116, 29, -116, 0, -48, -39, 133, -39, 68, 29)

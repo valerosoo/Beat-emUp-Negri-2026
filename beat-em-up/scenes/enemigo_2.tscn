@@ -8,6 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://bdgg34pcihwue" path="res://assets/enemy-biker-free/enemy-biker/run.png" id="6_68d4c"]
 [ext_resource type="PackedScene" uid="uid://j4ti6amkd447" path="res://scenes/barra_vida_enemigo.tscn" id="7_tjan0"]
 
+[sub_resource type="Animation" id="Animation_tjan0"]
+resource_name = "Caer"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_daw4s"]
+_data = {
+&"Caer": SubResource("Animation_tjan0")
+}
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_43pyu"]
 atlas = ExtResource("2_qyty8")
 region = Rect2(100, 100, 100, 100)
@@ -555,13 +563,18 @@ dano = [15]
 vida = 40
 frames_bloqueo = [13, 14, 15, 16, 17]
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=409925049]
+libraries/ = SubResource("AnimationLibrary_daw4s")
+
 [node name="Timer" type="Timer" parent="." unique_id=1221227848]
 one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1638484041]
 scale = Vector2(2.3, 2.3)
 sprite_frames = SubResource("SpriteFrames_p6pw3")
-animation = &"attack"
+animation = &"hit"
+frame = 18
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=693700688]
 position = Vector2(0.5, 31)
