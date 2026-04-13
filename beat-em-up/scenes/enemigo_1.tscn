@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://qadag0pij5sy"]
 
-[ext_resource type="Script" uid="uid://8pid2b2p0oyp" path="res://scripts/enemigo_1.gd" id="1_dl1qm"]
+[ext_resource type="Script" uid="uid://dw56sf1ofx28q" path="res://scripts/enemigo_1.gd" id="1_dl1qm"]
 [ext_resource type="Texture2D" uid="uid://cx0v8tj31afps" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_combo_0064.png" id="1_k61x2"]
 [ext_resource type="Texture2D" uid="uid://bexydiqdsdnp4" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_combo_0065.png" id="2_dl1qm"]
 [ext_resource type="Texture2D" uid="uid://cswb5uvl7oe67" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_combo_0066.png" id="3_pf0u5"]
@@ -69,6 +69,7 @@
 [ext_resource type="Texture2D" uid="uid://beqgvloibalcp" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_walk_0014.png" id="66_30rer"]
 [ext_resource type="Texture2D" uid="uid://badlk164f51cd" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_walk_0015.png" id="67_maygn"]
 [ext_resource type="Texture2D" uid="uid://8tp157jwfgfl" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_walk_0016.png" id="68_uhep4"]
+[ext_resource type="PackedScene" uid="uid://j4ti6amkd447" path="res://scenes/barra_vida_enemigo.tscn" id="70_gebxr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g5iph"]
 animations = [{
@@ -321,9 +322,6 @@ animations = [{
 radius = 14.0
 height = 50.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4q3jt"]
-radius = 400.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gebxr"]
 size = Vector2(86, 68)
 
@@ -334,7 +332,8 @@ size = Vector2(85, 129)
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_dl1qm")
-distancia_para_atacar = 120
+
+[node name="Timer" type="Timer" parent="." unique_id=992690011]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1683525119]
 modulate = Color(0.9942289, 0.6286426, 0.59701854, 1)
@@ -345,12 +344,6 @@ animation = &"combo"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1817280576]
 position = Vector2(0, 74)
 shape = SubResource("CapsuleShape2D_4q3jt")
-
-[node name="Radar" type="Area2D" parent="." unique_id=26989773 groups=["Radar"]]
-collision_layer = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Radar" unique_id=1421915466]
-shape = SubResource("CircleShape2D_4q3jt")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=507990186 groups=["AttackArea"]]
 position = Vector2(59, 43)
@@ -366,7 +359,8 @@ collision_layer = 2
 position = Vector2(-2.5, 35)
 shape = SubResource("RectangleShape2D_4q3jt")
 
+[node name="Barra_vida_enemigo" parent="." unique_id=1236819038 instance=ExtResource("70_gebxr")]
+position = Vector2(-43, -33)
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
-[connection signal="body_entered" from="Radar" to="." method="_on_radar_body_entered"]
-[connection signal="body_exited" from="Radar" to="." method="_on_radar_body_exited"]

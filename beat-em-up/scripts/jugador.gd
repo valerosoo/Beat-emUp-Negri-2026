@@ -21,6 +21,7 @@ var velocidad_z = 0
 var gravedad = 1200
 var fuerza_salto = 500
 var saltando = false
+
 var muerto = false
 var vida = vida_maxima
 
@@ -30,10 +31,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	
 	if muerto:
-		print("Mori")
 		return
-	
-	print("Vida: " + str(vida))
 	
 	var direction = Vector2.ZERO
 	
@@ -151,6 +149,7 @@ func restar_vida(dano, enemigo):
 		
 	vida -= dano
 	barra_vida.value = vida
+	parpadeo()
 	verificar_muerte(enemigo)
 	
 func sumar_vida(suma):
@@ -207,3 +206,8 @@ func resetear():
 	
 	barra_vida.value = vida_maxima
 	$Pivote/AnimatedSprite2D.play("idle")
+
+func parpadeo():
+	$Pivote/AnimatedSprite2D.modulate = Color(0.851, 0.0, 0.0, 1)
+	await get_tree().create_timer(0.15).timeout
+	$Pivote/AnimatedSprite2D.modulate = Color (1,1,1,1)

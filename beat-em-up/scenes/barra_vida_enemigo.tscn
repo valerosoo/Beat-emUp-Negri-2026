@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://j4ti6amkd447"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3gqx"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_031fe"]
+bg_color = Color(9.305, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Barra_vida_enemigo" type="Node2D" unique_id=1236819038]
+
+[node name="Control" type="Control" parent="." unique_id=1406558594]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 46.0
+offset_bottom = 4.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ProgressBar" type="ProgressBar" parent="Control" unique_id=1959343900]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.761
+anchor_bottom = 1.7500001
+offset_right = -0.0060043335
+theme_override_styles/background = SubResource("StyleBoxFlat_p3gqx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_031fe")
+show_percentage = false
+metadata/_edit_use_anchors_ = true

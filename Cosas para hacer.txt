@@ -1,6 +1,3 @@
-1- Contorno al jugador cuando no se lo ve (por el y-sort)
-2- Particulas al pegar
-3- Barras de vida (enemigos)
 4- Modelar los objetos colisionables de los niveles
 5- Hacer los niveles (y camara)
 6- Hacer que el enemigo ya no tenga radar y que siga al jugador si esta en la misma escena
@@ -23,5 +20,5 @@ Lo que se me ocurre para la batalla final para ataques
 Posibles Ideas Originales:
 -Tener un inventario (2 o 3 Items) que puedas agarrar y poder revolear a un enemigo para hacer otro ataque
 
-Ideas extra si me da el tiempo
+Ideas extra si me da el tiempo (No me da el tiempo ;( )
 -Agregar estadísticas de la partida para la pantalla de game over

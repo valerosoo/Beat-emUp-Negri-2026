@@ -13,4 +13,4 @@ collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=494814932]
-polygon = PackedVector2Array(-125, 23, -107, -5, -73, -5, -89, 23, 63, 23, 77, 25, 81, 27, 85, 29, 91, 43, -65, 43, -105, 39, -125, 39)
+polygon = PackedVector2Array(-125, 23, -107, -5, -73, -5, -89, 23, 63, 23, 77, 25, 81, 27, 85, 29, 91, 50, -63, 53, -105, 39, -125, 39)

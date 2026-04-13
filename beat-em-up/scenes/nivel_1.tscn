@@ -1,9 +1,87 @@
 [gd_scene format=3 uid="uid://csetkee61f26"]
 
+[ext_resource type="Script" uid="uid://d1sletwwtmpht" path="res://scripts/nivel_1.gd" id="1_ag084"]
+[ext_resource type="Texture2D" uid="uid://bc4hdtcfunrco" path="res://assets/Mapas/1/Bright/Sky.png" id="1_gq86h"]
+[ext_resource type="PackedScene" uid="uid://el43f433qnmu" path="res://scenes/barra_vida.tscn" id="2_31big"]
+[ext_resource type="Texture2D" uid="uid://c604elrfp06cp" path="res://assets/Mapas/1/Bright/buildings.png" id="2_hrsa5"]
+[ext_resource type="PackedScene" uid="uid://bjdm6ook6maps" path="res://scenes/pared_1.tscn" id="3_0pjdr"]
+[ext_resource type="Texture2D" uid="uid://c861bc8wkwxsp" path="res://assets/Mapas/1/Bright/road&border.png" id="4_67o6f"]
+[ext_resource type="PackedScene" uid="uid://tvv4letdju1q" path="res://scenes/jugador.tscn" id="5_ag084"]
+[ext_resource type="PackedScene" uid="uid://ccg6lrj5u3yni" path="res://scenes/ruedas.tscn" id="7_31big"]
+[ext_resource type="PackedScene" uid="uid://c8v57thq734f3" path="res://scenes/nicho.tscn" id="8_gnqo2"]
+[ext_resource type="PackedScene" uid="uid://brqaupkti02qx" path="res://scenes/cajas.tscn" id="9_vwgcu"]
+
 [node name="Nivel1" type="Node2D" unique_id=128139099]
+y_sort_enabled = true
+script = ExtResource("1_ag084")
 
-[node name="Background" type="Node2D" parent="." unique_id=463723375]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1195519330]
 
-[node name="Collision" type="Node2D" parent="." unique_id=198708881]
+[node name="Barra_vida" parent="CanvasLayer" unique_id=560939158 instance=ExtResource("2_31big")]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Collision" unique_id=1661776423]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=82167195]
+limit_left = 0
+limit_top = 0
+limit_bottom = 1080
+
+[node name="Spawnpoints" type="Node2D" parent="." unique_id=110597150]
+
+[node name="Oleada1" type="Node2D" parent="Spawnpoints" unique_id=72427868]
+
+[node name="enemigo_1_izq" type="Marker2D" parent="Spawnpoints/Oleada1" unique_id=1685803645]
+position = Vector2(1200, 800)
+
+[node name="enemigo_1_der" type="Marker2D" parent="Spawnpoints/Oleada1" unique_id=2128615975]
+position = Vector2(3000, 800)
+
+[node name="Oleada2" type="Node2D" parent="Spawnpoints" unique_id=1895742246]
+
+[node name="enemigo_1_izq" type="Marker2D" parent="Spawnpoints/Oleada2" unique_id=1414914287]
+
+[node name="enemigo_1_der" type="Marker2D" parent="Spawnpoints/Oleada2" unique_id=1385514772]
+
+[node name="enemigo_2_arr" type="Marker2D" parent="Spawnpoints/Oleada2" unique_id=1628414097]
+
+[node name="Background" type="Node2D" parent="." unique_id=1583398593]
+
+[node name="Sky" type="Sprite2D" parent="Background" unique_id=617913219]
+position = Vector2(960, 540)
+texture = ExtResource("1_gq86h")
+
+[node name="Buildings" type="Sprite2D" parent="Background" unique_id=131618240]
+position = Vector2(960, 540)
+texture = ExtResource("2_hrsa5")
+
+[node name="Pared1" parent="Background" unique_id=1722310172 instance=ExtResource("3_0pjdr")]
+position = Vector2(960, 540)
+
+[node name="Road&border" type="Sprite2D" parent="Background" unique_id=971341189]
+position = Vector2(960, 540)
+texture = ExtResource("4_67o6f")
+
+[node name="Sky2" type="Sprite2D" parent="Background" unique_id=586206518]
+position = Vector2(2880, 540)
+texture = ExtResource("1_gq86h")
+
+[node name="Buildings2" type="Sprite2D" parent="Background" unique_id=2114032625]
+position = Vector2(2880, 540)
+texture = ExtResource("2_hrsa5")
+
+[node name="Pared2" parent="Background" unique_id=1697752062 instance=ExtResource("3_0pjdr")]
+position = Vector2(2880, 540)
+
+[node name="Road&border2" type="Sprite2D" parent="Background" unique_id=939494754]
+position = Vector2(2880, 540)
+texture = ExtResource("4_67o6f")
+
+[node name="Jugador" parent="." unique_id=1341022144 instance=ExtResource("5_ag084")]
+position = Vector2(230, 781)
+
+[node name="Ruedas" parent="." unique_id=601711903 instance=ExtResource("7_31big")]
+position = Vector2(589, 652)
+
+[node name="Nicho" parent="." unique_id=1080243396 instance=ExtResource("8_gnqo2")]
+position = Vector2(840, 969)
+
+[node name="Cajas" parent="." unique_id=935702323 instance=ExtResource("9_vwgcu")]
+position = Vector2(1640, 537)
