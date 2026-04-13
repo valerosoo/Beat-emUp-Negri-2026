@@ -1,6 +1,6 @@
-4- Modelar los objetos colisionables de los niveles
-5- Hacer los niveles (y camara)
-6- Hacer que el enemigo ya no tenga radar y que siga al jugador si esta en la misma escena
+3- Hacer el nivel 1
+4- Modelar los objetos colisionables del nivel 2
+5- Hacer el nivel 2
 7- Modelar al boss
 8- Para el menú de opciones, poner controles, volumen sonido, (resolución si se puede)
 9- Tengo que crear la animación de hit para el enemigo 2

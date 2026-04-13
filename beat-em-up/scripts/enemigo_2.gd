@@ -24,6 +24,7 @@ var player
 var player_hurtBox
 var distancia
 var puede_hacer_dano = false
+var cayendo = false
 
 func _ready():
 	attack_offset = attack_area.position.x
@@ -39,6 +40,9 @@ func _physics_process(delta):
 		return 
 	
 	if player.muerto == true:
+		return
+	
+	if cayendo:
 		return
 	
 	distancia = global_position.distance_to(player_hurtBox.global_position)

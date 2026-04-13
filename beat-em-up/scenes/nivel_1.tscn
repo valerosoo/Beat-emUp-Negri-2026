@@ -29,7 +29,7 @@ limit_bottom = 1080
 [node name="Oleada1" type="Node2D" parent="Spawnpoints" unique_id=72427868]
 
 [node name="enemigo_1_izq" type="Marker2D" parent="Spawnpoints/Oleada1" unique_id=1685803645]
-position = Vector2(1200, 800)
+position = Vector2(900, 800)
 
 [node name="enemigo_1_der" type="Marker2D" parent="Spawnpoints/Oleada1" unique_id=2128615975]
 position = Vector2(3000, 800)
@@ -37,10 +37,13 @@ position = Vector2(3000, 800)
 [node name="Oleada2" type="Node2D" parent="Spawnpoints" unique_id=1895742246]
 
 [node name="enemigo_1_izq" type="Marker2D" parent="Spawnpoints/Oleada2" unique_id=1414914287]
+position = Vector2(1880, 800)
 
 [node name="enemigo_1_der" type="Marker2D" parent="Spawnpoints/Oleada2" unique_id=1385514772]
+position = Vector2(3880, 800)
 
 [node name="enemigo_2_arr" type="Marker2D" parent="Spawnpoints/Oleada2" unique_id=1628414097]
+position = Vector2(2880, -50)
 
 [node name="Background" type="Node2D" parent="." unique_id=1583398593]
 

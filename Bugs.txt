@@ -1,2 +1,3 @@
+-Enemigo 2 no atraviesa la pared oleada 2
 --Preguntar sobre que puedo hacer con la colision, y-sort y los sprites (los sprites se esconden por el y sorting)
 -Arreglar el y-sort para las ruedas
