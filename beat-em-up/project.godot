@@ -36,6 +36,7 @@ HurtBox=""
 Radar=""
 barra_vida=""
 game_over=""
+enemigo_2=""
 
 [input]
 

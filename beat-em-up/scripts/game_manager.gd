@@ -1,6 +1,7 @@
 extends Node
 class_name GameManagerCN
 
+var stats_jugador
 var nivel_actual = 1
 var gulag = {
 	"enemigo":null,
@@ -8,6 +9,8 @@ var gulag = {
 	"buff":1.5
 }
 var puede_ir_gulag = true
+var oleada_actual = 0
+var posicion_muerte = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,6 +23,10 @@ func _process(delta: float) -> void:
 
 func retry_level():
 	resetear_gulag()
+	var nivel_a_resetear = "res://scenes/nivel_" + str(GameManager.nivel_actual) + ".tscn"
+	get_tree().change_scene_to_file(nivel_a_resetear)
+
+func volver_al_nivel():
 	var nivel_a_resetear = "res://scenes/nivel_" + str(GameManager.nivel_actual) + ".tscn"
 	get_tree().change_scene_to_file(nivel_a_resetear)
 

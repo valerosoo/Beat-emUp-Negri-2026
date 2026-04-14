@@ -1,7 +1,7 @@
 extends Node2D
 class_name Game
 
-@onready var gameover = $GameOver
+@onready var gameover = $CanvasLayer/GameOver
 var jugador
 
 func _ready() -> void:

@@ -73,11 +73,9 @@ func _physics_process(delta):
 				estado = Estado.CHASE
 			
 func idle(delta):
-	
 	velocity = Vector2.ZERO
 	sprite.play("idle")
 	
-		
 func perseguir(delta):
 	var direction = (player.global_position - global_position).normalized()
 	velocity = direction * speed
@@ -144,7 +142,7 @@ func _on_animated_sprite_2d_frame_changed() -> void:
 		var areas = attack_area.get_overlapping_areas()
 		
 		for area in areas:
-			print("Detecté:", area.name)
+
 			if area.is_in_group("HurtBox") and area.get_parent().get_parent().is_in_group("jugador"):
 				player.restar_vida(dano_golpe, self)
 

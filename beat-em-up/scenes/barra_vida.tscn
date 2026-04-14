@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://el43f433qnmu"]
 
+[ext_resource type="Script" uid="uid://ug1wgakd2hai" path="res://scripts/barra_vida.gd" id="1_5bluq"]
 [ext_resource type="Texture2D" uid="uid://ddr7owc4akap" path="res://assets/Heart and health bars/animations/heart.blink.png" id="1_sybp6"]
 [ext_resource type="Texture2D" uid="uid://d3vncrt51d2cj" path="res://assets/Heart and health bars/animations/heart.rotate.png" id="2_5bluq"]
 
@@ -193,6 +194,7 @@ animations = [{
 }]
 
 [node name="Barra_vida" type="Node2D" unique_id=560939158]
+script = ExtResource("1_5bluq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=452711314]
 

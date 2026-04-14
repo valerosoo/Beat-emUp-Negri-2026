@@ -10,17 +10,14 @@ var enemigo
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
 	gameover.visible = false
 	jugador.global_position = spawn_jugador.global_position
 	GameManager.puede_ir_gulag = false
 	
 	if GameManager.gulag.fondo != null:
 		fondo.texture = load(GameManager.gulag.fondo)
-		print("Fondo: " + GameManager.gulag.fondo)
 		
 	var enemigo_scene = load(GameManager.gulag.enemigo)
-	print("Enemigo:", GameManager.gulag.enemigo)
 	enemigo = enemigo_scene.instantiate()
 	add_child(enemigo)
 	
@@ -30,13 +27,12 @@ func _ready() -> void:
 	enemigo.speed *= GameManager.gulag.buff
 	for i in enemigo.dano.size():
 		enemigo.dano[i] *= GameManager.gulag.buff
-		
-	jugador.resetear()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if enemigo.vida <= 0:
-		GameManager.retry_level()
+		GameManager.volver_al_nivel()
 		
 func mostrar_death_screen():
 	gameover.visible = true

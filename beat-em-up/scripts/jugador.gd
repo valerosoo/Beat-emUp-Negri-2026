@@ -23,10 +23,20 @@ var fuerza_salto = 500
 var saltando = false
 
 var muerto = false
-var vida = vida_maxima
+var vida
 
 func _ready() -> void:
 	$Pivote/Escudo/AnimatedSprite2D.visible = false
+	if GameManager.stats_jugador == null:
+		GameManager.stats_jugador = exportar_stats()
+		vida = vida_maxima
+		barra_vida.max_value = vida_maxima
+		barra_vida.value = vida_maxima
+	else:
+		aplicar_stats(GameManager.stats_jugador)
+	
+	vida = vida_maxima
+	barra_vida.value = vida_maxima
 	
 func _physics_process(delta: float) -> void:
 	
@@ -106,6 +116,7 @@ func _on_animated_sprite_2d_animation_finished():
 		
 	elif $Pivote/AnimatedSprite2D.animation == "death":
 		if GameManager.puede_ir_gulag:
+			GameManager.puede_ir_gulag = false
 			get_tree().change_scene_to_file("res://scenes/continue.tscn")
 		else:
 			get_parent().mostrar_death_screen()
@@ -165,6 +176,7 @@ func verificar_muerte(enemigo):
 			$Pivote/AnimatedSprite2D.speed_scale = 0.6
 		$Pivote/AnimatedSprite2D.play("death")
 		if GameManager.puede_ir_gulag:
+			GameManager.posicion_muerte = global_position
 			GameManager.gulag.enemigo = enemigo.scene_file_path
 			GameManager.gulag.fondo = "res://assets/Mapas/" + str(GameManager.nivel_actual) + "/Bright/City" + str(GameManager.nivel_actual) + ".png"
 			
@@ -211,3 +223,25 @@ func parpadeo():
 	$Pivote/AnimatedSprite2D.modulate = Color(0.851, 0.0, 0.0, 1)
 	await get_tree().create_timer(0.15).timeout
 	$Pivote/AnimatedSprite2D.modulate = Color (1,1,1,1)
+	
+func exportar_stats():
+	return {
+		"vida_maxima" : vida_maxima,
+		"walk_speed" : walk_speed,
+		"run_speed" : run_speed,
+		"dano" : dano.duplicate(),
+		"tiempo_escudo" : tiempo_escudo,
+		"tiempo_para_otro_escudo" : tiempo_para_otro_escudo
+	}
+	
+func aplicar_stats(stats):
+	vida_maxima = stats["vida_maxima"]
+	walk_speed = stats["walk_speed"]
+	run_speed = stats["run_speed"]
+	dano = stats["dano"]
+	tiempo_escudo = stats["tiempo_escudo"]
+	tiempo_para_otro_escudo = stats["tiempo_para_otro_escudo"]
+	
+	vida = vida_maxima
+	barra_vida.max_value = vida_maxima
+	barra_vida.value = vida_maxima

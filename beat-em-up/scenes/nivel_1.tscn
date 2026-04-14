@@ -4,13 +4,71 @@
 [ext_resource type="Texture2D" uid="uid://bc4hdtcfunrco" path="res://assets/Mapas/1/Bright/Sky.png" id="1_gq86h"]
 [ext_resource type="PackedScene" uid="uid://el43f433qnmu" path="res://scenes/barra_vida.tscn" id="2_31big"]
 [ext_resource type="Texture2D" uid="uid://c604elrfp06cp" path="res://assets/Mapas/1/Bright/buildings.png" id="2_hrsa5"]
+[ext_resource type="Script" uid="uid://bj5fdrpdkehph" path="res://scripts/datos_enemigos_oleada.gd" id="2_qm6nr"]
+[ext_resource type="PackedScene" uid="uid://qadag0pij5sy" path="res://scenes/enemigo_1.tscn" id="3_r6w1h"]
 [ext_resource type="Texture2D" uid="uid://c861bc8wkwxsp" path="res://assets/Mapas/1/Bright/road&border.png" id="4_67o6f"]
+[ext_resource type="PackedScene" uid="uid://kog3oqmrsvlh" path="res://scenes/enemigo_2.tscn" id="4_co0c6"]
 [ext_resource type="PackedScene" uid="uid://tvv4letdju1q" path="res://scenes/jugador.tscn" id="5_ag084"]
 [ext_resource type="Texture2D" uid="uid://bhs46s2l63gao" path="res://assets/Mapas/1/Bright/wall2.png" id="5_gnqo2"]
 [ext_resource type="Texture2D" uid="uid://c7wn8o0tfhbba" path="res://assets/Mapas/1/Bright/wall1.png" id="6_vwgcu"]
 [ext_resource type="PackedScene" uid="uid://ccg6lrj5u3yni" path="res://scenes/ruedas.tscn" id="7_31big"]
 [ext_resource type="PackedScene" uid="uid://c8v57thq734f3" path="res://scenes/nicho.tscn" id="8_gnqo2"]
 [ext_resource type="PackedScene" uid="uid://brqaupkti02qx" path="res://scenes/cajas.tscn" id="9_vwgcu"]
+[ext_resource type="PackedScene" uid="uid://b6o6rbhkny6uu" path="res://scenes/game_over.tscn" id="12_vwgcu"]
+
+[sub_resource type="Resource" id="Resource_0qj6g"]
+script = ExtResource("2_qm6nr")
+enemigo = ExtResource("3_r6w1h")
+spawn = NodePath("Spawnpoints/Oleada1/enemigo_1_izq")
+metadata/_custom_type_script = "uid://bj5fdrpdkehph"
+
+[sub_resource type="Resource" id="Resource_qx8k3"]
+script = ExtResource("2_qm6nr")
+enemigo = ExtResource("3_r6w1h")
+spawn = NodePath("Spawnpoints/Oleada1/enemigo_1_der")
+metadata/_custom_type_script = "uid://bj5fdrpdkehph"
+
+[sub_resource type="Resource" id="Resource_cokvo"]
+script = ExtResource("2_qm6nr")
+enemigo = ExtResource("3_r6w1h")
+spawn = NodePath("Spawnpoints/Oleada2/enemigo_1_izq")
+metadata/_custom_type_script = "uid://bj5fdrpdkehph"
+
+[sub_resource type="Resource" id="Resource_5ruck"]
+script = ExtResource("2_qm6nr")
+enemigo = ExtResource("3_r6w1h")
+spawn = NodePath("Spawnpoints/Oleada2/enemigo_1_der")
+metadata/_custom_type_script = "uid://bj5fdrpdkehph"
+
+[sub_resource type="Resource" id="Resource_ojgse"]
+script = ExtResource("2_qm6nr")
+enemigo = ExtResource("4_co0c6")
+spawn = NodePath("Spawnpoints/Oleada2/enemigo_2_arr")
+metadata/_custom_type_script = "uid://bj5fdrpdkehph"
+
+[sub_resource type="Resource" id="Resource_uli2u"]
+script = ExtResource("2_qm6nr")
+enemigo = ExtResource("3_r6w1h")
+spawn = NodePath("Spawnpoints/Oleada3/enemigo_1_izq")
+metadata/_custom_type_script = "uid://bj5fdrpdkehph"
+
+[sub_resource type="Resource" id="Resource_i01ws"]
+script = ExtResource("2_qm6nr")
+enemigo = ExtResource("3_r6w1h")
+spawn = NodePath("Spawnpoints/Oleada3/enemigo_1_der")
+metadata/_custom_type_script = "uid://bj5fdrpdkehph"
+
+[sub_resource type="Resource" id="Resource_4asgc"]
+script = ExtResource("2_qm6nr")
+enemigo = ExtResource("4_co0c6")
+spawn = NodePath("Spawnpoints/Oleada3/enemigo_2_arr_izq")
+metadata/_custom_type_script = "uid://bj5fdrpdkehph"
+
+[sub_resource type="Resource" id="Resource_yr8f8"]
+script = ExtResource("2_qm6nr")
+enemigo = ExtResource("4_co0c6")
+spawn = NodePath("Spawnpoints/Oleada3/enemigo_2_arr_der")
+metadata/_custom_type_script = "uid://bj5fdrpdkehph"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gnqo2"]
 size = Vector2(10647, 406)
@@ -18,10 +76,15 @@ size = Vector2(10647, 406)
 [node name="Nivel1" type="Node2D" unique_id=128139099]
 y_sort_enabled = true
 script = ExtResource("1_ag084")
+oleada_1 = Array[ExtResource("2_qm6nr")]([SubResource("Resource_0qj6g"), SubResource("Resource_qx8k3")])
+oleada_2 = Array[ExtResource("2_qm6nr")]([SubResource("Resource_cokvo"), SubResource("Resource_5ruck"), SubResource("Resource_ojgse")])
+oleada_3 = Array[ExtResource("2_qm6nr")]([SubResource("Resource_uli2u"), SubResource("Resource_i01ws"), SubResource("Resource_4asgc"), SubResource("Resource_yr8f8")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1195519330]
 
 [node name="Barra_vida" parent="CanvasLayer" unique_id=560939158 instance=ExtResource("2_31big")]
+
+[node name="GameOver" parent="CanvasLayer" unique_id=49019461 instance=ExtResource("12_vwgcu")]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=82167195]
 limit_left = 0
@@ -103,7 +166,7 @@ shape = SubResource("RectangleShape2D_gnqo2")
 
 [node name="Jugador" parent="." unique_id=1341022144 instance=ExtResource("5_ag084")]
 position = Vector2(266, 578)
-vida_maxima = 200
+vida_maxima = 300
 
 [node name="Ruedas" parent="." unique_id=601711903 instance=ExtResource("7_31big")]
 position = Vector2(589, 652)

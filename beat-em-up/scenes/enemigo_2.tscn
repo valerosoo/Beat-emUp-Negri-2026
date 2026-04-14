@@ -580,7 +580,7 @@ size = Vector2(40, 44)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mcpf"]
 size = Vector2(27, 114)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1324663299 node_paths=PackedStringArray("sprite", "animation_player") groups=["enemigo"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1324663299 node_paths=PackedStringArray("sprite", "animation_player") groups=["enemigo", "enemigo_2"]]
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_qyty8")
