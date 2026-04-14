@@ -6,9 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://c604elrfp06cp" path="res://assets/Mapas/1/Bright/buildings.png" id="2_hrsa5"]
 [ext_resource type="Texture2D" uid="uid://c861bc8wkwxsp" path="res://assets/Mapas/1/Bright/road&border.png" id="4_67o6f"]
 [ext_resource type="PackedScene" uid="uid://tvv4letdju1q" path="res://scenes/jugador.tscn" id="5_ag084"]
+[ext_resource type="Texture2D" uid="uid://bhs46s2l63gao" path="res://assets/Mapas/1/Bright/wall2.png" id="5_gnqo2"]
+[ext_resource type="Texture2D" uid="uid://c7wn8o0tfhbba" path="res://assets/Mapas/1/Bright/wall1.png" id="6_vwgcu"]
 [ext_resource type="PackedScene" uid="uid://ccg6lrj5u3yni" path="res://scenes/ruedas.tscn" id="7_31big"]
 [ext_resource type="PackedScene" uid="uid://c8v57thq734f3" path="res://scenes/nicho.tscn" id="8_gnqo2"]
 [ext_resource type="PackedScene" uid="uid://brqaupkti02qx" path="res://scenes/cajas.tscn" id="9_vwgcu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnqo2"]
+size = Vector2(10647, 406)
 
 [node name="Nivel1" type="Node2D" unique_id=128139099]
 y_sort_enabled = true
@@ -42,7 +47,7 @@ position = Vector2(1880, 800)
 position = Vector2(3880, 800)
 
 [node name="enemigo_2_arr" type="Marker2D" parent="Spawnpoints/Oleada2" unique_id=1628414097]
-position = Vector2(2880, -50)
+position = Vector2(2880, 900)
 
 [node name="Oleada3" type="Node2D" parent="Spawnpoints" unique_id=1129308281]
 
@@ -53,27 +58,51 @@ position = Vector2(3800, 800)
 position = Vector2(5880, 800)
 
 [node name="enemigo_2_arr_izq" type="Marker2D" parent="Spawnpoints/Oleada3" unique_id=1918279421]
-position = Vector2(4600, -50)
+position = Vector2(4600, 900)
 
 [node name="enemigo_2_arr_der" type="Marker2D" parent="Spawnpoints/Oleada3" unique_id=368274530]
-position = Vector2(5000, -50)
+position = Vector2(5000, 900)
 
 [node name="Background" type="Node2D" parent="." unique_id=1583398593]
 
-[node name="Sky" type="Sprite2D" parent="Background" unique_id=617913219]
-position = Vector2(960, 540)
+[node name="Sky" type="TextureRect" parent="Background" unique_id=1403650291]
+offset_right = 10647.0
+offset_bottom = 1080.0
 texture = ExtResource("1_gq86h")
+stretch_mode = 1
 
-[node name="Buildings" type="Sprite2D" parent="Background" unique_id=131618240]
-position = Vector2(960, 540)
+[node name="Buildings" type="TextureRect" parent="Background" unique_id=286791756]
+offset_right = 10647.0
+offset_bottom = 1080.0
 texture = ExtResource("2_hrsa5")
+stretch_mode = 1
 
-[node name="Road&border" type="Sprite2D" parent="Background" unique_id=971341189]
-position = Vector2(960, 540)
+[node name="Wall2" type="TextureRect" parent="Background" unique_id=1895059666]
+offset_right = 10645.0
+offset_bottom = 1080.0
+texture = ExtResource("5_gnqo2")
+stretch_mode = 1
+
+[node name="Wall1" type="TextureRect" parent="Background" unique_id=2112526336]
+offset_right = 10647.0
+offset_bottom = 1080.0
+texture = ExtResource("6_vwgcu")
+stretch_mode = 1
+
+[node name="Road" type="TextureRect" parent="Background" unique_id=415003642]
+offset_right = 10647.0
+offset_bottom = 1080.0
 texture = ExtResource("4_67o6f")
+stretch_mode = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Background" unique_id=2091842437]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D" unique_id=873899896]
+position = Vector2(5323.5, 426)
+shape = SubResource("RectangleShape2D_gnqo2")
 
 [node name="Jugador" parent="." unique_id=1341022144 instance=ExtResource("5_ag084")]
-position = Vector2(230, 781)
+position = Vector2(266, 578)
 vida_maxima = 200
 
 [node name="Ruedas" parent="." unique_id=601711903 instance=ExtResource("7_31big")]

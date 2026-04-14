@@ -7,6 +7,8 @@ enum Estado {IDLE, CHASE, ATTACK, DEATH, STUN}
 @onready var barra_vida = get_node("Barra_vida_enemigo/Control/ProgressBar")
 @onready var timer_barra_vida = $Timer
 
+@export var sprite : AnimatedSprite2D
+@export var animation_player : AnimationPlayer
 @export var escena_original : PackedScene
 @export var speed = 120
 @export var distancia_para_atacar = 140
@@ -73,14 +75,14 @@ func _physics_process(delta):
 func idle(delta):
 	
 	velocity = Vector2.ZERO
-	$AnimatedSprite2D.play("idle")
+	sprite.play("idle")
 	
 		
 func perseguir(delta):
 	var direction = (player.global_position - global_position).normalized()
 	velocity = direction * speed
 	move_and_slide()
-	$AnimatedSprite2D.play("walk")
+	sprite.play("walk")
 	
 	if distancia < distancia_para_atacar:
 		estado = Estado.ATTACK
@@ -98,25 +100,25 @@ func atacar():
 	
 	if !atacando:
 		atacando = true
-		$AnimatedSprite2D.frame = 0
-		$AnimatedSprite2D.play(nombre_animacion_atacar)
+		sprite.frame = 0
+		sprite.play(nombre_animacion_atacar)
 
 func _on_animated_sprite_2d_animation_finished():
-	if $AnimatedSprite2D.animation == nombre_animacion_atacar:
+	if sprite.animation == nombre_animacion_atacar:
 		atacando = false
 		
 		if distancia < distancia_para_atacar:
 			estado = Estado.ATTACK
 			
-	elif $AnimatedSprite2D.animation == "death":
+	elif sprite.animation == "death":
 		queue_free()
 		
 func girar_sprite():
 	if velocity.x > 0:
-		$AnimatedSprite2D.flip_h = false
+		sprite.flip_h = false
 		$AttackArea.position.x = attack_offset
 	elif velocity.x < 0:
-		$AnimatedSprite2D.flip_h = true
+		sprite.flip_h = true
 		$AttackArea.position.x = -attack_offset
 		
 func _on_radar_body_exited(body: Node2D) -> void:
@@ -131,11 +133,11 @@ func _on_animated_sprite_2d_frame_changed() -> void:
 	if estado == Estado.DEATH:
 		return
 		
-	if atacando and $AnimatedSprite2D.frame in frames_de_ataque:
+	if atacando and sprite.frame in frames_de_ataque:
 		if puede_hacer_dano:
 			return
 			
-		var frame = $AnimatedSprite2D.frame
+		var frame = sprite.frame
 		var index = frames_de_ataque.find(frame)
 		var dano_golpe = dano[index]
 		puede_hacer_dano = true
@@ -147,6 +149,8 @@ func _on_animated_sprite_2d_frame_changed() -> void:
 				player.restar_vida(dano_golpe, self)
 
 func restar_vida(dano):
+	if cayendo:
+		return
 	vida -= dano
 	print("Me pegaron")
 	parpadeo()
@@ -164,20 +168,31 @@ func verificar_muerte():
 		print("enemigo murio")
 		estado = Estado.DEATH
 		velocity = Vector2.ZERO
-		$AnimatedSprite2D.play("death")
+		sprite.play("death")
 
 func stun():
 	var estado_anterior = estado
 	estado = Estado.STUN #Para que no quiera hacer otra cosa
 	atacando = false
-	$AnimatedSprite2D.play("hit")
+	sprite.play("hit")
 	await get_tree().create_timer(duracion_stun).timeout
 	estado = estado_anterior
 	
 func parpadeo():
-	$AnimatedSprite2D.modulate = Color(0.851, 0.0, 0.0, 1)
+	sprite.modulate = Color(0.851, 0.0, 0.0, 1)
 	await get_tree().create_timer(0.15).timeout
-	$AnimatedSprite2D.modulate = Color (1,1,1,1)
+	sprite.modulate = Color (1,1,1,1)
 
 func ocultar_barra():
 	barra_vida.visible = false
+
+func anim_caida():
+	if animation_player == null:
+		return
+	cayendo = true
+	animation_player.play("Caer")
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "Caer":
+		cayendo = false
+		

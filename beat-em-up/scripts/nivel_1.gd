@@ -46,16 +46,15 @@ func spawnear_enemigo(enemigo_ruta, spawn_ruta):
 	var pos_final = get_node(spawn_ruta).global_position
 	
 	var spawn = get_node(spawn_ruta)
-	print("Spawn encontrado:", spawn)
-	print("Pos spawn:", spawn.global_position)
+	enemigo.global_position = spawn.global_position
 	
 	enemigos_vivos += 1
+	
 	enemigo.tree_exited.connect(eliminar_enemigo)
+	
 	if enemigo_ruta == "res://scenes/enemigo_2.tscn":
-		enemigo.cayendo = true
-		enemigo.global_position = Vector2(pos_final.x, -200)
-	else:
-		enemigo.global_position = pos_final
+		enemigo.anim_caida()
+	
 func eliminar_enemigo():
 	enemigos_vivos -= 1
 	if enemigos_vivos <= 0:

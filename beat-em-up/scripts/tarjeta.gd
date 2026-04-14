@@ -37,7 +37,7 @@ func _on_mouse_exited():
 
 
 func _on_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/game.tscn")
+	get_tree().change_scene_to_file("res://scenes/nivel_1.tscn")
 
 func _on_tarjeta_nivel_2_pressed() -> void:
 	pass # Replace with function body.

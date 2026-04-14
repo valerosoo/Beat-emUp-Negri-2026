@@ -8,14 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://bdgg34pcihwue" path="res://assets/enemy-biker-free/enemy-biker/run.png" id="6_68d4c"]
 [ext_resource type="PackedScene" uid="uid://j4ti6amkd447" path="res://scenes/barra_vida_enemigo.tscn" id="7_tjan0"]
 
-[sub_resource type="Animation" id="Animation_tjan0"]
-resource_name = "Caer"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_daw4s"]
-_data = {
-&"Caer": SubResource("Animation_tjan0")
-}
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_43pyu"]
 atlas = ExtResource("2_qyty8")
 region = Rect2(100, 100, 100, 100)
@@ -542,6 +534,43 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="Animation" id="Animation_tjan0"]
+resource_name = "Caer"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(0, -1300), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_daw4s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visual:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_daw4s"]
+_data = {
+&"Caer": SubResource("Animation_tjan0"),
+&"RESET": SubResource("Animation_daw4s")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4p076"]
 size = Vector2(27, 50)
 
@@ -551,10 +580,12 @@ size = Vector2(40, 44)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mcpf"]
 size = Vector2(27, 114)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1324663299 groups=["enemigo"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1324663299 node_paths=PackedStringArray("sprite", "animation_player") groups=["enemigo"]]
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_qyty8")
+sprite = NodePath("Visual/AnimatedSprite2D")
+animation_player = NodePath("Visual/AnimationPlayer")
 speed = 200
 distancia_para_atacar = 110
 nombre_animacion_atacar = "attack"
@@ -563,18 +594,21 @@ dano = [15]
 vida = 40
 frames_bloqueo = [13, 14, 15, 16, 17]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=409925049]
-libraries/ = SubResource("AnimationLibrary_daw4s")
+[node name="Visual" type="Node2D" parent="." unique_id=1896497534]
 
-[node name="Timer" type="Timer" parent="." unique_id=1221227848]
-one_shot = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1638484041]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Visual" unique_id=1638484041]
 scale = Vector2(2.3, 2.3)
 sprite_frames = SubResource("SpriteFrames_p6pw3")
 animation = &"hit"
 frame = 18
 frame_progress = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Visual" unique_id=409925049]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_daw4s")
+
+[node name="Timer" type="Timer" parent="." unique_id=1221227848]
+one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=693700688]
 position = Vector2(0.5, 31)
@@ -597,5 +631,6 @@ shape = SubResource("RectangleShape2D_5mcpf")
 [node name="Barra_vida_enemigo" parent="." unique_id=1236819038 instance=ExtResource("7_tjan0")]
 position = Vector2(-41, -64)
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
+[connection signal="animation_finished" from="Visual/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="frame_changed" from="Visual/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
+[connection signal="animation_finished" from="Visual/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
