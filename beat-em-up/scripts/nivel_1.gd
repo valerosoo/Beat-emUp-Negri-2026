@@ -11,12 +11,15 @@ extends Node2D
 var esperando_animacion = false
 var oleadas
 
-var jugador_nivel_escenas_1 = [1920,2880,4800]
+var jugador_nivel_escenas_1 = [1920,2880,3840]
 var enemigos_nivel_escenas_1 = [["enemigo_1","enemigo_1"], ["enemigo_1","enemigo_1","enemigo_2"], ["enemigo_1","enemigo_1","enemigo_2","enemigo_2"]]
 var oleada = 0
 var oleada_iniciada = false
 var camara_bloqueada = false
 var enemigos_vivos = 0
+
+var animacion_final_frame = 5300
+var animacion_final_iniciada = false
 
 func _ready() -> void:
 	game_over.visible = false
@@ -33,8 +36,16 @@ func _physics_process(delta: float) -> void:
 	if esperando_animacion:
 		return
 	
+	if jugador.global_position.x >= animacion_final_frame and !animacion_final_iniciada:
+		activar_animacion_final()
+	
+	print("Jugador:" + str(jugador.global_position))
+	
 	if !camara_bloqueada:
 		camara.global_position = jugador.global_position
+	
+	if oleada >= oleadas.size():
+		return
 	
 	if jugador.global_position.x >= jugador_nivel_escenas_1[oleada] and !oleada_iniciada:
 		configurar_oleada()
@@ -65,6 +76,7 @@ func eliminar_enemigo():
 		camara_bloqueada = false
 		oleada_iniciada = false
 		oleada += 1
+		liberar_camara()
 	
 func mostrar_death_screen():
 	game_over.visible = true
@@ -79,3 +91,27 @@ func jugador_termino_animacion():
 	if esperando_animacion:
 		esperando_animacion = false
 		spawnear_oleada()
+
+func liberar_camara():
+	camara.limit_left = -10000000
+	camara.limit_right = 10000000
+
+func activar_animacion_final():
+	animacion_final_iniciada = true
+	jugador.set_physics_process(false)
+	
+	jugador.caminar()
+	
+	var tween = create_tween()
+	tween.tween_property(jugador, "global_position", Vector2(5559, 855), 1.5)
+	await tween.finished
+	
+	$AnimationPlayer.play("Abrir_entrar")
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "Abrir_entrar":
+		print("LISTOOOOO")
+
+
+func oscurecer_pantalla():
+	pass

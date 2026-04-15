@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c8v57thq734f3" path="res://scenes/nicho.tscn" id="8_gnqo2"]
 [ext_resource type="PackedScene" uid="uid://brqaupkti02qx" path="res://scenes/cajas.tscn" id="9_vwgcu"]
 [ext_resource type="PackedScene" uid="uid://b6o6rbhkny6uu" path="res://scenes/game_over.tscn" id="12_vwgcu"]
+[ext_resource type="PackedScene" uid="uid://dskmkx8pbdug3" path="res://scenes/taxi.tscn" id="16_r6w1h"]
 
 [sub_resource type="Resource" id="Resource_0qj6g"]
 script = ExtResource("2_qm6nr")
@@ -73,6 +74,194 @@ metadata/_custom_type_script = "uid://bj5fdrpdkehph"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gnqo2"]
 size = Vector2(10647, 406)
 
+[sub_resource type="Animation" id="Animation_co0c6"]
+resource_name = "Abrir_entrar"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Jugador:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Jugador")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"idle_anim"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Jugador:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(5559, 855), Vector2(6109, 855)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Taxi")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3.5, 5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"abrir"
+}, {
+"args": [],
+"method": &"cerrar"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Taxi:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(5.5, 8.5),
+"transitions": PackedFloat32Array(3, 0.5),
+"update": 0,
+"values": [Vector2(6200, 765), Vector2(8000, 765)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(7, 8.5),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/ColorRect:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(7),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/Barra_vida:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_r6w1h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Jugador:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Jugador:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(266, 578)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Taxi:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6200, 765)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/ColorRect:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Barra_vida:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0qj6g"]
+_data = {
+&"Abrir_entrar": SubResource("Animation_co0c6"),
+&"RESET": SubResource("Animation_r6w1h")
+}
+
 [node name="Nivel1" type="Node2D" unique_id=128139099]
 y_sort_enabled = true
 script = ExtResource("1_ag084")
@@ -85,6 +274,15 @@ oleada_3 = Array[ExtResource("2_qm6nr")]([SubResource("Resource_uli2u"), SubReso
 [node name="Barra_vida" parent="CanvasLayer" unique_id=560939158 instance=ExtResource("2_31big")]
 
 [node name="GameOver" parent="CanvasLayer" unique_id=49019461 instance=ExtResource("12_vwgcu")]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1989014666]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=82167195]
 limit_left = 0
@@ -115,16 +313,16 @@ position = Vector2(2880, 900)
 [node name="Oleada3" type="Node2D" parent="Spawnpoints" unique_id=1129308281]
 
 [node name="enemigo_1_izq" type="Marker2D" parent="Spawnpoints/Oleada3" unique_id=732474827]
-position = Vector2(3800, 800)
+position = Vector2(2840, 800)
 
 [node name="enemigo_1_der" type="Marker2D" parent="Spawnpoints/Oleada3" unique_id=2028338200]
-position = Vector2(5880, 800)
+position = Vector2(4920, 800)
 
 [node name="enemigo_2_arr_izq" type="Marker2D" parent="Spawnpoints/Oleada3" unique_id=1918279421]
-position = Vector2(4600, 900)
+position = Vector2(3640, 900)
 
 [node name="enemigo_2_arr_der" type="Marker2D" parent="Spawnpoints/Oleada3" unique_id=368274530]
-position = Vector2(5000, 900)
+position = Vector2(4040, 900)
 
 [node name="Background" type="Node2D" parent="." unique_id=1583398593]
 
@@ -175,3 +373,11 @@ position = Vector2(840, 969)
 
 [node name="Cajas" parent="." unique_id=935702323 instance=ExtResource("9_vwgcu")]
 position = Vector2(1640, 537)
+
+[node name="Taxi" parent="." unique_id=1918281552 instance=ExtResource("16_r6w1h")]
+position = Vector2(6200, 765)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1395724458]
+libraries/ = SubResource("AnimationLibrary_0qj6g")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

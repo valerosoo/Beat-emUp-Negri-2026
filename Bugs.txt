@@ -1,1 +1,5 @@
 -Arreglar el y-sort de los objetos
+-Barra de vida del enemigo en el gulag no se adapta a los buffs
+-Los enemigos si son estuneados en los últimos ataques, y su barra de vida llega a 0, tienen como una vida mas
+-Los enemigos son stuneados aunque no esten en su frame de bloqueos
+-El enemigo 2 no detecta bien al jugador al pegar. si este hace la animación de pegar y el jugador se mueve para atrás suyo, manteniendo su cuerpo muuuuuy cerca, este no detecta que se movió

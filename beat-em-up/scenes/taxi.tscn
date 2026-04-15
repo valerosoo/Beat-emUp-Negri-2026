@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://dskmkx8pbdug3"]
+
+[ext_resource type="Texture2D" uid="uid://dinlrpcx8iwur" path="res://assets/Taxi/taxi_car.png" id="1_i2df7"]
+[ext_resource type="Script" uid="uid://busi1ntbxh8u3" path="res://scripts/taxi.gd" id="1_vmegq"]
+[ext_resource type="Texture2D" uid="uid://b1b7umt4g1u4k" path="res://assets/Taxi/taxi_car_asiento.png" id="2_a5vla"]
+[ext_resource type="Texture2D" uid="uid://wk54odyls1g7" path="res://assets/Taxi/taxi_car_door.png" id="2_qfcln"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5vla"]
+atlas = ExtResource("2_qfcln")
+region = Rect2(153, 0, 51, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmegq"]
+atlas = ExtResource("2_qfcln")
+region = Rect2(102, 0, 51, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0xgd"]
+atlas = ExtResource("2_qfcln")
+region = Rect2(51, 0, 51, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjbuy"]
+atlas = ExtResource("2_qfcln")
+region = Rect2(0, 0, 51, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d34v2"]
+atlas = ExtResource("2_qfcln")
+region = Rect2(0, 0, 51, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3374"]
+atlas = ExtResource("2_qfcln")
+region = Rect2(51, 0, 51, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kuek"]
+atlas = ExtResource("2_qfcln")
+region = Rect2(102, 0, 51, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7lva"]
+atlas = ExtResource("2_qfcln")
+region = Rect2(153, 0, 51, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y3af6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5vla")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmegq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0xgd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjbuy")
+}],
+"loop": false,
+"name": &"close",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d34v2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3374")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kuek")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7lva")
+}],
+"loop": false,
+"name": &"open",
+"speed": 4.0
+}]
+
+[node name="Taxi" type="Node2D" unique_id=1918281552]
+scale = Vector2(2.5, 2.5)
+script = ExtResource("1_vmegq")
+
+[node name="Chasis_incompleto" type="Sprite2D" parent="." unique_id=51881251]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_i2df7")
+region_enabled = true
+region_rect = Rect2(0, 0, 148.18684, 48.088364)
+
+[node name="Asiento" type="Sprite2D" parent="." unique_id=756645942]
+position = Vector2(24.799986, 5.199994)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_a5vla")
+
+[node name="RuedaAtras" type="Sprite2D" parent="." unique_id=1842085633]
+position = Vector2(-102.4, 49.200005)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_i2df7")
+region_enabled = true
+region_rect = Rect2(21.79803, 53.48801, 19.510048, 19.810574)
+
+[node name="RuedaDelante" type="Sprite2D" parent="." unique_id=1194970404]
+position = Vector2(110.400024, 46.80002)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_i2df7")
+region_enabled = true
+region_rect = Rect2(21.79803, 53.48801, 19.510048, 19.810574)
+
+[node name="Puerta" type="AnimatedSprite2D" parent="." unique_id=376275606]
+position = Vector2(25.999998, 5.6000233)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_y3af6")
+animation = &"close"
+frame = 3
+frame_progress = 1.0

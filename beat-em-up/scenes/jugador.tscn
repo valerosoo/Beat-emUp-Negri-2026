@@ -682,6 +682,7 @@ process_mode = 3
 position = Vector2(100, 0)
 collision_mask = 6
 script = ExtResource("1_pwri8")
+vida_maxima = 500
 tiempo_para_otro_escudo = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1682055202]

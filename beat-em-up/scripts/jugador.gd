@@ -135,6 +135,9 @@ func cancel_attacking():
 	desactivar_hitbox_golpeo()
 	$Pivote/AnimatedSprite2D.play("idle")
 	
+func idle_anim():
+	$Pivote/AnimatedSprite2D.play("idle")
+
 func correr():
 	$Pivote/AnimatedSprite2D.play("run")
 	
@@ -204,29 +207,34 @@ func saltar():
 func bloquear():
 	if !puede_bloquear:
 		return
-	$Pivote/Escudo/AnimatedSprite2D.visible = true
+	
 	puede_bloquear = false
+	$Pivote/Escudo/AnimatedSprite2D.visible = true
+	$Pivote/Escudo/AnimatedSprite2D.play("destroy")
 	$Pivote/Escudo.monitoring = true
 	
 	await get_tree().process_frame
-	var areas = $Pivote/Escudo.get_overlapping_areas()
-	for area in areas:
+	for area in $Pivote/Escudo.get_overlapping_areas():
 		if area.is_in_group("AttackArea") and area.get_parent().is_in_group("enemigo"):
-			if area.get_parent().atacando:
-				area.get_parent().stun()
-			
-		
-	await get_tree().create_timer(tiempo_escudo).timeout
-	$Pivote/Escudo/AnimatedSprite2D.play("destroy")
+			var enemigo = area.get_parent()
+			if enemigo.estado != Enemigo.Estado.DEATH and enemigo.atacando:
+				if enemigo.sprite.frame in enemigo.frames_bloqueo:
+					enemigo.stun()
+				
+	await $Pivote/Escudo/AnimatedSprite2D.animation_finished
 	$Pivote/Escudo.monitoring = false
+	$Pivote/Escudo/AnimatedSprite2D.visible = false
 	await get_tree().create_timer(tiempo_para_otro_escudo).timeout
 	puede_bloquear = true
 
 func _on_escudo_area_entered(area: Area2D) -> void:
 	if area.is_in_group("AttackArea") and area.get_parent().is_in_group("enemigo"):
 		var enemigo = area.get_parent()
-		if enemigo.atacando and enemigo.estado != Enemigo.Estado.DEATH:
-			enemigo.stun()
+		if enemigo.estado == Enemigo.Estado.DEATH:
+			return
+		if enemigo.atacando:
+			if enemigo.sprite.frame in enemigo.frames_bloqueo:
+				enemigo.stun()
 		
 func resetear():
 	vida = vida_maxima
