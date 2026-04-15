@@ -9,6 +9,7 @@ var gulag = {
 	"buff":1.5
 }
 var puede_ir_gulag = true
+var viene_del_gulag = false
 var oleada_actual = 0
 var posicion_muerte = Vector2.ZERO
 
@@ -27,6 +28,7 @@ func retry_level():
 	get_tree().change_scene_to_file(nivel_a_resetear)
 
 func volver_al_nivel():
+	viene_del_gulag = true
 	var nivel_a_resetear = "res://scenes/nivel_" + str(GameManager.nivel_actual) + ".tscn"
 	get_tree().change_scene_to_file(nivel_a_resetear)
 

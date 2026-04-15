@@ -150,7 +150,6 @@ func restar_vida(dano):
 	if cayendo:
 		return
 	vida -= dano
-	print("Me pegaron")
 	parpadeo()
 	barra_vida.visible = true
 	barra_vida.value = vida
@@ -163,14 +162,15 @@ func sumar_vida(suma):
 	
 func verificar_muerte():
 	if vida <= 0:
-		print("enemigo murio")
 		estado = Estado.DEATH
 		velocity = Vector2.ZERO
 		sprite.play("death")
 
 func stun():
+	if estado == Estado.DEATH:
+		return
 	var estado_anterior = estado
-	estado = Estado.STUN #Para que no quiera hacer otra cosa
+	estado = Estado.STUN
 	atacando = false
 	sprite.play("hit")
 	await get_tree().create_timer(duracion_stun).timeout

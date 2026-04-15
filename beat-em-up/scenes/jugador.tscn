@@ -2,11 +2,18 @@
 
 [ext_resource type="Script" uid="uid://b5odai4c72cfk" path="res://scripts/jugador.gd" id="1_pwri8"]
 [ext_resource type="Texture2D" uid="uid://cx0v8tj31afps" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_combo_0064.png" id="2_145tk"]
+[ext_resource type="Texture2D" uid="uid://c2uk6m4d5jhj4" path="res://assets/Pixel Art Animated Portal/Frames/portal1_frame_1.png" id="2_wv7ot"]
 [ext_resource type="Texture2D" uid="uid://bexydiqdsdnp4" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_combo_0065.png" id="3_8m2a0"]
+[ext_resource type="Texture2D" uid="uid://hik2qxan57mq" path="res://assets/Pixel Art Animated Portal/Frames/portal1_frame_2.png" id="3_mpm4s"]
 [ext_resource type="Texture2D" uid="uid://cswb5uvl7oe67" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_combo_0066.png" id="4_5uec4"]
+[ext_resource type="Texture2D" uid="uid://b185yrlmbba36" path="res://assets/Pixel Art Animated Portal/Frames/portal1_frame_3.png" id="4_h8oge"]
 [ext_resource type="Texture2D" uid="uid://jpjrte6i24k2" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_combo_0067.png" id="5_b0aq6"]
+[ext_resource type="Texture2D" uid="uid://m2c75tm2v6il" path="res://assets/Pixel Art Animated Portal/Frames/portal1_frame_4.png" id="5_ltlp1"]
+[ext_resource type="Texture2D" uid="uid://cx7fiic1im5rp" path="res://assets/Pixel Art Animated Portal/Frames/portal1_frame_5.png" id="6_h06pc"]
 [ext_resource type="Texture2D" uid="uid://5hysercxebe3" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_combo_0068.png" id="6_vbnxw"]
 [ext_resource type="Texture2D" uid="uid://cdx14x5thpg26" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_combo_0069.png" id="7_68fox"]
+[ext_resource type="Texture2D" uid="uid://o3mhi5nrk0m0" path="res://assets/Pixel Art Animated Portal/Frames/portal1_frame_6.png" id="7_84mw3"]
+[ext_resource type="Texture2D" uid="uid://c8b303yvh04gb" path="res://assets/Pixel Art Animated Portal/Frames/portal1_frame_7.png" id="8_dn6y4"]
 [ext_resource type="Texture2D" uid="uid://byo15lg1yv4cd" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_combo_0070.png" id="8_nplk0"]
 [ext_resource type="Texture2D" uid="uid://dpbjaa0kncjfu" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_combo_0071.png" id="9_wv7ot"]
 [ext_resource type="Texture2D" uid="uid://bbho88rhb5vsh" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_combo_0072.png" id="10_mpm4s"]
@@ -69,12 +76,40 @@
 [ext_resource type="Texture2D" uid="uid://beqgvloibalcp" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_walk_0014.png" id="67_4mjjj"]
 [ext_resource type="Texture2D" uid="uid://badlk164f51cd" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_walk_0015.png" id="68_jm126"]
 [ext_resource type="Texture2D" uid="uid://8tp157jwfgfl" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_walk_0016.png" id="69_mkon8"]
-[ext_resource type="Texture2D" uid="uid://d3xfgghiifyl5" path="res://assets/terrain/terrain.png" id="70_8m2a0"]
 [ext_resource type="Texture2D" uid="uid://j6er8q58cnm3" path="res://assets/Bubble/bubble_sheet.png" id="70_145tk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhgvq"]
 radius = 14.0
 height = 50.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wv7ot"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wv7ot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mpm4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h8oge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ltlp1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_h06pc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_84mw3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dn6y4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m5qm3"]
 animations = [{
@@ -323,12 +358,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_8m2a0"]
+[sub_resource type="Animation" id="Animation_wv7ot"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/path = NodePath("../Portal:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -340,51 +375,75 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/path = NodePath("../Portal:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1.3, 1.3)]
+"update": 1,
+"values": [&"idle"]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../AnimatedSprite2D:position")
+tracks/2/path = NodePath("AnimatedSprite2D:animation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
+"update": 1,
+"values": [&"idle"]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../AnimatedSprite2D:visible")
+tracks/3/path = NodePath(".:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_5uec4"]
-resource_name = "salir_del_piso"
-length = 2.0
+[sub_resource type="Animation" id="Animation_mpm4s"]
+resource_name = "entrar"
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/path = NodePath("../Portal:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 2),
+"times": PackedFloat32Array(0, 0.1, 3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -392,58 +451,181 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/path = NodePath("../Portal:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.3, 0.8, 1.5, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(1.3, 1.3), Vector2(1.3, 1.3), Vector2(0, 0)]
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../AnimatedSprite2D:position")
+tracks/2/path = NodePath("AnimatedSprite2D:animation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.3, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 200), Vector2(0, 0)]
+"times": PackedFloat32Array(0, 0.5, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"idle", &"walk", &"idle"]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../AnimatedSprite2D:visible")
+tracks/3/path = NodePath(".:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3),
+"times": PackedFloat32Array(0.5, 2.5),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
+"update": 0,
+"values": [Vector2(0, 0), Vector2(140, 0)]
 }
-tracks/4/type = "method"
+tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../AnimatedSprite2D")
+tracks/4/path = NodePath("AnimatedSprite2D:flip_h")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.3),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Portal")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [&"jump", 1.0, false],
+"args": [&"idle", 1.0, false],
 "method": &"play"
 }]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_b0aq6"]
+[sub_resource type="Animation" id="Animation_h8oge"]
+resource_name = "salir"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(140, 0), Vector2(140, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Portal:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:animation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"idle", &"walk", &"idle"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Portal:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Portal")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"idle", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AnimatedSprite2D")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [&"idle", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"walk", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"idle", 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h8oge"]
 _data = {
-&"RESET": SubResource("Animation_8m2a0"),
-&"salir_del_piso": SubResource("Animation_5uec4")
+&"RESET": SubResource("Animation_wv7ot"),
+&"entrar": SubResource("Animation_mpm4s"),
+&"salir": SubResource("Animation_h8oge")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_squte"]
@@ -496,12 +678,23 @@ animations = [{
 }]
 
 [node name="Jugador" type="CharacterBody2D" unique_id=1341022144 groups=["jugador"]]
+process_mode = 3
+position = Vector2(100, 0)
 collision_mask = 6
 script = ExtResource("1_pwri8")
+tiempo_para_otro_escudo = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1682055202]
 position = Vector2(0, 74)
 shape = SubResource("CapsuleShape2D_vhgvq")
+
+[node name="Portal" type="AnimatedSprite2D" parent="." unique_id=1946178435]
+process_mode = 3
+visible = false
+position = Vector2(139.99998, 19.999998)
+scale = Vector2(3.9687502, 4.7968755)
+sprite_frames = SubResource("SpriteFrames_wv7ot")
+animation = &"idle"
 
 [node name="Pivote" type="Node2D" parent="." unique_id=98744715]
 
@@ -510,18 +703,9 @@ scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_m5qm3")
 animation = &"idle"
 
-[node name="Visual" type="Node2D" parent="Pivote" unique_id=1870640344]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivote/Visual" unique_id=880907960]
-libraries/ = SubResource("AnimationLibrary_b0aq6")
-
-[node name="Sprite2D" type="Sprite2D" parent="Pivote/Visual" unique_id=1871739440]
-visible = false
-position = Vector2(0, 100)
-scale = Vector2(1.3, 1.3)
-texture = ExtResource("70_8m2a0")
-region_enabled = true
-region_rect = Rect2(485.43384, 69.63507, 83.99658, 79.79068)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pivote" unique_id=259937114]
+process_mode = 3
+libraries/ = SubResource("AnimationLibrary_h8oge")
 
 [node name="AttackArea" type="Area2D" parent="Pivote" unique_id=2111464777 groups=["AttackArea"]]
 position = Vector2(59, 43)
@@ -555,6 +739,7 @@ shape = SubResource("RectangleShape2D_pwri8")
 
 [connection signal="animation_finished" from="Pivote/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="Pivote/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
+[connection signal="animation_finished" from="Pivote/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="Pivote/AttackArea" to="." method="_on_attack_area_area_entered"]
 [connection signal="area_entered" from="Pivote/Escudo" to="." method="_on_escudo_area_entered"]
 [connection signal="animation_changed" from="Pivote/Escudo/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_changed"]

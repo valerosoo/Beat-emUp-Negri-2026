@@ -1,3 +1,1 @@
--Corregir el gulag
--El enemigo 1 (no se el enemigo 2) cuando muere y justo me pega y le bloqueo el golpe, se queda en animacion de hit y no muere (queda congelado sin desaparecer)
 -Arreglar el y-sort de los objetos

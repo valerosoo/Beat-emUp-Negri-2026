@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name Jugador
 
+signal entrar
+
 @onready var attack_offset = $Pivote/AttackArea.position.x
 @onready var barra_vida = get_tree().get_first_node_in_group("barra_vida")
 
@@ -37,6 +39,10 @@ func _ready() -> void:
 	
 	vida = vida_maxima
 	barra_vida.value = vida_maxima
+	
+	if GameManager.viene_del_gulag:
+		GameManager.viene_del_gulag = false
+		iniciar_salida_portal()
 	
 func _physics_process(delta: float) -> void:
 	
@@ -126,6 +132,7 @@ func _on_animated_sprite_2d_animation_finished():
 
 func cancel_attacking():
 	attacking = false
+	desactivar_hitbox_golpeo()
 	$Pivote/AnimatedSprite2D.play("idle")
 	
 func correr():
@@ -142,6 +149,7 @@ func desactivar_hitbox_golpeo():
 
 func _on_animated_sprite_2d_frame_changed():
 	if !attacking:
+		desactivar_hitbox_golpeo()
 		return
 	
 	if muerto:
@@ -199,6 +207,15 @@ func bloquear():
 	$Pivote/Escudo/AnimatedSprite2D.visible = true
 	puede_bloquear = false
 	$Pivote/Escudo.monitoring = true
+	
+	await get_tree().process_frame
+	var areas = $Pivote/Escudo.get_overlapping_areas()
+	for area in areas:
+		if area.is_in_group("AttackArea") and area.get_parent().is_in_group("enemigo"):
+			if area.get_parent().atacando:
+				area.get_parent().stun()
+			
+		
 	await get_tree().create_timer(tiempo_escudo).timeout
 	$Pivote/Escudo/AnimatedSprite2D.play("destroy")
 	$Pivote/Escudo.monitoring = false
@@ -208,8 +225,7 @@ func bloquear():
 func _on_escudo_area_entered(area: Area2D) -> void:
 	if area.is_in_group("AttackArea") and area.get_parent().is_in_group("enemigo"):
 		var enemigo = area.get_parent()
-		var frame_ataque_actual_enemigo = enemigo.get_node("AnimatedSprite2D").frame
-		if frame_ataque_actual_enemigo in enemigo.frames_bloqueo:
+		if enemigo.atacando and enemigo.estado != Enemigo.Estado.DEATH:
 			enemigo.stun()
 		
 func resetear():
@@ -245,3 +261,16 @@ func aplicar_stats(stats):
 	vida = vida_maxima
 	barra_vida.max_value = vida_maxima
 	barra_vida.value = vida_maxima
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "entrar":
+		entrar.emit()
+	elif anim_name == "salir":
+		get_tree().paused = false
+		set_physics_process(true)
+		entrar.emit()
+
+func iniciar_salida_portal():
+	set_physics_process(false)
+	$Pivote/AnimationPlayer.play("salir")

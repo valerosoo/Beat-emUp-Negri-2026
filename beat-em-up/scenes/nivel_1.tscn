@@ -166,7 +166,6 @@ shape = SubResource("RectangleShape2D_gnqo2")
 
 [node name="Jugador" parent="." unique_id=1341022144 instance=ExtResource("5_ag084")]
 position = Vector2(266, 578)
-vida_maxima = 300
 
 [node name="Ruedas" parent="." unique_id=601711903 instance=ExtResource("7_31big")]
 position = Vector2(589, 652)

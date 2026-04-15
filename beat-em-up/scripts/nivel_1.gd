@@ -8,6 +8,7 @@ extends Node2D
 @export var oleada_2 : Array[ResourceOleadas] = []
 @export var oleada_3 : Array[ResourceOleadas] = []
 
+var esperando_animacion = false
 var oleadas
 
 var jugador_nivel_escenas_1 = [1920,2880,4800]
@@ -20,13 +21,18 @@ var enemigos_vivos = 0
 func _ready() -> void:
 	game_over.visible = false
 	oleadas = [oleada_1, oleada_2, oleada_3]
+	jugador.entrar.connect(jugador_termino_animacion)
 	if !GameManager.puede_ir_gulag:
 		oleada = GameManager.oleada_actual
 		jugador.global_position = GameManager.posicion_muerte
 		configurar_oleada()
-		spawnear_oleada()
+		get_tree().paused = true
+		esperando_animacion = true
 	
 func _physics_process(delta: float) -> void:
+	if esperando_animacion:
+		return
+	
 	if !camara_bloqueada:
 		camara.global_position = jugador.global_position
 	
@@ -50,6 +56,7 @@ func spawnear_enemigo(enemigo_packedScene, spawn_nodePath):
 	enemigo.tree_exited.connect(eliminar_enemigo)
 	
 	if enemigo.is_in_group("enemigo_2"):
+		print("Frames: " + str(enemigo.frames_de_ataque))
 		enemigo.anim_caida()
 	
 func eliminar_enemigo():
@@ -68,3 +75,7 @@ func configurar_oleada():
 	camara.limit_left = jugador_nivel_escenas_1[oleada] - (get_viewport().get_visible_rect().size.x)/2
 	camara.limit_right = jugador_nivel_escenas_1[oleada] + (get_viewport().get_visible_rect().size.x)
 	
+func jugador_termino_animacion():
+	if esperando_animacion:
+		esperando_animacion = false
+		spawnear_oleada()
