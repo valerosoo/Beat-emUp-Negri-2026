@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ccg6lrj5u3yni"]
 
-[ext_resource type="Texture2D" uid="uid://c6xmg1std5lk8" path="res://assets/Mapas/Mis_modificaciones/ruedas.png" id="1_aql1k"]
+[ext_resource type="Texture2D" uid="uid://c6xmg1std5lk8" path="res://assets/Mios/ruedas.png" id="1_aql1k"]
 
 [node name="Ruedas" type="Node2D" unique_id=601711903]
 

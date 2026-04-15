@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://el43f433qnmu"]
 
-[ext_resource type="Script" uid="uid://ug1wgakd2hai" path="res://scripts/barra_vida.gd" id="1_5bluq"]
 [ext_resource type="Texture2D" uid="uid://ddr7owc4akap" path="res://assets/Heart and health bars/animations/heart.blink.png" id="1_sybp6"]
 [ext_resource type="Texture2D" uid="uid://d3vncrt51d2cj" path="res://assets/Heart and health bars/animations/heart.rotate.png" id="2_5bluq"]
 
@@ -193,12 +192,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Barra_vida" type="Node2D" unique_id=560939158]
-script = ExtResource("1_5bluq")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=452711314]
-
-[node name="HealthUI" type="Control" parent="CanvasLayer" unique_id=1057454474]
+[node name="Barra_vida" type="Control" unique_id=359784809]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 29.0
@@ -207,7 +201,7 @@ offset_right = 69.0
 offset_bottom = 49.0
 metadata/_edit_use_anchors_ = true
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/HealthUI" unique_id=703574235 groups=["barra_vida"]]
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=381410633 groups=["barra_vida"]]
 z_index = 1
 layout_mode = 1
 anchors_preset = -1
@@ -223,7 +217,7 @@ value = 100.0
 show_percentage = false
 metadata/_edit_use_anchors_ = true
 
-[node name="Corazon" type="AnimatedSprite2D" parent="CanvasLayer/HealthUI" unique_id=1701739682]
+[node name="Corazon" type="AnimatedSprite2D" parent="." unique_id=2018684524]
 z_index = 1
 position = Vector2(9, 23)
 scale = Vector2(1.8515625, 1.7578125)

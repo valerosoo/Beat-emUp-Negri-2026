@@ -4,6 +4,7 @@ extends Node2D
 @onready var jugador = $Jugador
 @onready var game_over = $CanvasLayer/GameOver
 
+@export var num_nivel: int = 1
 @export var oleada_1 : Array[ResourceOleadas] = []
 @export var oleada_2 : Array[ResourceOleadas] = []
 @export var oleada_3 : Array[ResourceOleadas] = []
@@ -102,6 +103,7 @@ func activar_animacion_final():
 	
 	jugador.caminar()
 	
+	$CanvasLayer/Barra_vida.visible = false
 	var tween = create_tween()
 	tween.tween_property(jugador, "global_position", Vector2(5559, 855), 1.5)
 	await tween.finished
@@ -110,8 +112,4 @@ func activar_animacion_final():
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Abrir_entrar":
-		print("LISTOOOOO")
-
-
-func oscurecer_pantalla():
-	pass
+		get_tree().change_scene_to_file("res://scenes/nivel_2.tscn")

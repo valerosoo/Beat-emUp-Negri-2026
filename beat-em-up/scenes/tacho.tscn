@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ch70lpyp54h0u"]
 
-[ext_resource type="Texture2D" uid="uid://bxca0u8pf00qg" path="res://assets/Mapas/Mis_modificaciones/tacho_der.png" id="1_j6dba"]
-[ext_resource type="Texture2D" uid="uid://c7f3g5q6jmkrq" path="res://assets/Mapas/Mis_modificaciones/tacho_izq.png" id="2_18opk"]
+[ext_resource type="Texture2D" uid="uid://bxca0u8pf00qg" path="res://assets/Mios/tacho_der.png" id="1_j6dba"]
+[ext_resource type="Texture2D" uid="uid://c7f3g5q6jmkrq" path="res://assets/Mios/tacho_izq.png" id="2_18opk"]
 
 [node name="Tacho" type="Node2D" unique_id=642788288]
 position = Vector2(168, 0)

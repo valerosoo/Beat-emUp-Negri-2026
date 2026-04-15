@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6xmg1std5lk8"
-path="res://.godot/imported/ruedas.png-63318a08de87063c31505ab24ce5d187.ctex"
+uid="uid://c7f3g5q6jmkrq"
+path="res://.godot/imported/tacho_izq.png-c74ff215700dfae5956d65e571a59f0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Mapas/Mis_modificaciones/ruedas.png"
-dest_files=["res://.godot/imported/ruedas.png-63318a08de87063c31505ab24ce5d187.ctex"]
+source_file="res://assets/Mios/tacho_izq.png"
+dest_files=["res://.godot/imported/tacho_izq.png-c74ff215700dfae5956d65e571a59f0b.ctex"]
 
 [params]
 

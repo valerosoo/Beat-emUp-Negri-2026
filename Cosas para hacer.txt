@@ -1,9 +1,8 @@
 2- Hacer la animación de salir del taxi
 3- Decorar el nivel 1
-3.5- Agregar las colisiones en el gulag
 4- Modelar los objetos colisionables del nivel 2
 5- Hacer el nivel 2
-6- Que los enemigos suelten el 25 % de su vida en un Item agarrable por el jugador
+6- Que los enemigos suelten el 15 % de su vida en un Item agarrable por el jugador
 7- Modelar al boss
 8- Para el menú de opciones, poner controles, volumen sonido, (resolución si se puede)
 9- Tengo que crear la animación de hit para el enemigo 2

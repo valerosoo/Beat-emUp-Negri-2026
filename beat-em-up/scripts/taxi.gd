@@ -7,3 +7,6 @@ func abrir():
 	
 func cerrar():
 	puerta.play("close")
+
+func aparecer_jugador_adentro():
+	$Sprite2D.visible = true

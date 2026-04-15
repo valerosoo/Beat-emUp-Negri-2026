@@ -11,13 +11,23 @@ var cinematica_iniciada = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$Gulag_1_map.visible = false
+	$Gulag_1_map.process_mode = Node.PROCESS_MODE_DISABLED
+	$Gulag_2_map.visible = false
+	$Gulag_2_map.process_mode = Node.PROCESS_MODE_DISABLED
+	
+	if GameManager.nivel_actual == 1:
+		$Gulag_1_map.visible = true
+		$Gulag_1_map.process_mode = Node.PROCESS_MODE_ALWAYS
+	elif GameManager.nivel_actual == 2:
+		$Gulag_2_map.visible = true
+		$Gulag_2_map.process_mode = Node.PROCESS_MODE_ALWAYS
+	
 	gameover.visible = false
 	jugador.global_position = spawn_jugador.global_position
 	GameManager.puede_ir_gulag = false
 	jugador.entrar.connect(volver_al_nivel)
 	
-	if GameManager.gulag.fondo != null:
-		fondo.texture = load(GameManager.gulag.fondo)
 		
 	var enemigo_scene = load(GameManager.gulag.enemigo)
 	enemigo = enemigo_scene.instantiate()

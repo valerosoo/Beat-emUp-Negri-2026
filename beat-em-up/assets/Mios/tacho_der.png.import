@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bxca0u8pf00qg"
-path="res://.godot/imported/tacho_der.png-85ce9b14b857434e66e1a5f83b2120f0.ctex"
+path="res://.godot/imported/tacho_der.png-b494be615d097e07b10feb83c4ecba8a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Mapas/Mis_modificaciones/tacho_der.png"
-dest_files=["res://.godot/imported/tacho_der.png-85ce9b14b857434e66e1a5f83b2120f0.ctex"]
+source_file="res://assets/Mios/tacho_der.png"
+dest_files=["res://.godot/imported/tacho_der.png-b494be615d097e07b10feb83c4ecba8a.ctex"]
 
 [params]
 

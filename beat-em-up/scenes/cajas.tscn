@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://brqaupkti02qx"]
 
-[ext_resource type="Texture2D" uid="uid://bpghwg3i0804b" path="res://assets/Mapas/Mis_modificaciones/cajas.png" id="1_y8v6v"]
+[ext_resource type="Texture2D" uid="uid://bpghwg3i0804b" path="res://assets/Mios/cajas.png" id="1_y8v6v"]
 
 [node name="Cajas" type="Node2D" unique_id=935702323]
 y_sort_enabled = true

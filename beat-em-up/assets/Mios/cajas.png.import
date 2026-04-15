@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpghwg3i0804b"
-path="res://.godot/imported/cajas.png-3d2f3ad3f20b6089faa8874bde927eda.ctex"
+path="res://.godot/imported/cajas.png-ac50d2d327ccfae28ec5a0ac18f1718a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Mapas/Mis_modificaciones/cajas.png"
-dest_files=["res://.godot/imported/cajas.png-3d2f3ad3f20b6089faa8874bde927eda.ctex"]
+source_file="res://assets/Mios/cajas.png"
+dest_files=["res://.godot/imported/cajas.png-ac50d2d327ccfae28ec5a0ac18f1718a.ctex"]
 
 [params]
 

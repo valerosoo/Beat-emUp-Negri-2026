@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://busi1ntbxh8u3" path="res://scripts/taxi.gd" id="1_vmegq"]
 [ext_resource type="Texture2D" uid="uid://b1b7umt4g1u4k" path="res://assets/Taxi/taxi_car_asiento.png" id="2_a5vla"]
 [ext_resource type="Texture2D" uid="uid://wk54odyls1g7" path="res://assets/Taxi/taxi_car_door.png" id="2_qfcln"]
+[ext_resource type="Texture2D" uid="uid://cwrn2g2ho68d5" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_Idle_0001.png" id="4_t0xgd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a5vla"]
 atlas = ExtResource("2_qfcln")
@@ -102,6 +103,12 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_i2df7")
 region_enabled = true
 region_rect = Rect2(21.79803, 53.48801, 19.510048, 19.810574)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1779562627]
+visible = false
+position = Vector2(16.8, -24.799994)
+scale = Vector2(0.39999992, 0.39999992)
+texture = ExtResource("4_t0xgd")
 
 [node name="Puerta" type="AnimatedSprite2D" parent="." unique_id=376275606]
 position = Vector2(25.999998, 5.6000233)

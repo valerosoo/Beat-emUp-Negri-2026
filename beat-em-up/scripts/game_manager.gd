@@ -5,7 +5,6 @@ var stats_jugador
 var nivel_actual = 1
 var gulag = {
 	"enemigo":null,
-	"fondo":null,
 	"buff":1.5
 }
 var puede_ir_gulag = true

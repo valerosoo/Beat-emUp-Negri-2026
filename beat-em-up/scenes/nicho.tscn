@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c8v57thq734f3"]
 
-[ext_resource type="Texture2D" uid="uid://dyq5vpirkamr7" path="res://assets/Mapas/Mis_modificaciones/nicho.png" id="1_bf4an"]
+[ext_resource type="Texture2D" uid="uid://dyq5vpirkamr7" path="res://assets/Mios/nicho.png" id="1_bf4an"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6iffj"]
 size = Vector2(75, 26)

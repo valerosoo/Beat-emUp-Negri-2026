@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://ds3qyut7mkycy"]
+
+[ext_resource type="Texture2D" uid="uid://cufkgakdb5ixy" path="res://assets/Mapas/2/Bright/Sky.png" id="1_cu6at"]
+[ext_resource type="Texture2D" uid="uid://18fks81a4eas" path="res://assets/Mapas/2/Bright/back.png" id="2_dt8c2"]
+[ext_resource type="Texture2D" uid="uid://cyl2vgld7ec65" path="res://assets/Mapas/2/Bright/houses3.png" id="3_aol73"]
+[ext_resource type="Texture2D" uid="uid://b4yhb4b53nn21" path="res://assets/Mios/Casas2.png" id="4_cpoxx"]
+[ext_resource type="Texture2D" uid="uid://cgt1nkvs0hf4b" path="res://assets/Mios/Casas1.png" id="5_lyhl1"]
+[ext_resource type="Texture2D" uid="uid://6th78eirit88" path="res://assets/Mios/Store.png" id="6_08ofa"]
+[ext_resource type="Texture2D" uid="uid://ebly3bsvrdpu" path="res://assets/Mapas/2/Bright/road&lamps.png" id="7_2gqy0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cu6at"]
+size = Vector2(616, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dt8c2"]
+size = Vector2(643.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aol73"]
+size = Vector2(402.5, 282)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpoxx"]
+size = Vector2(250, 42)
+
+[node name="Gulag_2_map" type="Node2D" unique_id=1241469000]
+
+[node name="Background" type="Node2D" parent="." unique_id=2098434991]
+
+[node name="Sky" type="TextureRect" parent="Background" unique_id=658570834]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_cu6at")
+stretch_mode = 1
+
+[node name="Buildings" type="TextureRect" parent="Background" unique_id=1115569544]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_dt8c2")
+stretch_mode = 1
+
+[node name="Fondo_casas" type="TextureRect" parent="Background" unique_id=1658883405]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_aol73")
+stretch_mode = 1
+
+[node name="CasaSola" type="TextureRect" parent="Background" unique_id=1286661866]
+offset_left = 783.0
+offset_top = -106.0
+offset_right = 2703.0
+offset_bottom = 974.0
+texture = ExtResource("4_cpoxx")
+stretch_mode = 1
+
+[node name="Casas" type="TextureRect" parent="Background" unique_id=252658200]
+offset_left = -428.0
+offset_right = 1492.0
+offset_bottom = 1080.0
+texture = ExtResource("5_lyhl1")
+stretch_mode = 1
+
+[node name="Shop" type="TextureRect" parent="Background" unique_id=888026969]
+offset_left = 1455.0
+offset_top = -11.0
+offset_right = 3375.0
+offset_bottom = 1069.0
+texture = ExtResource("6_08ofa")
+stretch_mode = 1
+
+[node name="Road" type="TextureRect" parent="Background" unique_id=1080734463]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("7_2gqy0")
+stretch_mode = 1
+
+[node name="Colisiones" type="Node2D" parent="." unique_id=1161163101]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Colisiones" unique_id=1873285976]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/StaticBody2D" unique_id=1786676033]
+position = Vector2(308, 707)
+shape = SubResource("RectangleShape2D_cu6at")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Colisiones/StaticBody2D" unique_id=2073892901]
+position = Vector2(667, 665)
+polygon = PackedVector2Array(-51, 32, 37, -62, 37, -42, -51, 52)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Colisiones" unique_id=1622630140]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/StaticBody2D2" unique_id=1846011305]
+position = Vector2(1025.25, 613)
+shape = SubResource("RectangleShape2D_dt8c2")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Colisiones" unique_id=709048785]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/StaticBody2D3" unique_id=460078234]
+position = Vector2(1715.75, 621)
+shape = SubResource("RectangleShape2D_aol73")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Colisiones" unique_id=688998857]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/StaticBody2D4" unique_id=964914298]
+position = Vector2(1438, 652)
+shape = SubResource("RectangleShape2D_cpoxx")

@@ -123,6 +123,7 @@ func _on_animated_sprite_2d_animation_finished():
 	elif $Pivote/AnimatedSprite2D.animation == "death":
 		if GameManager.puede_ir_gulag:
 			GameManager.puede_ir_gulag = false
+			GameManager.nivel_actual = get_parent().num_nivel
 			get_tree().change_scene_to_file("res://scenes/continue.tscn")
 		else:
 			get_parent().mostrar_death_screen()
@@ -189,7 +190,6 @@ func verificar_muerte(enemigo):
 		if GameManager.puede_ir_gulag:
 			GameManager.posicion_muerte = global_position
 			GameManager.gulag.enemigo = enemigo.scene_file_path
-			GameManager.gulag.fondo = "res://assets/Mapas/" + str(GameManager.nivel_actual) + "/Bright/City" + str(GameManager.nivel_actual) + ".png"
 			
 func _on_attack_area_area_entered(area: Area2D) -> void:
 	if area.is_in_group("HurtBox") and area.get_parent().is_in_group("enemigo"):

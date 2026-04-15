@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyq5vpirkamr7"
-path="res://.godot/imported/nicho.png-d76e94c349212c2a1aed5d1cd1fe1125.ctex"
+uid="uid://c6xmg1std5lk8"
+path="res://.godot/imported/ruedas.png-ac1f2bec4ce4e0a19718bcdeb2f66163.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Mapas/Mis_modificaciones/nicho.png"
-dest_files=["res://.godot/imported/nicho.png-d76e94c349212c2a1aed5d1cd1fe1125.ctex"]
+source_file="res://assets/Mios/ruedas.png"
+dest_files=["res://.godot/imported/ruedas.png-ac1f2bec4ce4e0a19718bcdeb2f66163.ctex"]
 
 [params]
 

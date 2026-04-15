@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7f3g5q6jmkrq"
-path="res://.godot/imported/tacho_izq.png-f1d8e282878c627a7b86a57658d13bc2.ctex"
+uid="uid://dyq5vpirkamr7"
+path="res://.godot/imported/nicho.png-4187a9ee75f438a3c5ef0a7e0ecb55cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Mapas/Mis_modificaciones/tacho_izq.png"
-dest_files=["res://.godot/imported/tacho_izq.png-f1d8e282878c627a7b86a57658d13bc2.ctex"]
+source_file="res://assets/Mios/nicho.png"
+dest_files=["res://.godot/imported/nicho.png-4187a9ee75f438a3c5ef0a7e0ecb55cb.ctex"]
 
 [params]
 

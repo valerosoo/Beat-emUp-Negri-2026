@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://xn2o3seqpe6e"]
+
+[ext_resource type="Texture2D" uid="uid://c6xmg1std5lk8" path="res://assets/Mios/ruedas.png" id="1_qx7wa"]
+
+[node name="Nivel2" type="Node2D" unique_id=352827680]
+
+[node name="Ruedas" type="Sprite2D" parent="." unique_id=279054273]
+position = Vector2(902, 355)
+texture = ExtResource("1_qx7wa")
