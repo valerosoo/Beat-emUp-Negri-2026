@@ -8,10 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://qadag0pij5sy" path="res://scenes/enemigo_1.tscn" id="3_r6w1h"]
 [ext_resource type="Texture2D" uid="uid://c861bc8wkwxsp" path="res://assets/Mapas/1/Bright/road&border.png" id="4_67o6f"]
 [ext_resource type="PackedScene" uid="uid://kog3oqmrsvlh" path="res://scenes/enemigo_2.tscn" id="4_co0c6"]
+[ext_resource type="Script" uid="uid://cqmjrrwx5gaud" path="res://scripts/gestor_pausa.gd" id="5_0qj6g"]
 [ext_resource type="PackedScene" uid="uid://tvv4letdju1q" path="res://scenes/jugador.tscn" id="5_ag084"]
 [ext_resource type="Texture2D" uid="uid://bhs46s2l63gao" path="res://assets/Mapas/1/Bright/wall2.png" id="5_gnqo2"]
 [ext_resource type="Texture2D" uid="uid://c7wn8o0tfhbba" path="res://assets/Mapas/1/Bright/wall1.png" id="6_vwgcu"]
 [ext_resource type="PackedScene" uid="uid://ccg6lrj5u3yni" path="res://scenes/ruedas.tscn" id="7_31big"]
+[ext_resource type="PackedScene" uid="uid://0askqx56c0to" path="res://scenes/menu_pausa.tscn" id="7_co0c6"]
 [ext_resource type="PackedScene" uid="uid://c8v57thq734f3" path="res://scenes/nicho.tscn" id="8_gnqo2"]
 [ext_resource type="PackedScene" uid="uid://brqaupkti02qx" path="res://scenes/cajas.tscn" id="9_vwgcu"]
 [ext_resource type="PackedScene" uid="uid://b6o6rbhkny6uu" path="res://scenes/game_over.tscn" id="12_vwgcu"]
@@ -241,12 +243,15 @@ _data = {
 &"RESET": SubResource("Animation_r6w1h")
 }
 
-[node name="Nivel1" type="Node2D" unique_id=128139099]
+[node name="Nivel1" type="Node2D" unique_id=128139099 groups=["nivel"]]
 y_sort_enabled = true
 script = ExtResource("1_ag084")
 oleada_1 = Array[ExtResource("2_qm6nr")]([SubResource("Resource_0qj6g"), SubResource("Resource_qx8k3")])
 oleada_2 = Array[ExtResource("2_qm6nr")]([SubResource("Resource_cokvo"), SubResource("Resource_5ruck"), SubResource("Resource_ojgse")])
 oleada_3 = Array[ExtResource("2_qm6nr")]([SubResource("Resource_uli2u"), SubResource("Resource_i01ws"), SubResource("Resource_4asgc"), SubResource("Resource_yr8f8")])
+
+[node name="GestorPausa" type="Node2D" parent="." unique_id=1009987150]
+script = ExtResource("5_0qj6g")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1195519330]
 
@@ -263,6 +268,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="MenuPausa" parent="CanvasLayer" unique_id=844394850 instance=ExtResource("7_co0c6")]
+visible = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=82167195]
 limit_left = 0

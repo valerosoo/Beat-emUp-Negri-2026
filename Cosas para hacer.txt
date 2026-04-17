@@ -6,7 +6,6 @@
 7- Modelar al boss
 8- Para el menú de opciones, poner controles, volumen sonido, (resolución si se puede)
 9- Tengo que crear la animación de hit para el enemigo 2
-10- Crear el menu de pausa
 
 Cosas que planeo para la batalla final
 1- Batalla por fases (según la vida):

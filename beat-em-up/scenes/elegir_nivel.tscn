@@ -1,10 +1,16 @@
 [gd_scene format=3 uid="uid://cp5dirsnuyop"]
 
+[ext_resource type="Script" uid="uid://copi3oay5iwyo" path="res://scripts/elegir_nivel.gd" id="1_bb2yd"]
 [ext_resource type="PackedScene" uid="uid://cgga8pmngjtra" path="res://scenes/tarjeta_nivel.tscn" id="1_kk3j4"]
 [ext_resource type="Texture2D" uid="uid://cvxpctopf4j1b" path="res://assets/Mapas/1/Bright/City1.png" id="2_gj4wv"]
 [ext_resource type="Texture2D" uid="uid://oqd0hyu1xnjb" path="res://assets/Mapas/2/Bright/City2.png" id="3_316kx"]
+[ext_resource type="FontFile" uid="uid://bu816dpc8fepl" path="res://fonts/ARCADECLASSIC.TTF" id="5_q0a8y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7i8yf"]
+bg_color = Color(0, 0, 0, 0)
 
 [node name="ElegirNivel" type="Node2D" unique_id=698094812]
+script = ExtResource("1_bb2yd")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=825277756]
 offset_right = 1920.0
@@ -26,5 +32,18 @@ offset_bottom = 690.0
 nivel = 2
 imagen_nivel = ExtResource("3_316kx")
 
+[node name="Menu" type="Button" parent="." unique_id=365563617]
+offset_left = 1520.0
+offset_top = 960.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_colors/font_color = Color(0.73120064, 0.5182523, 0.10681784, 1)
+theme_override_colors/font_hover_color = Color(0.4862745, 0.34117648, 0.0627451, 1)
+theme_override_fonts/font = ExtResource("5_q0a8y")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_7i8yf")
+text = "Volver"
+
 [connection signal="pressed" from="TarjetaNivel1" to="TarjetaNivel1" method="_on_pressed"]
 [connection signal="pressed" from="TarjetaNivel2" to="TarjetaNivel1" method="_on_tarjeta_nivel_2_pressed"]
+[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]
