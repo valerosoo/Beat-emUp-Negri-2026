@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="BeatEmUp"
-run/main_scene="uid://ccuib6wxxyf2r"
+run/main_scene="uid://bpa46jxf722dc"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -24,7 +24,6 @@ GameManager="*uid://bg8nnljv6cofh"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [global_group]
@@ -38,6 +37,7 @@ barra_vida=""
 game_over=""
 enemigo_2=""
 nivel=""
+Barra_boss=""
 
 [input]
 

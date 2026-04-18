@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bpa46jxf722dc"]
+
+[ext_resource type="Texture2D" uid="uid://ddrmnjayb7732" path="res://assets/Mios/keilidh-bradley-bg1.jpg" id="1_mhjqm"]
+[ext_resource type="Texture2D" uid="uid://7rx7153krfma" path="res://assets/Mios/Cara_pinguino.jpg" id="2_34kmk"]
+[ext_resource type="PackedScene" uid="uid://ckxye0fpkd814" path="res://scenes/barra_vida_boss.tscn" id="2_85w88"]
+[ext_resource type="PackedScene" uid="uid://el43f433qnmu" path="res://scenes/barra_vida.tscn" id="3_31neg"]
+[ext_resource type="PackedScene" uid="uid://l535rbpc138a" path="res://scenes/boss_1.tscn" id="5_67f06"]
+[ext_resource type="PackedScene" uid="uid://tvv4letdju1q" path="res://scenes/jugador.tscn" id="568_i67ca"]
+
+[node name="BossFight" type="Node2D" unique_id=140681411]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=102082494]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_mhjqm")
+
+[node name="Barra_vida_boss" parent="." unique_id=668431123 instance=ExtResource("2_85w88")]
+
+[node name="Barra_vida" parent="." unique_id=359784809 instance=ExtResource("3_31neg")]
+
+[node name="CaraFondo" type="Sprite2D" parent="." unique_id=2049768489]
+visible = false
+position = Vector2(965, 219)
+scale = Vector2(1.6799998, 0.8711111)
+texture = ExtResource("2_34kmk")
+
+[node name="Jugador" parent="." unique_id=1341022144 instance=ExtResource("568_i67ca")]
+position = Vector2(132, 862)
+
+[node name="Boss_1" parent="." unique_id=718371346 instance=ExtResource("5_67f06")]
+position = Vector2(1697, 680)
+
+[node name="Spawn1" type="Marker2D" parent="." unique_id=1447139827]
+position = Vector2(1347, 721)
+
+[node name="Spawn2" type="Marker2D" parent="." unique_id=1774028222]
+position = Vector2(1352, 947)

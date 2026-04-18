@@ -5,8 +5,6 @@ class_name Game
 var jugador
 
 func _ready() -> void:
-	gameover.visible = false
-	
 	jugador = $Jugador
 	
 func _physics_process(delta: float) -> void:

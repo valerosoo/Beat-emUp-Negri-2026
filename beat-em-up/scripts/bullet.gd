@@ -2,19 +2,18 @@ extends Area2D
 
 var velocidad = 400
 var dano = 10
-var direccion = 1
 var impactando = false
+var direccion_vector = Vector2.RIGHT
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AnimatedSprite2D.play("fly")
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if impactando:
 		return
-	global_position.x = velocidad * direccion * delta
+	position += direccion_vector * velocidad * delta
 
 func impactar():
 	if impactando:
@@ -43,3 +42,6 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		$AnimatedSprite2D.play("caida_short")
 	elif $AnimatedSprite2D.animation == "caida_short":
 		queue_free()
+
+func actualizar_rotacion():
+	rotation = direccion_vector.angle()

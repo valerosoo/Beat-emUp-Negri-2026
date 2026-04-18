@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ckxye0fpkd814"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_js53x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibyts"]
+bg_color = Color(1, 0, 0, 1)
+
+[node name="Barra_vida_boss" type="Control" unique_id=668431123]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1860078683 groups=["Barra_boss"]]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 31.0
+offset_right = 1524.0
+offset_bottom = 58.0
+theme_override_styles/background = SubResource("StyleBoxFlat_js53x")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ibyts")
+max_value = 700.0
+value = 700.0
+fill_mode = 1

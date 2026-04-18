@@ -4,7 +4,7 @@ class_name Jugador
 signal entrar
 
 @onready var attack_offset = $Pivote/AttackArea.position.x
-@onready var barra_vida = get_tree().get_first_node_in_group("barra_vida")
+@onready var barra_vida
 
 @export var walk_speed: int = 200
 @export var run_speed: int = 300
@@ -28,6 +28,7 @@ var muerto = false
 var vida
 
 func _ready() -> void:
+	barra_vida = get_tree().get_first_node_in_group("barra_vida")
 	$Pivote/Escudo/AnimatedSprite2D.visible = false
 	if GameManager.stats_jugador == null:
 		GameManager.stats_jugador = exportar_stats()
@@ -192,6 +193,7 @@ func verificar_muerte(enemigo):
 			GameManager.gulag.enemigo = enemigo.scene_file_path
 			
 func _on_attack_area_area_entered(area: Area2D) -> void:
+	print("area entro: " + str(area.name) + " grupo enemigo: " + str(area.get_parent().is_in_group("enemigo")))
 	if area.is_in_group("HurtBox") and area.get_parent().is_in_group("enemigo"):
 		var enemigo = area.get_parent()
 		var frame = $Pivote/AnimatedSprite2D.frame

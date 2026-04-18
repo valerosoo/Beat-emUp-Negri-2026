@@ -13,6 +13,8 @@ enum Estado {IDLE, CHASE, ATTACK, DEATH, STUN}
 @export var speed = 120
 @export var distancia_para_atacar = 140
 @export var nombre_animacion_atacar = "combo"
+@export var nombre_animacion_caminar = "walk"
+@export var nombre_animacion_idle = "idle"
 @export var frames_de_ataque = [1,5,15]
 @export var dano = [5, 15, 20]
 @export var vida = 50
@@ -27,6 +29,7 @@ var player_hurtBox
 var distancia
 var puede_hacer_dano = false
 var cayendo = false
+var ia_activa = false
 
 func _ready():
 	attack_offset = attack_area.position.x
@@ -36,8 +39,22 @@ func _ready():
 	barra_vida.value = vida
 	barra_vida.visible = false
 	timer_barra_vida.timeout.connect(ocultar_barra)
+	await get_tree().create_timer(0.2).timeout
+	ia_activa = true
 	
 func _physics_process(delta):
+	if !ia_activa:
+		return
+	if player == null:
+		player = get_tree().get_first_node_in_group("jugador")
+		if player == null:
+			return
+	
+	if player_hurtBox == null:
+		player_hurtBox = player.get_node("Pivote/HurtBox")
+		if player_hurtBox == null:
+			return
+	
 	if estado == Estado.DEATH:
 		return 
 	
@@ -74,13 +91,13 @@ func _physics_process(delta):
 			
 func idle(delta):
 	velocity = Vector2.ZERO
-	sprite.play("idle")
+	sprite.play(nombre_animacion_idle)
 	
 func perseguir(delta):
 	var direction = (player.global_position - global_position).normalized()
 	velocity = direction * speed
 	move_and_slide()
-	sprite.play("walk")
+	sprite.play(nombre_animacion_caminar)
 	
 	if distancia < distancia_para_atacar:
 		estado = Estado.ATTACK
@@ -112,10 +129,15 @@ func _on_animated_sprite_2d_animation_finished():
 		queue_free()
 		
 func girar_sprite():
-	if velocity.x > 0:
+	if attack_offset == null:
+		attack_offset = attack_area.position.x
+	if player == null:
+		return
+	var dir = player.global_position.x - global_position.x
+	if dir > 0:
 		sprite.flip_h = false
 		$AttackArea.position.x = attack_offset
-	elif velocity.x < 0:
+	elif dir < 0:
 		sprite.flip_h = true
 		$AttackArea.position.x = -attack_offset
 		
