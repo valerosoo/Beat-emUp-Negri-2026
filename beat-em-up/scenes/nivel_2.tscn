@@ -1,9 +1,107 @@
 [gd_scene format=3 uid="uid://xn2o3seqpe6e"]
 
-[ext_resource type="Texture2D" uid="uid://c6xmg1std5lk8" path="res://assets/Mios/ruedas.png" id="1_qx7wa"]
+[ext_resource type="Script" uid="uid://cqmjrrwx5gaud" path="res://scripts/gestor_pausa.gd" id="1_hylrv"]
+[ext_resource type="Script" uid="uid://d1sletwwtmpht" path="res://scripts/nivel_1.gd" id="1_qx81a"]
+[ext_resource type="PackedScene" uid="uid://el43f433qnmu" path="res://scenes/barra_vida.tscn" id="2_ik6bi"]
+[ext_resource type="PackedScene" uid="uid://b6o6rbhkny6uu" path="res://scenes/game_over.tscn" id="3_nuwf4"]
+[ext_resource type="PackedScene" uid="uid://0askqx56c0to" path="res://scenes/menu_pausa.tscn" id="4_aiekk"]
+[ext_resource type="Texture2D" uid="uid://oqd0hyu1xnjb" path="res://assets/Mapas/2/Bright/City2.png" id="5_qui7q"]
+[ext_resource type="PackedScene" uid="uid://bys5whwn380hj" path="res://scenes/colisiones_casasN2.tscn" id="6_qx81a"]
+[ext_resource type="PackedScene" uid="uid://cmce3kwktffbw" path="res://scenes/coliisionShopCall.tscn" id="7_hylrv"]
+[ext_resource type="PackedScene" uid="uid://tvv4letdju1q" path="res://scenes/jugador.tscn" id="10_2j5ls"]
 
 [node name="Nivel2" type="Node2D" unique_id=352827680]
+script = ExtResource("1_qx81a")
+num_nivel = 2
 
-[node name="Ruedas" type="Sprite2D" parent="." unique_id=279054273]
-position = Vector2(902, 355)
-texture = ExtResource("1_qx7wa")
+[node name="GestorPausa" type="Node2D" parent="." unique_id=1599505126]
+script = ExtResource("1_hylrv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1886525003]
+visible = false
+
+[node name="Barra_vida" parent="CanvasLayer" unique_id=359784809 instance=ExtResource("2_ik6bi")]
+
+[node name="GameOver" parent="CanvasLayer" unique_id=49019461 instance=ExtResource("3_nuwf4")]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1819608051]
+visible = false
+modulate = Color(0, 0, 0, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MenuPausa" parent="CanvasLayer" unique_id=844394850 instance=ExtResource("4_aiekk")]
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1768766069]
+limit_left = 0
+limit_top = 0
+limit_bottom = 1080
+
+[node name="Spawnpoints" type="Node2D" parent="." unique_id=736639981]
+
+[node name="Oleada1" type="Node2D" parent="Spawnpoints" unique_id=888836033]
+
+[node name="enemigo_1_izq" type="Marker2D" parent="Spawnpoints/Oleada1" unique_id=212907778]
+position = Vector2(900, 800)
+
+[node name="enemigo_1_der" type="Marker2D" parent="Spawnpoints/Oleada1" unique_id=1485246734]
+position = Vector2(3000, 800)
+
+[node name="Oleada2" type="Node2D" parent="Spawnpoints" unique_id=1754996388]
+
+[node name="enemigo_1_izq" type="Marker2D" parent="Spawnpoints/Oleada2" unique_id=1175704714]
+position = Vector2(1880, 800)
+
+[node name="enemigo_1_der" type="Marker2D" parent="Spawnpoints/Oleada2" unique_id=1616222820]
+position = Vector2(3880, 800)
+
+[node name="enemigo_2_arr" type="Marker2D" parent="Spawnpoints/Oleada2" unique_id=1463772575]
+position = Vector2(2880, 900)
+
+[node name="Oleada3" type="Node2D" parent="Spawnpoints" unique_id=846414186]
+
+[node name="enemigo_1_izq" type="Marker2D" parent="Spawnpoints/Oleada3" unique_id=623709296]
+position = Vector2(2840, 800)
+
+[node name="enemigo_1_der" type="Marker2D" parent="Spawnpoints/Oleada3" unique_id=1836815776]
+position = Vector2(4920, 800)
+
+[node name="enemigo_2_arr_izq" type="Marker2D" parent="Spawnpoints/Oleada3" unique_id=1688046646]
+position = Vector2(3640, 900)
+
+[node name="enemigo_2_arr_der" type="Marker2D" parent="Spawnpoints/Oleada3" unique_id=1406390818]
+position = Vector2(4040, 900)
+
+[node name="Background" type="Node2D" parent="." unique_id=862125210]
+
+[node name="Sky" type="TextureRect" parent="Background" unique_id=1164760346]
+offset_right = 5760.0
+offset_bottom = 1080.0
+texture = ExtResource("5_qui7q")
+stretch_mode = 1
+
+[node name="Colisiones" type="Node2D" parent="." unique_id=752539530]
+
+[node name="ColisionesCasas" parent="Colisiones" unique_id=505427130 instance=ExtResource("6_qx81a")]
+
+[node name="ColisionesCasas2" parent="Colisiones" unique_id=1041383035 instance=ExtResource("6_qx81a")]
+position = Vector2(1920, 0)
+
+[node name="ColisionesCasas3" parent="Colisiones" unique_id=1253532257 instance=ExtResource("6_qx81a")]
+position = Vector2(3840, 0)
+
+[node name="ColisionShopCall" parent="Colisiones" unique_id=641634014 instance=ExtResource("7_hylrv")]
+
+[node name="ColisionShopCall2" parent="Colisiones" unique_id=917175717 instance=ExtResource("7_hylrv")]
+position = Vector2(1920, 0)
+
+[node name="ColisionShopCall3" parent="Colisiones" unique_id=558925368 instance=ExtResource("7_hylrv")]
+position = Vector2(3840, 0)
+
+[node name="Jugador" parent="." unique_id=1341022144 instance=ExtResource("10_2j5ls")]
+position = Vector2(342, 925)

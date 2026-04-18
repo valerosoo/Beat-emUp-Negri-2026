@@ -319,14 +319,14 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4q3jt"]
-radius = 14.0
-height = 50.0
+radius = 34.0
+height = 86.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gebxr"]
-size = Vector2(86, 68)
+size = Vector2(1164, 68)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4q3jt"]
-size = Vector2(85, 129)
+size = Vector2(85, 162.5)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1405356426 node_paths=PackedStringArray("sprite") groups=["enemigo"]]
 collision_layer = 2

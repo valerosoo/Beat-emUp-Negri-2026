@@ -12,8 +12,7 @@ extends Node2D
 var esperando_animacion = false
 var oleadas
 
-var jugador_nivel_escenas_1 = [1920,2880,3840]
-var enemigos_nivel_escenas_1 = [["enemigo_1","enemigo_1"], ["enemigo_1","enemigo_1","enemigo_2"], ["enemigo_1","enemigo_1","enemigo_2","enemigo_2"]]
+var jugador_oleadas_activacion = [1920,2880,3840]
 var oleada = 0
 var oleada_iniciada = false
 var camara_bloqueada = false
@@ -48,7 +47,7 @@ func _physics_process(delta: float) -> void:
 	if oleada >= oleadas.size():
 		return
 	
-	if jugador.global_position.x >= jugador_nivel_escenas_1[oleada] and !oleada_iniciada:
+	if jugador.global_position.x >= jugador_oleadas_activacion[oleada] and !oleada_iniciada:
 		configurar_oleada()
 		spawnear_oleada()
 
@@ -85,8 +84,8 @@ func mostrar_death_screen():
 func configurar_oleada():
 	oleada_iniciada = true
 	camara_bloqueada = true
-	camara.limit_left = jugador_nivel_escenas_1[oleada] - (get_viewport().get_visible_rect().size.x)/2
-	camara.limit_right = jugador_nivel_escenas_1[oleada] + (get_viewport().get_visible_rect().size.x)
+	camara.limit_left = jugador_oleadas_activacion[oleada] - (get_viewport().get_visible_rect().size.x)/2
+	camara.limit_right = jugador_oleadas_activacion[oleada] + (get_viewport().get_visible_rect().size.x)
 	
 func jugador_termino_animacion():
 	if esperando_animacion:

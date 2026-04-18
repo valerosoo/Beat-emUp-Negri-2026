@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ce5qjxglxwq4r"]
+
+[ext_resource type="Texture2D" uid="uid://6th78eirit88" path="res://assets/Mios/Store.png" id="1_lx5au"]
+
+[node name="Shop" type="TextureRect" unique_id=245193789]
+y_sort_enabled = true
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_lx5au")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=300180531]
+y_sort_enabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=372654677]
+y_sort_enabled = true
+position = Vector2(222, 786)
+polygon = PackedVector2Array(-158, -58, -78, -114, 242, -114, 242, -58, 162, -2, -158, -2)

@@ -1,7 +1,6 @@
+1- Terminar de modelar el enemigo 3, tiene varios errores de animaciones, hay que usar offset para arreglarlos
 2- Hacer la animación de salir del taxi
 3- Decorar el nivel 1
-4- Modelar los objetos colisionables del nivel 2
-5- Hacer el nivel 2
 6- Que los enemigos suelten el 15 % de su vida en un Item agarrable por el jugador
 7- Modelar al boss
 8- Para el menú de opciones, poner controles, volumen sonido, (resolución si se puede)
@@ -19,10 +18,6 @@ Lo que se me ocurre para la batalla final para ataques
 -1 ataques del boss invocando enemigos, al matarlos el boss se cansa por un tiempo, el jugador golpea
 -2 para la fase 3, el boss dispara balas, caen al mapa, el jugador (si golpea una bala especifica iluminada de otro color) la devolverá y hara daño
 -3 Balas horizontales que viajan de izq a der
--4 
-
-Posibles Ideas Originales:
--Tener un inventario (2 o 3 Items) que puedas agarrar y poder revolear a un enemigo para hacer otro ataque
 
 Ideas extra si me da el tiempo (No me da el tiempo ;( )
 -Agregar estadísticas de la partida para la pantalla de game over

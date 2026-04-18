@@ -256,7 +256,6 @@ script = ExtResource("5_0qj6g")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1195519330]
 
 [node name="Barra_vida" parent="CanvasLayer" unique_id=359784809 instance=ExtResource("2_31big")]
-visible = false
 
 [node name="GameOver" parent="CanvasLayer" unique_id=49019461 instance=ExtResource("12_vwgcu")]
 

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bys5whwn380hj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tefgq"]
+size = Vector2(396, 58)
+
+[node name="ColisionesCasas" type="Node2D" unique_id=505427130]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1036699788]
+y_sort_enabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=715135914]
+y_sort_enabled = true
+position = Vector2(768, 696)
+polygon = PackedVector2Array(360, -144, -248, -144, -336, -56, -336, 0, 272, 0, 360, -88)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1709080836]
+y_sort_enabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2" unique_id=1955144305]
+y_sort_enabled = true
+position = Vector2(1408, 608)
+polygon = PackedVector2Array(-280, 0, 120, 0, 120, -56, -280, -56)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1428327542]
+y_sort_enabled = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3" unique_id=2129517386]
+y_sort_enabled = true
+position = Vector2(24, 664)
+polygon = PackedVector2Array(-24, 0, 24, 0, 184, -160, 184, -216, 24, -56, -24, -56)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1609003438]
+y_sort_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=2092550065]
+y_sort_enabled = true
+position = Vector2(1720, 640)
+shape = SubResource("RectangleShape2D_tefgq")
