@@ -2496,7 +2496,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i3jga"]
-size = Vector2(79, 64)
+size = Vector2(79, 91)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u0788"]
 radius = 700.0
@@ -2605,15 +2605,14 @@ _data = {
 &"shoot_ap": SubResource("Animation_i3jga")
 }
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1405356426 node_paths=PackedStringArray("sprite", "animation_player")]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1405356426 node_paths=PackedStringArray("sprite", "animation_player") groups=["enemigo"]]
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_36ssi")
 escena_bala = ExtResource("2_i3jga")
 sprite = NodePath("Pivote/AnimatedSprite2D")
 animation_player = NodePath("AnimationPlayer")
-escena_original = null
-speed = 80
+speed = 100
 distancia_para_atacar = 1185
 animaciones = {
 "atacar": "shoot_ap",
@@ -2640,7 +2639,7 @@ sprite_frames = SubResource("SpriteFrames_8dkf8")
 animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1564021450]
-position = Vector2(-27, 49)
+position = Vector2(-27, 35.5)
 shape = SubResource("RectangleShape2D_i3jga")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=507990186 groups=["AttackArea"]]

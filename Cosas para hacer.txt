@@ -1,4 +1,5 @@
-1- Hacer el nivel 2
+1- En el nivel 2, separar la store y la callbox
+2-Verificar Gulag de los enemigos 3 y 4
 7- Modelar al boss 2 y 3
 8- Para el menú de opciones, poner controles, volumen sonido, (resolución si se puede)
 9- Tengo que crear la animación de hit para el enemigo 2

@@ -36,6 +36,10 @@ func atacar():
 func verificar_muerte():
 	if vida <= 0:
 		estado = Estado.DEATH
+		$CollisionShape2D.visible = false
+		set_collision_layer(0)
+		set_collision_mask(0)
+		soltar_corazon()
 		velocity = Vector2.ZERO
 		animation_player.play(animaciones["morir"])
 

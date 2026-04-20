@@ -134,8 +134,8 @@ tracks/3/path = NodePath("Foreground/Taxi")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(3.5, 4.7, 5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(3.5, 4.7, 5, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "values": [{
 "args": [],
 "method": &"abrir"
@@ -145,6 +145,9 @@ tracks/3/keys = {
 }, {
 "args": [],
 "method": &"cerrar"
+}, {
+"args": [],
+"method": &"iniciar_ruedas"
 }]
 }
 tracks/4/type = "value"
@@ -299,6 +302,7 @@ visible = false
 limit_left = 0
 limit_top = 0
 limit_bottom = 1080
+position_smoothing_enabled = true
 
 [node name="Spawnpoints" type="Node2D" parent="." unique_id=110597150]
 

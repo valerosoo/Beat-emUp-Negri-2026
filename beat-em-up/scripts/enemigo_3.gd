@@ -35,6 +35,8 @@ func _on_radar_entered(body):
 			estado = Estado.CHASE
 	
 func _on_radar_exited(body):
+	if estado == Estado.DEATH:
+		return
 	if body.is_in_group("jugador"):
 		jugador_en_radar = false
 		estado = Estado.IDLE
@@ -48,6 +50,8 @@ func _on_attack_entered(body):
 		estado = Estado.ATTACK
 	
 func _on_attack_exited(body):
+	if estado == Estado.DEATH:
+		return
 	if body.is_in_group("jugador"):
 		jugador_en_attack = false
 		atacando = false
@@ -181,3 +185,16 @@ func anim_morir():
 		pivot_offset = Vector2(58, 11)
 	else:
 		pivot_offset = Vector2(0, 0)
+
+func verificar_muerte():
+	if vida <= 0:
+		estado = Estado.DEATH
+		velocity = Vector2.ZERO
+		atacando = false
+		$CollisionShape2D.disabled = true
+		set_collision_layer(0)
+		set_collision_mask(0)
+		soltar_corazon()
+		animation_player.play(animaciones["morir"])
+		await animation_player.animation_finished
+		queue_free()
