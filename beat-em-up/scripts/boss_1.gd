@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 enum Estado {IDLE, STUN, ATTACK}
 
-@onready var sprite = $AnimatedSprite2D
+@onready var sprite = $Pivote/AnimatedSprite2D
 @onready var spawn1 = $"../Spawn1"
 @onready var spawn2 = $"../Spawn2"
 @onready var barra_vida
@@ -21,6 +21,7 @@ var stuneado = false
 var golpes_recibidos = 0
 var player
 var stun_id := 0
+var pivote_offset = Vector2.ZERO
 
 func _ready():
 	barra_vida = get_tree().get_first_node_in_group("Barra_boss")
@@ -31,7 +32,7 @@ func _ready():
 	spawnear_enemigos.call_deferred()
 	
 func _physics_process(delta):
-	
+	girar_sprite()
 	match estado:
 		Estado.IDLE:
 			sprite.play("bat_idle")
@@ -98,11 +99,30 @@ func verificar_muerte():
 		
 func empujar_jugador():
 	estado = Estado.ATTACK
-	$AnimatedSprite2D.play(anim_empuje)
-	await sprite.animation_finished
-	player.set_physics_process(false)
-	var tween = create_tween()
-	tween.tween_property(player, "global_position", destino_empuje.global_position, 0.4)
-	await tween.finished
-	player.set_physics_process(true)
-	estado = Estado.IDLE 
+	$AnimationPlayer.play("empujar_jugador")
+
+func anim_empujar():
+	pivote_offset = Vector2(122, -77)
+	sprite.play(anim_empuje)
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "empujar_jugador":
+		player.set_physics_process(false)
+		var tween = create_tween()
+		tween.tween_property(player, "global_position", destino_empuje.global_position, 0.4)
+		await tween.finished
+		player.set_physics_process(true)
+		pivote_offset = Vector2.ZERO
+		estado = Estado.IDLE 
+
+func girar_sprite():
+	if player == null:
+		return
+	var dir = player.global_position.x - global_position.x
+	if dir > 0:
+		sprite.flip_h = false
+		$Pivote.position = pivote_offset
+	elif dir < 0:
+		sprite.flip_h = true
+		$Pivote.position = Vector2(-pivote_offset.x, pivote_offset.y)
+	
