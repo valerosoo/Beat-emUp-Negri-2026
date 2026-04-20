@@ -1,8 +1,11 @@
 extends Node2D
+class_name Nivel1
 
 @onready var camara = $Camera2D
 @onready var jugador = $Jugador
 @onready var game_over = $CanvasLayer/GameOver
+@onready var pared_izq = $Colisiones/Pared_izq
+@onready var pared_der = $Colisiones/Pared_der
 
 @export var num_nivel: int = 1
 @export var oleada_1 : Array[ResourceOleadas] = []
@@ -39,8 +42,6 @@ func _physics_process(delta: float) -> void:
 	if jugador.global_position.x >= animacion_final_frame and !animacion_final_iniciada:
 		activar_animacion_final()
 	
-	print("Jugador:" + str(jugador.global_position))
-	
 	if !camara_bloqueada:
 		camara.global_position = jugador.global_position
 	
@@ -48,6 +49,7 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	if jugador.global_position.x >= jugador_oleadas_activacion[oleada] and !oleada_iniciada:
+		mover_paredes()
 		configurar_oleada()
 		spawnear_oleada()
 
@@ -77,6 +79,7 @@ func eliminar_enemigo():
 		oleada_iniciada = false
 		oleada += 1
 		liberar_camara()
+		desactivar_pared_der()
 	
 func mostrar_death_screen():
 	game_over.visible = true
@@ -84,7 +87,7 @@ func mostrar_death_screen():
 func configurar_oleada():
 	oleada_iniciada = true
 	camara_bloqueada = true
-	camara.limit_left = jugador_oleadas_activacion[oleada] - (get_viewport().get_visible_rect().size.x)/2
+	camara.limit_left = jugador_oleadas_activacion[oleada] - (get_viewport().get_visible_rect().size.x)/2   
 	camara.limit_right = jugador_oleadas_activacion[oleada] + (get_viewport().get_visible_rect().size.x)
 	
 func jugador_termino_animacion():
@@ -112,3 +115,13 @@ func activar_animacion_final():
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Abrir_entrar":
 		get_tree().change_scene_to_file("res://scenes/nivel_2.tscn")
+
+func mover_paredes():
+	pared_izq.global_position.x = jugador_oleadas_activacion[oleada] - (get_viewport().get_visible_rect().size.x)/2  
+	pared_der.global_position.x = jugador_oleadas_activacion[oleada] + (get_viewport().get_visible_rect().size.x)/2 
+	
+func desactivar_pared_der():
+	pared_der.global_position.x = pared_izq.global_position.x
+
+func termino_nivel():
+	ManejadorGuardado.niveles.niveles_desbloqueados += 1

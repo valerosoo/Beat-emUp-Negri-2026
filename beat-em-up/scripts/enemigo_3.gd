@@ -28,6 +28,7 @@ func _ready():
 	attack_area_propio.body_exited.connect(_on_attack_exited)
 	
 func _on_radar_entered(body):
+	print("Radar detectó: ", body.name, " grupos: ", body.get_groups())
 	if body.is_in_group("jugador"):
 		jugador_en_radar = true
 		if !jugador_en_attack:
@@ -41,6 +42,7 @@ func _on_radar_exited(body):
 		puede_disparar = true
 	
 func _on_attack_entered(body):
+	print("AttackArea detectó: ", body.name)
 	if body.is_in_group("jugador"):
 		jugador_en_attack = true
 		estado = Estado.ATTACK
@@ -90,8 +92,7 @@ func atacar():
 	if !atacando and puede_disparar:
 		atacando = true
 		animation_player.play(animaciones["atacar"])
-		
-		
+	
 func _on_animation_player_finished(anim_name: StringName):
 	print("AnimationPlayer terminó: ", anim_name)
 	if anim_name == animaciones["atacar"]:

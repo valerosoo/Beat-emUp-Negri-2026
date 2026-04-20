@@ -593,7 +593,7 @@ animaciones = {
 "correr": "walk",
 "quieto": "idle"
 }
-frames_de_ataque = [18]
+frames_de_ataque = [13]
 dano = [15]
 vida = 40
 frames_bloqueo = [13, 14, 15, 16, 17, 18]

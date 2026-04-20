@@ -1,28 +1,281 @@
 [gd_scene format=3 uid="uid://xn2o3seqpe6e"]
 
 [ext_resource type="Script" uid="uid://cqmjrrwx5gaud" path="res://scripts/gestor_pausa.gd" id="1_hylrv"]
-[ext_resource type="Script" uid="uid://d1sletwwtmpht" path="res://scripts/nivel_1.gd" id="1_qx81a"]
+[ext_resource type="Script" uid="uid://cgt6hcdmsa5f3" path="res://scripts/nivel_2.gd" id="1_ik6bi"]
+[ext_resource type="Script" uid="uid://bj5fdrpdkehph" path="res://scripts/datos_enemigos_oleada.gd" id="2_aiekk"]
 [ext_resource type="PackedScene" uid="uid://el43f433qnmu" path="res://scenes/barra_vida.tscn" id="2_ik6bi"]
+[ext_resource type="PackedScene" uid="uid://5tlfsga8je61" path="res://scenes/enemigo_3.tscn" id="3_0qnd7"]
 [ext_resource type="PackedScene" uid="uid://b6o6rbhkny6uu" path="res://scenes/game_over.tscn" id="3_nuwf4"]
+[ext_resource type="PackedScene" uid="uid://cm3mnjtcub2f7" path="res://scenes/enemigo_4.tscn" id="4_8s0wr"]
 [ext_resource type="PackedScene" uid="uid://0askqx56c0to" path="res://scenes/menu_pausa.tscn" id="4_aiekk"]
 [ext_resource type="Texture2D" uid="uid://oqd0hyu1xnjb" path="res://assets/Mapas/2/Bright/City2.png" id="5_qui7q"]
 [ext_resource type="PackedScene" uid="uid://bys5whwn380hj" path="res://scenes/colisiones_casasN2.tscn" id="6_qx81a"]
 [ext_resource type="PackedScene" uid="uid://cmce3kwktffbw" path="res://scenes/coliisionShopCall.tscn" id="7_hylrv"]
 [ext_resource type="PackedScene" uid="uid://tvv4letdju1q" path="res://scenes/jugador.tscn" id="10_2j5ls"]
+[ext_resource type="PackedScene" uid="uid://dskmkx8pbdug3" path="res://scenes/taxi.tscn" id="10_hylrv"]
+
+[sub_resource type="Resource" id="Resource_6dnhc"]
+script = ExtResource("2_aiekk")
+enemigo = ExtResource("3_0qnd7")
+spawn = NodePath("Spawnpoints/Oleada1/enemigo_1_izq")
+metadata/_custom_type_script = "uid://bj5fdrpdkehph"
+
+[sub_resource type="Resource" id="Resource_xl3cl"]
+script = ExtResource("2_aiekk")
+enemigo = ExtResource("4_8s0wr")
+spawn = NodePath("Spawnpoints/Oleada1/enemigo_1_der")
+metadata/_custom_type_script = "uid://bj5fdrpdkehph"
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_hylrv"]
+b = Vector2(0, 1081)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ik6bi"]
+b = Vector2(0, 1081)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_nuwf4"]
+b = Vector2(6456, -2)
+
+[sub_resource type="Animation" id="Animation_ik6bi"]
+resource_name = "Abrir_salir"
+length = 9.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Taxi:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2, 5, 7.5, 9.5),
+"transitions": PackedFloat32Array(0.5, 0.5, 2, 3),
+"update": 0,
+"values": [Vector2(-1300, 800), Vector2(500, 800), Vector2(500, 800), Vector2(4000, 800)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.033333335, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Taxi")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2, 5, 5.5, 6.3, 7.2, 7.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"iniciar_ruedas"
+}, {
+"args": [],
+"method": &"aparecer_jugador_adentro"
+}, {
+"args": [],
+"method": &"parar_ruedas"
+}, {
+"args": [],
+"method": &"abrir"
+}, {
+"args": [],
+"method": &"desaparecer_jugador_adentro"
+}, {
+"args": [],
+"method": &"cerrar"
+}, {
+"args": [],
+"method": &"iniciar_ruedas"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Jugador:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2, 6.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Jugador")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(6.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"idle_anim"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Jugador:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2, 6.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -200), Vector2(400, 900)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Taxi:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2, 9.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/Barra_vida:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 9.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_nuwf4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Taxi:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-500, 800)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Jugador:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Jugador:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(342, 925)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Taxi:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/Barra_vida:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aiekk"]
+_data = {
+&"Abrir_salir": SubResource("Animation_ik6bi"),
+&"RESET": SubResource("Animation_nuwf4")
+}
 
 [node name="Nivel2" type="Node2D" unique_id=352827680]
-script = ExtResource("1_qx81a")
+script = ExtResource("1_ik6bi")
 num_nivel = 2
+oleada_1 = Array[ExtResource("2_aiekk")]([SubResource("Resource_6dnhc"), SubResource("Resource_xl3cl")])
 
 [node name="GestorPausa" type="Node2D" parent="." unique_id=1599505126]
 script = ExtResource("1_hylrv")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1886525003]
-visible = false
 
 [node name="Barra_vida" parent="CanvasLayer" unique_id=359784809 instance=ExtResource("2_ik6bi")]
 
 [node name="GameOver" parent="CanvasLayer" unique_id=49019461 instance=ExtResource("3_nuwf4")]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1819608051]
 visible = false
@@ -103,5 +356,36 @@ position = Vector2(1920, 0)
 [node name="ColisionShopCall3" parent="Colisiones" unique_id=558925368 instance=ExtResource("7_hylrv")]
 position = Vector2(3840, 0)
 
+[node name="Pared_izq" type="StaticBody2D" parent="Colisiones" unique_id=634606298]
+collision_layer = 32
+collision_mask = 31
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/Pared_izq" unique_id=534184386]
+shape = SubResource("SegmentShape2D_hylrv")
+
+[node name="Pared_der" type="StaticBody2D" parent="Colisiones" unique_id=1638132292]
+collision_layer = 32
+collision_mask = 31
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/Pared_der" unique_id=1528372660]
+shape = SubResource("SegmentShape2D_ik6bi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Colisiones" unique_id=2087704085]
+collision_layer = 32
+collision_mask = 31
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Colisiones/StaticBody2D" unique_id=1693962254]
+position = Vector2(0, 1080)
+shape = SubResource("SegmentShape2D_nuwf4")
+
 [node name="Jugador" parent="." unique_id=1341022144 instance=ExtResource("10_2j5ls")]
+top_level = true
 position = Vector2(342, 925)
+
+[node name="Taxi" parent="." unique_id=1918281552 instance=ExtResource("10_hylrv")]
+position = Vector2(-500, 800)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1948927331]
+libraries/ = SubResource("AnimationLibrary_aiekk")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

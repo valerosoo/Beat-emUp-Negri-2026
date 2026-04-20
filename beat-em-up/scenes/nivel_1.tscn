@@ -76,6 +76,15 @@ metadata/_custom_type_script = "uid://bj5fdrpdkehph"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gnqo2"]
 size = Vector2(10647, 406)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0qj6g"]
+b = Vector2(6456, -2)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_qx8k3"]
+b = Vector2(0, 1081)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_cokvo"]
+b = Vector2(0, 1081)
+
 [sub_resource type="Animation" id="Animation_co0c6"]
 resource_name = "Abrir_entrar"
 length = 9.0
@@ -172,6 +181,20 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"termino_nivel"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_r6w1h"]
@@ -311,6 +334,34 @@ position = Vector2(3640, 900)
 [node name="enemigo_2_arr_der" type="Marker2D" parent="Spawnpoints/Oleada3" unique_id=368274530]
 position = Vector2(4040, 900)
 
+[node name="Colisiones" type="Node2D" parent="." unique_id=618902297]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Colisiones" unique_id=2091842437]
+collision_layer = 32
+collision_mask = 31
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/StaticBody2D" unique_id=873899896]
+position = Vector2(5323.5, 426)
+shape = SubResource("RectangleShape2D_gnqo2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Colisiones/StaticBody2D" unique_id=1349082203]
+position = Vector2(0, 1080)
+shape = SubResource("SegmentShape2D_0qj6g")
+
+[node name="Pared_izq" type="StaticBody2D" parent="Colisiones" unique_id=1889770048]
+collision_layer = 32
+collision_mask = 31
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/Pared_izq" unique_id=1967658359]
+shape = SubResource("SegmentShape2D_qx8k3")
+
+[node name="Pared_der" type="StaticBody2D" parent="Colisiones" unique_id=912390237]
+collision_layer = 32
+collision_mask = 31
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/Pared_der" unique_id=1079924246]
+shape = SubResource("SegmentShape2D_cokvo")
+
 [node name="Background" type="Node2D" parent="." unique_id=1583398593]
 
 [node name="Sky" type="TextureRect" parent="Background" unique_id=1403650291]
@@ -342,12 +393,6 @@ offset_right = 10647.0
 offset_bottom = 1080.0
 texture = ExtResource("4_67o6f")
 stretch_mode = 1
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Background" unique_id=2091842437]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/StaticBody2D" unique_id=873899896]
-position = Vector2(5323.5, 426)
-shape = SubResource("RectangleShape2D_gnqo2")
 
 [node name="Jugador" parent="." unique_id=1341022144 instance=ExtResource("5_ag084")]
 position = Vector2(266, 578)

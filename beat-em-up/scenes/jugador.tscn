@@ -680,7 +680,7 @@ animations = [{
 [node name="Jugador" type="CharacterBody2D" unique_id=1341022144 groups=["jugador"]]
 process_mode = 3
 position = Vector2(100, 0)
-collision_mask = 6
+collision_mask = 38
 script = ExtResource("1_pwri8")
 vida_maxima = 200
 tiempo_para_otro_escudo = 1

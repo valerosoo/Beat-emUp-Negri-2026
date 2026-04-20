@@ -1,4 +1,3 @@
-2- Hacer la animación de salir del taxi
 3- Decorar el nivel 1
 4- Empuje del boss cuando termina stun
 6- Que los enemigos suelten el 15 % de su vida en un Item agarrable por el jugador
