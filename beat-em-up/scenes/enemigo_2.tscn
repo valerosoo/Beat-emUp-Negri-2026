@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://kog3oqmrsvlh"]
 
 [ext_resource type="Script" uid="uid://8pid2b2p0oyp" path="res://scripts/enemigo_2.gd" id="1_qyty8"]
+[ext_resource type="PackedScene" uid="uid://wxexndvl7xp2" path="res://scenes/vida_suelta.tscn" id="2_daw4s"]
 [ext_resource type="Texture2D" uid="uid://dp5arx8igvijn" path="res://assets/enemy-biker-free/enemy-biker/punch.png" id="2_qyty8"]
 [ext_resource type="Texture2D" uid="uid://01dt4v6wkhea" path="res://assets/enemy-biker-free/enemy-biker/punch_recover.png" id="3_tjan0"]
 [ext_resource type="Texture2D" uid="uid://bc6pyivy3qlin" path="res://assets/enemy-biker-free/enemy-biker/dying.png" id="4_daw4s"]
@@ -586,6 +587,7 @@ collision_mask = 7
 script = ExtResource("1_qyty8")
 sprite = NodePath("Visual/AnimatedSprite2D")
 animation_player = NodePath("Visual/AnimationPlayer")
+escena_original = null
 speed = 200
 distancia_para_atacar = 110
 animaciones = {
@@ -597,6 +599,7 @@ frames_de_ataque = [13]
 dano = [15]
 vida = 40
 frames_bloqueo = [13, 14, 15, 16, 17, 18]
+escena_corazon = ExtResource("2_daw4s")
 
 [node name="Visual" type="Node2D" parent="." unique_id=1896497534]
 

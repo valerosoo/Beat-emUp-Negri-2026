@@ -22,6 +22,8 @@ enum Estado {IDLE, CHASE, ATTACK, DEATH, STUN}
 @export var vida : int = 50
 @export var duracion_stun: float = 0.7
 @export var frames_bloqueo: Array = [0,1,2,4,5,6,14,15,16]
+@export var escena_corazon : PackedScene
+@export var probabilidad_soltar_corazon : float = 1
 
 var barra_vida
 var estado = Estado.IDLE
@@ -197,6 +199,10 @@ func verificar_muerte():
 		estado = Estado.DEATH
 		velocity = Vector2.ZERO
 		atacando = false
+		$CollisionShape2D.disabled = true
+		set_collision_layer(0)
+		set_collision_mask(0)
+		soltar_corazon()
 		sprite.play("death")
 
 func stun():
@@ -248,3 +254,13 @@ func aplicar_buff(buff):
 		dano[i] *= buff
 	barra_vida.max_value = vida
 	barra_vida.value = vida
+
+func soltar_corazon():
+	if escena_corazon == null:
+		return
+	if randf() > probabilidad_soltar_corazon:
+		return
+	var corazon = escena_corazon.instantiate()
+	corazon.global_position = global_position + Vector2(0, 40)
+	get_parent().add_child(corazon)
+	corazon.inicializar(barra_vida.max_value)

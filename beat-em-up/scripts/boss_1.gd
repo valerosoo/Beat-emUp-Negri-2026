@@ -1,16 +1,18 @@
 extends CharacterBody2D
 
-enum Estado {IDLE, STUN}
+enum Estado {IDLE, STUN, ATTACK}
 
 @onready var sprite = $AnimatedSprite2D
 @onready var spawn1 = $"../Spawn1"
 @onready var spawn2 = $"../Spawn2"
 @onready var barra_vida
+@onready var destino_empuje = $"../DestinoEmpuje"
 
 @export var escena_enemigo : PackedScene
 @export var vida_maxima : int = 700
 @export var duracion_stun : float = 15.0
 @export var golpes_para_stun : int = 6
+@export var anim_empuje : String
 
 var vida = vida_maxima
 var estado = Estado.IDLE
@@ -18,6 +20,7 @@ var enemigos_vivos = 0
 var stuneado = false
 var golpes_recibidos = 0
 var player
+var stun_id := 0
 
 func _ready():
 	barra_vida = get_tree().get_first_node_in_group("Barra_boss")
@@ -34,6 +37,8 @@ func _physics_process(delta):
 			sprite.play("bat_idle")
 		Estado.STUN:
 			sprite.play("bat_hurt")
+		Estado.ATTACK:
+			pass
 	
 func spawnear_enemigos():
 	print("spawneando enemigos")
@@ -56,28 +61,33 @@ func enemigo_muerto():
 		call_deferred("iniciar_stun")
 	
 func iniciar_stun():
-	print("iniciar stun, stuneado: " + str(stuneado))
 	if stuneado:
 		return
 	stuneado = true
 	golpes_recibidos = 0
 	estado = Estado.STUN
+	stun_id += 1
+	var mi_id = stun_id
 	await get_tree().create_timer(duracion_stun).timeout
-	terminar_stun()
+	if stuneado and stun_id == mi_id:
+		terminar_stun()
 	
 func terminar_stun():
-	print("terminar stun, stuneado: " + str(stuneado))
 	if !stuneado:
 		return
 	stuneado = false
+	golpes_recibidos = 0
+	stun_id += 1
 	estado = Estado.IDLE
+	await empujar_jugador()
+	await get_tree().create_timer(1.0).timeout
 	call_deferred("spawnear_enemigos")
 	
 func restar_vida(dano):
 	get_parent().restar_vida_boss(dano)
 	if stuneado:
 		golpes_recibidos += 1
-		print("golpes: " + str(golpes_recibidos))
+		print("golpe en stun: " + str(golpes_recibidos))
 		if golpes_recibidos >= golpes_para_stun:
 			terminar_stun()
 	
@@ -86,3 +96,13 @@ func verificar_muerte():
 		estado = Estado.IDLE
 		queue_free()
 		
+func empujar_jugador():
+	estado = Estado.ATTACK
+	$AnimatedSprite2D.play(anim_empuje)
+	await sprite.animation_finished
+	player.set_physics_process(false)
+	var tween = create_tween()
+	tween.tween_property(player, "global_position", destino_empuje.global_position, 0.4)
+	await tween.finished
+	player.set_physics_process(true)
+	estado = Estado.IDLE 

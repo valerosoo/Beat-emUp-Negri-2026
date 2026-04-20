@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://brqaupkti02qx" path="res://scenes/cajas.tscn" id="9_vwgcu"]
 [ext_resource type="PackedScene" uid="uid://b6o6rbhkny6uu" path="res://scenes/game_over.tscn" id="12_vwgcu"]
 [ext_resource type="PackedScene" uid="uid://dskmkx8pbdug3" path="res://scenes/taxi.tscn" id="16_r6w1h"]
+[ext_resource type="PackedScene" uid="uid://ch70lpyp54h0u" path="res://scenes/tacho.tscn" id="18_qx8k3"]
 
 [sub_resource type="Resource" id="Resource_0qj6g"]
 script = ExtResource("2_qm6nr")
@@ -129,7 +130,7 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Taxi")
+tracks/3/path = NodePath("Foreground/Taxi")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -149,7 +150,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Taxi:position")
+tracks/4/path = NodePath("Foreground/Taxi:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -226,7 +227,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Taxi:position")
+tracks/2/path = NodePath("Foreground/Taxi:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -394,20 +395,42 @@ offset_bottom = 1080.0
 texture = ExtResource("4_67o6f")
 stretch_mode = 1
 
-[node name="Jugador" parent="." unique_id=1341022144 instance=ExtResource("5_ag084")]
-position = Vector2(266, 578)
+[node name="Foreground" type="Node2D" parent="." unique_id=2007743551]
+y_sort_enabled = true
 
-[node name="Ruedas" parent="." unique_id=601711903 instance=ExtResource("7_31big")]
+[node name="Ruedas" parent="Foreground" unique_id=601711903 instance=ExtResource("7_31big")]
 position = Vector2(589, 652)
 
-[node name="Nicho" parent="." unique_id=1080243396 instance=ExtResource("8_gnqo2")]
+[node name="Nicho" parent="Foreground" unique_id=1080243396 instance=ExtResource("8_gnqo2")]
 position = Vector2(840, 969)
 
-[node name="Cajas" parent="." unique_id=935702323 instance=ExtResource("9_vwgcu")]
+[node name="Cajas" parent="Foreground" unique_id=935702323 instance=ExtResource("9_vwgcu")]
 position = Vector2(1640, 537)
 
-[node name="Taxi" parent="." unique_id=1918281552 instance=ExtResource("16_r6w1h")]
+[node name="Taxi" parent="Foreground" unique_id=1918281552 instance=ExtResource("16_r6w1h")]
 position = Vector2(6200, 765)
+
+[node name="Ruedas2" parent="Foreground" unique_id=765958934 instance=ExtResource("7_31big")]
+position = Vector2(2118, 840)
+
+[node name="Nicho2" parent="Foreground" unique_id=1747265268 instance=ExtResource("8_gnqo2")]
+position = Vector2(3126, 958)
+
+[node name="Tacho" parent="Foreground" unique_id=642788288 instance=ExtResource("18_qx8k3")]
+position = Vector2(2985, 605)
+
+[node name="Nicho3" parent="Foreground" unique_id=1834227436 instance=ExtResource("8_gnqo2")]
+position = Vector2(4155, 714)
+
+[node name="Ruedas3" parent="Foreground" unique_id=837112436 instance=ExtResource("7_31big")]
+position = Vector2(3657, 748)
+
+[node name="Tacho2" parent="Foreground" unique_id=1839768323 instance=ExtResource("18_qx8k3")]
+position = Vector2(4720, 873)
+scale = Vector2(0.64000005, 0.64000005)
+
+[node name="Jugador" parent="." unique_id=1341022144 instance=ExtResource("5_ag084")]
+position = Vector2(266, 578)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1395724458]
 libraries/ = SubResource("AnimationLibrary_0qj6g")

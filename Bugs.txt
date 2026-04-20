@@ -1,1 +1,2 @@
 -Arreglar el y-sort de los objetos
+-Arreglar offset de la animacion del boss 1 al atacar

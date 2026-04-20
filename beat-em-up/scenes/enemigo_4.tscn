@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cm3mnjtcub2f7"]
 
 [ext_resource type="Script" uid="uid://twll75l8ye6e" path="res://scripts/enemigo_4.gd" id="1_oyxo7"]
+[ext_resource type="PackedScene" uid="uid://wxexndvl7xp2" path="res://scenes/vida_suelta.tscn" id="2_laaof"]
 [ext_resource type="Texture2D" uid="uid://cjdqsfndydr05" path="res://assets/Mercenary Penguin/Secuence PNG/aim_transition/Armature_RUN_aim_transition_00.png" id="4_y1nf2"]
 [ext_resource type="Texture2D" uid="uid://bgx7jf5t1teyb" path="res://assets/Mercenary Penguin/Secuence PNG/aim_transition/Armature_RUN_aim_transition_01.png" id="5_2togx"]
 [ext_resource type="Texture2D" uid="uid://ct46ixlea7bep" path="res://assets/Mercenary Penguin/Secuence PNG/aim_transition/Armature_RUN_aim_transition_02.png" id="6_c35hc"]
@@ -2590,7 +2591,6 @@ collision_mask = 7
 script = ExtResource("1_oyxo7")
 sprite = NodePath("Pivote/AnimatedSprite2D")
 animation_player = NodePath("AnimationPlayer")
-escena_original = null
 speed = 80
 animaciones = {
 "atacar": "bat_attack_ap",
@@ -2602,6 +2602,7 @@ frames_de_ataque = [8]
 dano = [10]
 duracion_stun = 0.0
 frames_bloqueo = [6, 7, 8, 9, 10, 11]
+escena_corazon = ExtResource("2_laaof")
 
 [node name="Timer" type="Timer" parent="." unique_id=992690011]
 

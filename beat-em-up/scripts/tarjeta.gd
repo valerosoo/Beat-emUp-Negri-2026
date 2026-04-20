@@ -21,22 +21,21 @@ func _ready() -> void:
 		bloqueado = true
 		$Candado.visible = true
 		imagen.modulate = Color(0.7,0.7,0.7)
-
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
-
-
+	
 func _on_mouse_entered():
 	imagen.modulate = Color(0.7,0.7,0.7)
-
+	
 func _on_mouse_exited():
 	if !bloqueado:
 		imagen.modulate = Color(1,1,1)
-
+	
 func _on_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/nivel_1.tscn")
-
+	
 func _on_tarjeta_nivel_2_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/nivel_2.tscn")
+	

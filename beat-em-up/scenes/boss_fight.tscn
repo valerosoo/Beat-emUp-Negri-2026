@@ -37,3 +37,6 @@ position = Vector2(1347, 721)
 
 [node name="Spawn2" type="Marker2D" parent="." unique_id=1774028222]
 position = Vector2(1352, 947)
+
+[node name="DestinoEmpuje" type="Marker2D" parent="." unique_id=1612143350]
+position = Vector2(135, 938)

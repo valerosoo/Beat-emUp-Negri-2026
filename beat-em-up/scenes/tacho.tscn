@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c7f3g5q6jmkrq" path="res://assets/Mios/tacho_izq.png" id="2_18opk"]
 
 [node name="Tacho" type="Node2D" unique_id=642788288]
-position = Vector2(168, 0)
+y_sort_enabled = true
 scale = Vector2(0.8, 0.8)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=451056487]
@@ -18,8 +18,11 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_18opk")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=264421238]
+y_sort_enabled = true
 scale = Vector2(0.8, 0.8)
+collision_layer = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1338566142]
+y_sort_enabled = true
 scale = Vector2(0.8, 0.8)
 polygon = PackedVector2Array(-568.3593, 253.90623, -599.6093, 177.73436, -611.32806, 123.04687, -619.14056, 76.17187, -54.6875, 76.17187, -70.3125, 126.95312, -82.031235, 183.59373, -105.468735, 253.90623)

@@ -755,7 +755,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("48_c38l1")
 }],
-"loop": true,
+"loop": false,
 "name": &"bat_attack",
 "speed": 20.0
 }, {
@@ -2499,17 +2499,26 @@ size = Vector2(289, 280.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d3jeh"]
 size = Vector2(320.5, 603.5)
 
+[sub_resource type="Animation" id="Animation_owd0l"]
+resource_name = "empujar_jugador"
+length = 0.7
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j601h"]
+_data = {
+&"empujar_jugador": SubResource("Animation_owd0l")
+}
+
 [node name="Boss_1" type="CharacterBody2D" unique_id=718371346 groups=["enemigo"]]
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_b0d60")
 escena_enemigo = ExtResource("2_owd0l")
-vida_maxima = 700
+anim_empuje = "bat_attack"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1188408221]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_xrbis")
-animation = &"hit"
+animation = &"bat_attack"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1871361485]
@@ -2522,3 +2531,6 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1696997332]
 shape = SubResource("RectangleShape2D_d3jeh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1533215997]
+libraries/ = SubResource("AnimationLibrary_j601h")
