@@ -545,6 +545,9 @@ radius = 6.0
 height = 24.0
 
 [node name="Bala" type="Area2D" unique_id=123550607]
+collision_layer = 8
+collision_mask = 23
+monitorable = false
 script = ExtResource("1_qncy5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1776968819]

@@ -2600,13 +2600,10 @@ animaciones = {
 }
 frames_de_ataque = [8]
 dano = [10]
-duracion_stun = 1
+duracion_stun = 0.0
 frames_bloqueo = [6, 7, 8, 9, 10, 11]
 
 [node name="Timer" type="Timer" parent="." unique_id=992690011]
-
-[node name="SpawnBala" type="Marker2D" parent="." unique_id=2101200883]
-position = Vector2(77, -2)
 
 [node name="Pivote" type="Node2D" parent="." unique_id=1705699930]
 
@@ -2622,6 +2619,7 @@ shape = SubResource("RectangleShape2D_oyxo7")
 [node name="AttackArea" type="Area2D" parent="." unique_id=507990186 groups=["AttackArea"]]
 position = Vector2(95, 0)
 collision_layer = 2
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=2073573102]
 shape = SubResource("RectangleShape2D_laaof")

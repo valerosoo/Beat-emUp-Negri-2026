@@ -20,7 +20,7 @@ enum Estado {IDLE, CHASE, ATTACK, DEATH, STUN}
 @export var frames_de_ataque : Array = [1,5,15]
 @export var dano : Array = [5, 15, 20]
 @export var vida : int = 50
-@export var duracion_stun: int = 0.7
+@export var duracion_stun: float = 0.7
 @export var frames_bloqueo: Array = [0,1,2,4,5,6,14,15,16]
 
 var barra_vida
@@ -160,7 +160,13 @@ func _on_animated_sprite_2d_frame_changed() -> void:
 	if atacando and sprite.frame in frames_de_ataque:
 		if puede_hacer_dano:
 			return
-			
+		
+		var dir = player.global_position.x - global_position.x
+		if dir > 0:
+			$AttackArea.position.x = attack_offset
+		elif dir < 0:
+			$AttackArea.position.x = -attack_offset
+		
 		var frame = sprite.frame
 		var index = frames_de_ataque.find(frame)
 		var dano_golpe = dano[index]
@@ -190,6 +196,7 @@ func verificar_muerte():
 	if vida <= 0:
 		estado = Estado.DEATH
 		velocity = Vector2.ZERO
+		atacando = false
 		sprite.play("death")
 
 func stun():
@@ -200,6 +207,8 @@ func stun():
 	atacando = false
 	sprite.play("hit")
 	await get_tree().create_timer(duracion_stun).timeout
+	if estado == Estado.DEATH:
+		return
 	estado = estado_anterior
 	
 func parpadeo():
@@ -231,3 +240,11 @@ func anim_run():
 
 func anim_morir():
 	sprite.play("bat_death")
+
+func aplicar_buff(buff):
+	vida *= buff
+	speed *= buff
+	for i in dano.size():
+		dano[i] *= buff
+	barra_vida.max_value = vida
+	barra_vida.value = vida

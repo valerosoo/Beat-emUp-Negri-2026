@@ -22,27 +22,22 @@ func _ready() -> void:
 	elif GameManager.nivel_actual == 2:
 		$Gulag_2_map.visible = true
 		$Gulag_2_map.process_mode = Node.PROCESS_MODE_ALWAYS
-	
+		
 	gameover.visible = false
 	jugador.global_position = spawn_jugador.global_position
 	GameManager.puede_ir_gulag = false
 	jugador.entrar.connect(volver_al_nivel)
-	
 		
 	var enemigo_scene = load(GameManager.gulag.enemigo)
 	enemigo = enemigo_scene.instantiate()
 	add_child(enemigo)
-	
+		
 	enemigo.global_position = spawn_enemigo.global_position
-	
-	enemigo.vida *= GameManager.gulag.buff
-	enemigo.speed *= GameManager.gulag.buff
-	for i in enemigo.dano.size():
-		enemigo.dano[i] *= GameManager.gulag.buff
-	
+	enemigo.aplicar_buff(GameManager.gulag.buff)
+		
 	enemigo.tree_exited.connect(iniciar_cinematica)
 	print("señal conectada")
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	pass

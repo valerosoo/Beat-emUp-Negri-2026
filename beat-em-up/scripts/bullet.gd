@@ -20,6 +20,7 @@ func impactar():
 		return
 	impactando = true
 	velocidad = Vector2.ZERO
+	$CollisionShape2D.set_deferred("disabled", true)
 	$AnimatedSprite2D.play("impact")
 
 func _on_area_entered(area: Area2D) -> void:

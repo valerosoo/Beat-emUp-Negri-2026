@@ -333,7 +333,6 @@ collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_dl1qm")
 sprite = NodePath("AnimatedSprite2D")
-escena_original = null
 animaciones = {
 "atacar": "combo",
 "correr": "walk",
@@ -356,6 +355,7 @@ shape = SubResource("CapsuleShape2D_4q3jt")
 [node name="AttackArea" type="Area2D" parent="." unique_id=507990186 groups=["AttackArea"]]
 position = Vector2(59, 43)
 collision_layer = 2
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1553576958]
 shape = SubResource("RectangleShape2D_gebxr")

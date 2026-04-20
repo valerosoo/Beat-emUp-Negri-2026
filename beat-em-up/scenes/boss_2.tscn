@@ -2499,10 +2499,12 @@ size = Vector2(320.5, 603.5)
 
 [node name="Boss_2" type="CharacterBody2D" unique_id=222908220]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1535455422]
+[node name="Pivote" type="Node2D" parent="." unique_id=281361104]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivote" unique_id=1535455422]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_xrbis")
-animation = &"idle"
+animation = &"shoot"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2008731964]
