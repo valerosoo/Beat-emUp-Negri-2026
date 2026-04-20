@@ -4,15 +4,9 @@ class_name Pinguino_AK
 @onready var spawn_bala = $SpawnBala
 @onready var radar = $Radar
 @onready var attack_area_propio = $AttackArea
-@onready var pivot = $Pivote
 
 @export var escena_bala : PackedScene
-@export var cadencia = 0.5
-@export var animaciones = {
-	"atacar": "shoot", 
-	"quieto": "idle", 
-	"correr": "run"
-	}
+@export var cadencia: float = 0.5
 
 var puede_disparar = true
 var jugador_en_radar = false
@@ -20,12 +14,17 @@ var jugador_en_attack = false
 
 func _ready():
 	super._ready()
-	nombre_animacion_atacar = animaciones["atacar"]
 	frames_bloqueo = range(0, 40)
 	frames_de_ataque = []
 	dano = [10]
 	sprite.animation_finished.disconnect(_on_animated_sprite_2d_animation_finished)
 	sprite.animation_finished.connect(_on_animated_sprite_2d_animation_finished)
+	sprite.frame_changed.connect(_on_animated_sprite_2d_frame_changed)
+	await get_tree().process_frame
+	radar.body_entered.connect(_on_radar_entered)
+	radar.body_exited.connect(_on_radar_exited)
+	attack_area_propio.body_entered.connect(_on_attack_entered)
+	attack_area_propio.body_exited.connect(_on_attack_exited)
 	
 func _on_radar_entered(body):
 	if body.is_in_group("jugador"):
@@ -41,7 +40,6 @@ func _on_radar_exited(body):
 		puede_disparar = true
 	
 func _on_attack_entered(body):
-	print("entro: " + str(body.name))
 	if body.is_in_group("jugador"):
 		jugador_en_attack = true
 		estado = Estado.ATTACK
@@ -57,6 +55,8 @@ func _on_attack_exited(body):
 			estado = Estado.IDLE
 	
 func _physics_process(delta):
+	if !ia_activa:
+		return
 	if estado == Estado.DEATH:
 		return
 	if player.muerto:

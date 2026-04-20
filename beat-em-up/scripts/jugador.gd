@@ -193,7 +193,6 @@ func verificar_muerte(enemigo):
 			GameManager.gulag.enemigo = enemigo.scene_file_path
 			
 func _on_attack_area_area_entered(area: Area2D) -> void:
-	print("area entro: " + str(area.name) + " grupo enemigo: " + str(area.get_parent().is_in_group("enemigo")))
 	if area.is_in_group("HurtBox") and area.get_parent().is_in_group("enemigo"):
 		var enemigo = area.get_parent()
 		var frame = $Pivote/AnimatedSprite2D.frame

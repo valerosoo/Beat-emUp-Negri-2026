@@ -4,23 +4,26 @@ class_name Enemigo
 enum Estado {IDLE, CHASE, ATTACK, DEATH, STUN}
 
 @onready var attack_area = get_node("AttackArea")
-@onready var barra_vida = get_node("Barra_vida_enemigo/Control/ProgressBar")
 @onready var timer_barra_vida = $Timer
 
 @export var sprite : AnimatedSprite2D
 @export var animation_player : AnimationPlayer
 @export var escena_original : PackedScene
-@export var speed = 120
-@export var distancia_para_atacar = 140
-@export var nombre_animacion_atacar = "combo"
-@export var nombre_animacion_caminar = "walk"
-@export var nombre_animacion_idle = "idle"
-@export var frames_de_ataque = [1,5,15]
-@export var dano = [5, 15, 20]
-@export var vida = 50
-@export var duracion_stun = 0.7
-@export var frames_bloqueo = [0,1,2,4,5,6,14,15,16]
+@export var speed: int = 120
+@export var distancia_para_atacar: int = 140
+@export var animaciones = {
+	"atacar": "shoot", 
+	"quieto": "idle", 
+	"correr": "run",
+	"morir" : "death"
+	}
+@export var frames_de_ataque : Array = [1,5,15]
+@export var dano : Array = [5, 15, 20]
+@export var vida : int = 50
+@export var duracion_stun: int = 0.7
+@export var frames_bloqueo: Array = [0,1,2,4,5,6,14,15,16]
 
+var barra_vida
 var estado = Estado.IDLE
 var atacando = false
 var attack_offset
@@ -32,6 +35,7 @@ var cayendo = false
 var ia_activa = false
 
 func _ready():
+	barra_vida = get_node("Barra_vida_enemigo/Control/ProgressBar")
 	attack_offset = attack_area.position.x
 	player = get_tree().get_first_node_in_group("jugador")
 	player_hurtBox = player.get_node("Pivote/HurtBox")
@@ -91,13 +95,13 @@ func _physics_process(delta):
 			
 func idle(delta):
 	velocity = Vector2.ZERO
-	sprite.play(nombre_animacion_idle)
+	sprite.play(animaciones["quieto"])
 	
 func perseguir(delta):
 	var direction = (player.global_position - global_position).normalized()
 	velocity = direction * speed
 	move_and_slide()
-	sprite.play(nombre_animacion_caminar)
+	sprite.play(animaciones["correr"])
 	
 	if distancia < distancia_para_atacar:
 		estado = Estado.ATTACK
@@ -116,10 +120,10 @@ func atacar():
 	if !atacando:
 		atacando = true
 		sprite.frame = 0
-		sprite.play(nombre_animacion_atacar)
+		sprite.play(animaciones["atacar"])
 
 func _on_animated_sprite_2d_animation_finished():
-	if sprite.animation == nombre_animacion_atacar:
+	if sprite.animation == animaciones["atacar"]:
 		atacando = false
 		
 		if distancia < distancia_para_atacar:
@@ -216,3 +220,14 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Caer":
 		cayendo = false
 		
+func anim_idle():
+	sprite.play("bat_idle")
+	
+func anim_atacar():
+	sprite.play("bat_attack")
+
+func anim_run():
+	sprite.play("bat_run")
+
+func anim_morir():
+	sprite.play("bat_death")

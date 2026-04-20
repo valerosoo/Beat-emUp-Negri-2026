@@ -8,11 +8,11 @@ enum Estado {IDLE, STUN}
 @onready var barra_vida
 
 @export var escena_enemigo : PackedScene
-@export var vida_maxima = 200
-@export var duracion_stun = 15.0
-@export var golpes_para_stun = 6
+@export var vida_maxima : int = 700
+@export var duracion_stun : float = 15.0
+@export var golpes_para_stun : int = 6
 
-var vida = 200
+var vida = vida_maxima
 var estado = Estado.IDLE
 var enemigos_vivos = 0
 var stuneado = false
@@ -36,6 +36,7 @@ func _physics_process(delta):
 			sprite.play("bat_hurt")
 	
 func spawnear_enemigos():
+	print("spawneando enemigos")
 	var e1 = escena_enemigo.instantiate()
 	var e2 = escena_enemigo.instantiate()
 	e1.global_position = spawn1.global_position
@@ -50,10 +51,12 @@ func spawnear_enemigos():
 	
 func enemigo_muerto():
 	enemigos_vivos -= 1
+	print("enemigo muerto, vivos: " + str(enemigos_vivos))
 	if enemigos_vivos <= 0:
 		call_deferred("iniciar_stun")
 	
 func iniciar_stun():
+	print("iniciar stun, stuneado: " + str(stuneado))
 	if stuneado:
 		return
 	stuneado = true
@@ -63,27 +66,23 @@ func iniciar_stun():
 	terminar_stun()
 	
 func terminar_stun():
+	print("terminar stun, stuneado: " + str(stuneado))
 	if !stuneado:
 		return
 	stuneado = false
 	estado = Estado.IDLE
-	spawnear_enemigos()
+	call_deferred("spawnear_enemigos")
 	
 func restar_vida(dano):
-	if !stuneado:
-		return
-	vida -= dano
-	golpes_recibidos += 1
-	barra_vida.value = vida
-	if golpes_recibidos >= golpes_para_stun:
-		terminar_stun()
-	verificar_muerte()
+	get_parent().restar_vida_boss(dano)
+	if stuneado:
+		golpes_recibidos += 1
+		print("golpes: " + str(golpes_recibidos))
+		if golpes_recibidos >= golpes_para_stun:
+			terminar_stun()
 	
 func verificar_muerte():
 	if vida <= 0:
 		estado = Estado.IDLE
 		queue_free()
-		
-		
-		
 		

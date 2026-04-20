@@ -2494,9 +2494,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4q3jt"]
-radius = 34.0
-height = 86.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3jga"]
+size = Vector2(79, 64)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u0788"]
 radius = 700.0
@@ -2507,13 +2506,157 @@ size = Vector2(85, 162.5)
 [sub_resource type="CircleShape2D" id="CircleShape2D_i3jga"]
 radius = 2300.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1405356426 node_paths=PackedStringArray("sprite")]
+[sub_resource type="Animation" id="Animation_u0788"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-57, 9)]
+}
+
+[sub_resource type="Animation" id="Animation_6goxe"]
+resource_name = "death_ap"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-60, 12)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"anim_morir"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_loyt1"]
+resource_name = "idle_ap"
+length = 1.95
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"anim_idle"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_725a3"]
+resource_name = "run_ap"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"anim_run"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_i3jga"]
+resource_name = "shoot_ap"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(40, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"anim_atacar"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u0788"]
+_data = {
+&"RESET": SubResource("Animation_u0788"),
+&"death_ap": SubResource("Animation_6goxe"),
+&"idle_ap": SubResource("Animation_loyt1"),
+&"run_ap": SubResource("Animation_725a3"),
+&"shoot_ap": SubResource("Animation_i3jga")
+}
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1405356426 node_paths=PackedStringArray("sprite", "animation_player")]
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_36ssi")
 escena_bala = ExtResource("2_i3jga")
-sprite = NodePath("Pivote/AnimatedSprite2D")
-escena_original = null
+sprite = NodePath("AnimatedSprite2D")
+animation_player = NodePath("AnimationPlayer")
 speed = 80
 distancia_para_atacar = 1185
 frames_de_ataque = []
@@ -2525,17 +2668,15 @@ frames_bloqueo = [0, 1, 2, 4, 5, 6, 14, 15, 16, null, null, null, null, null, nu
 [node name="SpawnBala" type="Marker2D" parent="." unique_id=2101200883]
 position = Vector2(77, -2)
 
-[node name="Pivote" type="Node2D" parent="." unique_id=265943057]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=809818535]
 position = Vector2(-57, 9)
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivote" unique_id=809818535]
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_8dkf8")
 animation = &"shoot"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1817280576]
-position = Vector2(-26, 38)
-shape = SubResource("CapsuleShape2D_4q3jt")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1564021450]
+position = Vector2(-27, 49)
+shape = SubResource("RectangleShape2D_i3jga")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=507990186 groups=["AttackArea"]]
 collision_layer = 2
@@ -2551,7 +2692,7 @@ position = Vector2(-25, 0.25)
 shape = SubResource("RectangleShape2D_4q3jt")
 
 [node name="Barra_vida_enemigo" parent="." unique_id=1236819038 instance=ExtResource("565_3o80e")]
-position = Vector2(-52, -92)
+position = Vector2(-66, -92)
 
 [node name="Radar" type="Area2D" parent="." unique_id=1590087210 groups=["AttackArea"]]
 collision_layer = 2
@@ -2564,8 +2705,11 @@ visible = false
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("395_46u4f")
 
-[connection signal="animation_finished" from="Pivote/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="frame_changed" from="Pivote/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=209345095]
+libraries/ = SubResource("AnimationLibrary_u0788")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_on_attack_exited"]
 [connection signal="body_entered" from="Radar" to="." method="_on_radar_entered"]

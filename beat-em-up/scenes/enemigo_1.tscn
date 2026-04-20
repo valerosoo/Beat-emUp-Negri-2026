@@ -333,6 +333,12 @@ collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_dl1qm")
 sprite = NodePath("AnimatedSprite2D")
+escena_original = null
+animaciones = {
+"atacar": "combo",
+"correr": "walk",
+"quieto": "idle"
+}
 frames_de_ataque = [2, 6, 16]
 
 [node name="Timer" type="Timer" parent="." unique_id=992690011]

@@ -586,9 +586,14 @@ collision_mask = 7
 script = ExtResource("1_qyty8")
 sprite = NodePath("Visual/AnimatedSprite2D")
 animation_player = NodePath("Visual/AnimationPlayer")
+escena_original = null
 speed = 200
 distancia_para_atacar = 110
-nombre_animacion_atacar = "attack"
+animaciones = {
+"atacar": "attack",
+"correr": "walk",
+"quieto": "idle"
+}
 frames_de_ataque = [18]
 dano = [15]
 vida = 40

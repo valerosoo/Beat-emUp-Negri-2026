@@ -2499,11 +2499,12 @@ size = Vector2(289, 280.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d3jeh"]
 size = Vector2(320.5, 603.5)
 
-[node name="Boss_1" type="CharacterBody2D" unique_id=718371346]
+[node name="Boss_1" type="CharacterBody2D" unique_id=718371346 groups=["enemigo"]]
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_b0d60")
 escena_enemigo = ExtResource("2_owd0l")
+vida_maxima = 700
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1188408221]
 scale = Vector2(1.5, 1.5)
@@ -2515,8 +2516,9 @@ flip_h = true
 position = Vector2(-5, 215)
 shape = SubResource("RectangleShape2D_wjyls")
 
-[node name="HurtBox" type="Area2D" parent="." unique_id=842238137]
+[node name="HurtBox" type="Area2D" parent="." unique_id=842238137 groups=["HurtBox"]]
 position = Vector2(-12, 55)
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1696997332]
 shape = SubResource("RectangleShape2D_d3jeh")

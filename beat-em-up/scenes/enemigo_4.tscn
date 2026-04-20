@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cm3mnjtcub2f7"]
 
-[ext_resource type="Script" uid="uid://8pid2b2p0oyp" path="res://scripts/enemigo_2.gd" id="1_oyxo7"]
+[ext_resource type="Script" uid="uid://twll75l8ye6e" path="res://scripts/enemigo_4.gd" id="1_oyxo7"]
 [ext_resource type="Texture2D" uid="uid://cjdqsfndydr05" path="res://assets/Mercenary Penguin/Secuence PNG/aim_transition/Armature_RUN_aim_transition_00.png" id="4_y1nf2"]
 [ext_resource type="Texture2D" uid="uid://bgx7jf5t1teyb" path="res://assets/Mercenary Penguin/Secuence PNG/aim_transition/Armature_RUN_aim_transition_01.png" id="5_2togx"]
 [ext_resource type="Texture2D" uid="uid://ct46ixlea7bep" path="res://assets/Mercenary Penguin/Secuence PNG/aim_transition/Armature_RUN_aim_transition_02.png" id="6_c35hc"]
@@ -2493,9 +2493,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4q3jt"]
-radius = 34.0
-height = 86.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oyxo7"]
+size = Vector2(79, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_laaof"]
 size = Vector2(118, 103.25)
@@ -2503,63 +2502,144 @@ size = Vector2(118, 103.25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4q3jt"]
 size = Vector2(85, 162.5)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1405356426 node_paths=PackedStringArray("sprite") groups=["enemigo"]]
+[sub_resource type="Animation" id="Animation_oyxo7"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_gx2un"]
+resource_name = "bat_attack_ap"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"anim_atacar"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_6vrrc"]
+resource_name = "bat_death_ap"
+length = 2.35
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"anim_morir"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_5mf82"]
+resource_name = "bat_idle_ap"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"anim_idle"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_laaof"]
+resource_name = "bat_run_ap"
+length = 0.8
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"anim_run"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5mf82"]
+_data = {
+&"RESET": SubResource("Animation_oyxo7"),
+&"bat_attack_ap": SubResource("Animation_gx2un"),
+&"bat_death_ap": SubResource("Animation_6vrrc"),
+&"bat_idle_ap": SubResource("Animation_5mf82"),
+&"bat_run_ap": SubResource("Animation_laaof")
+}
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1405356426 node_paths=PackedStringArray("sprite", "animation_player") groups=["enemigo"]]
 collision_layer = 2
 collision_mask = 7
 script = ExtResource("1_oyxo7")
-sprite = NodePath("AnimatedSprite2D")
+sprite = NodePath("Pivote/AnimatedSprite2D")
+animation_player = NodePath("AnimationPlayer")
 escena_original = null
 speed = 80
-distancia_para_atacar = 115
-nombre_animacion_atacar = "bat_attack"
-nombre_animacion_caminar = "bat_run"
-nombre_animacion_idle = "bat_idle"
+animaciones = {
+"atacar": "bat_attack_ap",
+"correr": "bat_run_ap",
+"morir": "bat_death_ap",
+"quieto": "bat_idle_ap"
+}
 frames_de_ataque = [8]
-dano = [15]
-vida = 80
-duracion_stun = 1.0
-frames_bloqueo = [8, 9, 10, 11]
+dano = [10]
+duracion_stun = 1
+frames_bloqueo = [6, 7, 8, 9, 10, 11]
 
 [node name="Timer" type="Timer" parent="." unique_id=992690011]
 
 [node name="SpawnBala" type="Marker2D" parent="." unique_id=2101200883]
 position = Vector2(77, -2)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=809818535]
-position = Vector2(-26, -13)
+[node name="Pivote" type="Node2D" parent="." unique_id=1705699930]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivote" unique_id=809818535]
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_8dkf8")
 animation = &"bat_attack"
-frame_progress = 0.072190285
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1817280576]
-position = Vector2(-26, 38)
-shape = SubResource("CapsuleShape2D_4q3jt")
+position = Vector2(0, 59)
+shape = SubResource("RectangleShape2D_oyxo7")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=507990186 groups=["AttackArea"]]
 position = Vector2(95, 0)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=2073573102]
-position = Vector2(-23, 1)
 shape = SubResource("RectangleShape2D_laaof")
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=295588796 groups=["HurtBox"]]
+position = Vector2(0, 13)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=175886419]
-position = Vector2(-25, 0.25)
 shape = SubResource("RectangleShape2D_4q3jt")
 
 [node name="Barra_vida_enemigo" parent="." unique_id=1236819038 instance=ExtResource("568_x7tk6")]
-position = Vector2(-65, -89)
+position = Vector2(-40, -78)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=684041084]
-visible = false
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("397_e4tky")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=861629264]
+libraries/ = SubResource("AnimationLibrary_5mf82")
 
-[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
+[connection signal="animation_finished" from="Pivote/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="frame_changed" from="Pivote/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_on_attack_exited"]
