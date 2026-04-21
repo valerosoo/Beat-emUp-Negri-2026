@@ -6,7 +6,7 @@ class_name Pinguino_AK
 @onready var attack_area_propio = $AttackArea
 
 @export var escena_bala : PackedScene
-@export var cadencia: float = 0.5
+@export var cadencia: float = 0.0
 
 var puede_disparar = true
 var jugador_en_radar = false
@@ -114,6 +114,7 @@ func disparar():
 	
 	bala.global_position = spawn_bala.global_position
 	bala.dano = dano[0]
+	bala.duenio = self
 	
 	var direccion = (player.global_position - spawn_bala.global_position).normalized()
 	bala.direccion_vector = direccion

@@ -42,7 +42,6 @@ func _ready() -> void:
 	barra_vida.value = vida_maxima
 	
 	if GameManager.viene_del_gulag:
-		GameManager.viene_del_gulag = false
 		iniciar_salida_portal()
 	
 func _physics_process(delta: float) -> void:

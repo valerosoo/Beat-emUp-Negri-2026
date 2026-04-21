@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="BeatEmUp"
-run/main_scene="uid://csetkee61f26"
+run/main_scene="uid://ccuib6wxxyf2r"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

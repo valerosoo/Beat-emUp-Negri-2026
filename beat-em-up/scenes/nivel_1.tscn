@@ -415,22 +415,22 @@ position = Vector2(1640, 537)
 position = Vector2(6200, 765)
 
 [node name="Ruedas2" parent="Foreground" unique_id=765958934 instance=ExtResource("7_31big")]
-position = Vector2(2118, 840)
+position = Vector2(2325, 834)
 
 [node name="Nicho2" parent="Foreground" unique_id=1747265268 instance=ExtResource("8_gnqo2")]
-position = Vector2(3126, 958)
+position = Vector2(3204, 958)
 
 [node name="Tacho" parent="Foreground" unique_id=642788288 instance=ExtResource("18_qx8k3")]
 position = Vector2(2985, 605)
 
 [node name="Nicho3" parent="Foreground" unique_id=1834227436 instance=ExtResource("8_gnqo2")]
-position = Vector2(4155, 714)
+position = Vector2(4816, 687)
 
 [node name="Ruedas3" parent="Foreground" unique_id=837112436 instance=ExtResource("7_31big")]
-position = Vector2(3657, 748)
+position = Vector2(3660, 685)
 
 [node name="Tacho2" parent="Foreground" unique_id=1839768323 instance=ExtResource("18_qx8k3")]
-position = Vector2(4720, 873)
+position = Vector2(4488, 880.99994)
 scale = Vector2(0.64000005, 0.64000005)
 
 [node name="Jugador" parent="." unique_id=1341022144 instance=ExtResource("5_ag084")]

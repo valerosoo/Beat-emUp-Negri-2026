@@ -2612,7 +2612,8 @@ script = ExtResource("1_36ssi")
 escena_bala = ExtResource("2_i3jga")
 sprite = NodePath("Pivote/AnimatedSprite2D")
 animation_player = NodePath("AnimationPlayer")
-speed = 100
+escena_original = null
+speed = 110
 distancia_para_atacar = 1185
 animaciones = {
 "atacar": "shoot_ap",

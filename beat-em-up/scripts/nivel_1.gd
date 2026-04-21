@@ -20,7 +20,7 @@ var oleada = 0
 var oleada_iniciada = false
 var camara_bloqueada = false
 var enemigos_vivos = 0
-
+var regresando_del_gulag = false
 var animacion_final_frame = 5300
 var animacion_final_iniciada = false
 
@@ -28,7 +28,14 @@ func _ready() -> void:
 	game_over.visible = false
 	oleadas = [oleada_1, oleada_2, oleada_3]
 	jugador.entrar.connect(jugador_termino_animacion)
-	if !GameManager.puede_ir_gulag:
+	
+	if GameManager.viene_del_gulag:
+		regresando_del_gulag = true
+		oleada = GameManager.oleada_actual
+		jugador.global_position = GameManager.posicion_muerte
+		configurar_oleada()
+		GameManager.viene_del_gulag = false  
+	elif !GameManager.puede_ir_gulag:
 		oleada = GameManager.oleada_actual
 		jugador.global_position = GameManager.posicion_muerte
 		configurar_oleada()
@@ -91,14 +98,18 @@ func configurar_oleada():
 	camara.limit_right = jugador_oleadas_activacion[oleada] + (get_viewport().get_visible_rect().size.x)
 	
 func jugador_termino_animacion():
+	if regresando_del_gulag:
+		regresando_del_gulag = false
+		spawnear_oleada()
+		return
 	if esperando_animacion:
 		esperando_animacion = false
 		spawnear_oleada()
-
+	
 func liberar_camara():
 	camara.limit_left = -10000000
 	camara.limit_right = 10000000
-
+	
 func activar_animacion_final():
 	animacion_final_iniciada = true
 	jugador.set_physics_process(false)

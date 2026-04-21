@@ -4,6 +4,7 @@ var velocidad = 400
 var dano = 10
 var impactando = false
 var direccion_vector = Vector2.RIGHT
+var duenio : Node = null
 
 func _ready() -> void:
 	$AnimatedSprite2D.play("fly")
@@ -20,7 +21,7 @@ func _physics_process(delta: float) -> void:
 		if area.is_in_group("HurtBox"):
 			var jugador = area.get_parent().get_parent()
 			if jugador.is_in_group("jugador"):
-				jugador.restar_vida(dano, self)
+				jugador.restar_vida(dano, duenio)
 			impactar()
 			return
 	

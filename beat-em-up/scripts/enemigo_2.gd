@@ -264,3 +264,11 @@ func soltar_corazon():
 	corazon.global_position = global_position + Vector2(0, 40)
 	get_parent().add_child(corazon)
 	corazon.inicializar(barra_vida.max_value)
+
+func desactivar_colision_y_hurtbox():
+	$CollisionShape2D.disabled = true
+	$HurtBox.monitoring = false
+	
+func activar_colision_y_hurtbox():
+	$CollisionShape2D.disabled = false
+	$HurtBox.monitoring = true
