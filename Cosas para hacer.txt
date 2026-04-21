@@ -1,9 +1,8 @@
-1- En el nivel 2, separar la store y la callbox
-2-Verificar Gulag de los enemigos 3 y 4
-7- Modelar al boss 2 y 3
-8- Para el menú de opciones, poner controles, volumen sonido, (resolución si se puede)
-9- Tengo que crear la animación de hit para el enemigo 2
-10- Hacer la bossfight
+
+1- Modelar al boss 2 y 3
+2- Hacer la bossfight
+3- Para el menú de opciones, poner controles, volumen sonido, (resolución si se puede)
+4- Tengo que crear la animación de hit para el enemigo 2
 
 Cosas que planeo para la batalla final
 1- Batalla por fases (según la vida):

@@ -936,7 +936,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("105_8var2")
 }],
-"loop": true,
+"loop": false,
 "name": &"bat_hurt",
 "speed": 20.0
 }, {
@@ -2534,7 +2534,7 @@ anim_empuje = "bat_attack"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivote" unique_id=1188408221]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_xrbis")
-animation = &"bat_attack"
+animation = &"bat_hurt"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1871361485]

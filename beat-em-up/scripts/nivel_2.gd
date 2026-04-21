@@ -14,6 +14,12 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Abrir_salir":
 		esperando_animacion = false
 		get_tree().paused = false
+		
+	elif anim_name == "Animacion_final":
+		esperando_animacion = false
+		get_tree().paused = false
+		get_tree().change_scene_to_file("res://scenes/boss_fight.tscn")
+		
 	else:
 		super(anim_name)
 

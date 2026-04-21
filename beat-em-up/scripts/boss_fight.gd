@@ -2,12 +2,15 @@ extends Node2D
 
 var vida_total = 700
 var fase = 1
+@onready var animation_player = $AnimationPlayer
+var animacion_inicio_terminada = false
 
 func _ready():
 	#$Boss_2.visible = false
 	#$Boss_2.process_mode = Node.PROCESS_MODE_DISABLED
 	#$Boss_3.visible = false
 	#$Boss_3.process_mode = Node.PROCESS_MODE_DISABLED
+	animation_player.play("Entrar")
 	pass
 	
 func restar_vida_boss(dano):
@@ -38,3 +41,8 @@ func cambiar_fase():
 	
 func boss_muerto():
 	pass  # Hacer la animacion del boss muriendo o algo asi
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "Entrar":
+		animacion_inicio_terminada = true

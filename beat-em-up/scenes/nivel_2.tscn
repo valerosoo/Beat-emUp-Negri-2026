@@ -8,15 +8,19 @@
 [ext_resource type="PackedScene" uid="uid://b6o6rbhkny6uu" path="res://scenes/game_over.tscn" id="3_nuwf4"]
 [ext_resource type="PackedScene" uid="uid://cm3mnjtcub2f7" path="res://scenes/enemigo_4.tscn" id="4_8s0wr"]
 [ext_resource type="PackedScene" uid="uid://0askqx56c0to" path="res://scenes/menu_pausa.tscn" id="4_aiekk"]
-[ext_resource type="Texture2D" uid="uid://oqd0hyu1xnjb" path="res://assets/Mapas/2/Bright/City2.png" id="5_qui7q"]
 [ext_resource type="PackedScene" uid="uid://kog3oqmrsvlh" path="res://scenes/enemigo_2.tscn" id="5_xl3cl"]
 [ext_resource type="PackedScene" uid="uid://bys5whwn380hj" path="res://scenes/colisiones_casasN2.tscn" id="6_qx81a"]
 [ext_resource type="PackedScene" uid="uid://cmce3kwktffbw" path="res://scenes/coliisionShopCall.tscn" id="7_hylrv"]
 [ext_resource type="PackedScene" uid="uid://tvv4letdju1q" path="res://scenes/jugador.tscn" id="10_2j5ls"]
 [ext_resource type="PackedScene" uid="uid://dskmkx8pbdug3" path="res://scenes/taxi.tscn" id="10_hylrv"]
+[ext_resource type="Texture2D" uid="uid://cufkgakdb5ixy" path="res://assets/Mapas/2/Bright/Sky.png" id="10_n5l3q"]
+[ext_resource type="Texture2D" uid="uid://18fks81a4eas" path="res://assets/Mapas/2/Bright/back.png" id="11_245ks"]
 [ext_resource type="PackedScene" uid="uid://ch70lpyp54h0u" path="res://scenes/tacho.tscn" id="12_0qnd7"]
+[ext_resource type="Texture2D" uid="uid://cyl2vgld7ec65" path="res://assets/Mapas/2/Bright/houses3.png" id="12_mhrql"]
 [ext_resource type="PackedScene" uid="uid://c8v57thq734f3" path="res://scenes/nicho.tscn" id="13_6dnhc"]
+[ext_resource type="Texture2D" uid="uid://cip1ql26bktt2" path="res://assets/Mapas/2/Bright/houses1.png" id="13_upuk5"]
 [ext_resource type="PackedScene" uid="uid://ccg6lrj5u3yni" path="res://scenes/ruedas.tscn" id="14_xl3cl"]
+[ext_resource type="Texture2D" uid="uid://ebly3bsvrdpu" path="res://assets/Mapas/2/Bright/road&lamps.png" id="15_2m2kn"]
 [ext_resource type="Script" uid="uid://unqcq5cqp3ym" path="res://scripts/pivote_boss_nivel_2.gd" id="18_0yqqt"]
 [ext_resource type="Texture2D" uid="uid://cjdqsfndydr05" path="res://assets/Mercenary Penguin/Secuence PNG/aim_transition/Armature_RUN_aim_transition_00.png" id="19_yheqg"]
 [ext_resource type="Texture2D" uid="uid://bgx7jf5t1teyb" path="res://assets/Mercenary Penguin/Secuence PNG/aim_transition/Armature_RUN_aim_transition_01.png" id="20_3k57k"]
@@ -789,7 +793,7 @@ tracks/8/keys = {
 
 [sub_resource type="Animation" id="Animation_pdsdw"]
 resource_name = "Animacion_final"
-length = 8.0
+length = 9.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -946,6 +950,30 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, 0), Vector2(37, -194)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CanvasLayer/ColorRect:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(8, 9.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.9782609)]
 }
 
 [sub_resource type="Animation" id="Animation_nuwf4"]
@@ -3171,6 +3199,7 @@ visible = false
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1819608051]
 visible = false
 modulate = Color(0, 0, 0, 0)
+z_index = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -3229,8 +3258,44 @@ y_sort_enabled = true
 y_sort_enabled = true
 offset_right = 6986.0
 offset_bottom = 1080.0
-texture = ExtResource("5_qui7q")
+texture = ExtResource("10_n5l3q")
 stretch_mode = 1
+
+[node name="Back" type="TextureRect" parent="Background" unique_id=2107754672]
+y_sort_enabled = true
+offset_right = 6986.0
+offset_bottom = 1080.0
+texture = ExtResource("11_245ks")
+stretch_mode = 1
+
+[node name="Houses1" type="TextureRect" parent="Background" unique_id=55148346]
+y_sort_enabled = true
+offset_right = 6986.0
+offset_bottom = 1080.0
+texture = ExtResource("12_mhrql")
+stretch_mode = 1
+
+[node name="Houses2" type="TextureRect" parent="Background" unique_id=997546874]
+y_sort_enabled = true
+offset_right = 6986.0
+offset_bottom = 1080.0
+texture = ExtResource("13_upuk5")
+stretch_mode = 1
+
+[node name="Road" type="TextureRect" parent="Background" unique_id=46305094]
+y_sort_enabled = true
+offset_right = 6986.0
+offset_bottom = 1080.0
+texture = ExtResource("15_2m2kn")
+stretch_mode = 1
+
+[node name="StaticBody2D" parent="Background" unique_id=1161182034 instance=ExtResource("7_hylrv")]
+
+[node name="StaticBody2D2" parent="Background" unique_id=645651228 instance=ExtResource("7_hylrv")]
+position = Vector2(1920, 0)
+
+[node name="StaticBody2D3" parent="Background" unique_id=1381122017 instance=ExtResource("7_hylrv")]
+position = Vector2(3840, 0)
 
 [node name="Colisiones" type="Node2D" parent="." unique_id=752539530]
 y_sort_enabled = true
@@ -3241,14 +3306,6 @@ y_sort_enabled = true
 position = Vector2(1920, 0)
 
 [node name="ColisionesCasas3" parent="Colisiones" unique_id=1253532257 instance=ExtResource("6_qx81a")]
-position = Vector2(3840, 0)
-
-[node name="ColisionShopCall" parent="Colisiones" unique_id=641634014 instance=ExtResource("7_hylrv")]
-
-[node name="ColisionShopCall2" parent="Colisiones" unique_id=917175717 instance=ExtResource("7_hylrv")]
-position = Vector2(1920, 0)
-
-[node name="ColisionShopCall3" parent="Colisiones" unique_id=558925368 instance=ExtResource("7_hylrv")]
 position = Vector2(3840, 0)
 
 [node name="Pared_izq" type="StaticBody2D" parent="Colisiones" unique_id=634606298]
@@ -3285,7 +3342,7 @@ position = Vector2(2349, 962)
 
 [node name="Ruedas" parent="Foreground" unique_id=601711903 instance=ExtResource("14_xl3cl")]
 y_sort_enabled = true
-position = Vector2(4599, 842)
+position = Vector2(4309, 920)
 
 [node name="Jugador" parent="." unique_id=1341022144 instance=ExtResource("10_2j5ls")]
 position = Vector2(342, 925)

@@ -1,9 +1,18 @@
 [gd_scene format=3 uid="uid://cmce3kwktffbw"]
 
+[ext_resource type="Texture2D" uid="uid://ciyt87fe7oyfc" path="res://assets/Mapas/2/Bright/minishop&callbox.png" id="1_0ddd5"]
+
 [node name="StaticBody2D" type="StaticBody2D" unique_id=1161182034]
 y_sort_enabled = true
 collision_layer = 32
 collision_mask = 31
+
+[node name="Store" type="TextureRect" parent="." unique_id=1220181225]
+y_sort_enabled = true
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_0ddd5")
+stretch_mode = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=323199681]
 y_sort_enabled = true

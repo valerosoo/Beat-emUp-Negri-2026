@@ -22,6 +22,7 @@ var golpes_recibidos = 0
 var player
 var stun_id := 0
 var pivote_offset = Vector2.ZERO
+var primer_spawn = true
 
 func _ready():
 	barra_vida = get_tree().get_first_node_in_group("Barra_boss")
@@ -29,15 +30,21 @@ func _ready():
 	sprite.play("bat_idle")
 	barra_vida.max_value = vida_maxima
 	barra_vida.value = vida
-	spawnear_enemigos.call_deferred()
 	
 func _physics_process(delta):
+	print(get_parent().animacion_inicio_terminada)
+	if !get_parent().animacion_inicio_terminada:
+		return
+	if primer_spawn:
+		primer_spawn = false
+		spawnear_enemigos.call_deferred()
 	girar_sprite()
 	match estado:
 		Estado.IDLE:
 			sprite.play("bat_idle")
 		Estado.STUN:
 			sprite.play("bat_hurt")
+			pivote_offset = Vector2(-60, 0)
 		Estado.ATTACK:
 			pass
 	

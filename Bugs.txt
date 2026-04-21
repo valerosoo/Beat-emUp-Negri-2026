@@ -1,1 +1,2 @@
 -Arreglar el y-sort de los objetos
+-flashes entre animaciones de nivel
