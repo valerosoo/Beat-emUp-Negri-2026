@@ -199,9 +199,9 @@ func verificar_muerte():
 		estado = Estado.DEATH
 		velocity = Vector2.ZERO
 		atacando = false
-		$CollisionShape2D.disabled = true
-		set_collision_layer(0)
-		set_collision_mask(0)
+		$CollisionShape2D.set_deferred("disabled", true)
+		set_deferred("collision_layer", 0)
+		set_deferred("collision_mask", 0)
 		soltar_corazon()
 		sprite.play("death")
 

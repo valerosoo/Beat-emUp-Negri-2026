@@ -1,10 +1,12 @@
 extends CharacterBody2D
+class_name  Bala
 
 var velocidad = 400
 var dano = 10
 var impactando = false
 var direccion_vector = Vector2.RIGHT
 var duenio : Node = null
+const danio = 10
 
 func _ready() -> void:
 	$AnimatedSprite2D.play("fly")

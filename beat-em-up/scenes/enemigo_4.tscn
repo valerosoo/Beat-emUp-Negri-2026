@@ -2588,10 +2588,10 @@ _data = {
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1405356426 node_paths=PackedStringArray("sprite", "animation_player") groups=["enemigo"]]
 collision_layer = 2
 collision_mask = 7
+platform_floor_layers = 4294901760
 script = ExtResource("1_oyxo7")
 sprite = NodePath("Pivote/AnimatedSprite2D")
 animation_player = NodePath("AnimationPlayer")
-escena_original = null
 animaciones = {
 "atacar": "bat_attack_ap",
 "correr": "bat_run_ap",

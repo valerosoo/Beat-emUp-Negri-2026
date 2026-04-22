@@ -157,8 +157,8 @@ position = Vector2(1697, -450)
 
 [node name="Boss_2" parent="." unique_id=222908220 instance=ExtResource("8_2tdpq")]
 position = Vector2(1592, 751)
-cantidad_balas = 30
-cantidad_balas_doradas = 6
+cantidad_balas = 20
+cantidad_balas_doradas = 4
 vida_maxima = 700
 duracion_stun = 15.0
 golpes_para_stun = 6

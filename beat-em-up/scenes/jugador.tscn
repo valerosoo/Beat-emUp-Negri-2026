@@ -680,7 +680,7 @@ animations = [{
 [node name="Jugador" type="CharacterBody2D" unique_id=1341022144 groups=["jugador"]]
 process_mode = 3
 position = Vector2(100, 0)
-collision_mask = 38
+collision_mask = 166
 script = ExtResource("1_pwri8")
 vida_maxima = 500
 tiempo_para_otro_escudo = 1
@@ -710,6 +710,7 @@ libraries/ = SubResource("AnimationLibrary_h8oge")
 
 [node name="AttackArea" type="Area2D" parent="Pivote" unique_id=2111464777 groups=["AttackArea"]]
 position = Vector2(59, 43)
+collision_layer = 257
 collision_mask = 2
 monitoring = false
 

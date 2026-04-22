@@ -6,10 +6,11 @@ var fase = 1
 var animacion_inicio_terminada = false
 
 func _ready():
-	#$Boss_2.visible = false
-	#$Boss_2.process_mode = Node.PROCESS_MODE_DISABLED
+	$Boss_2.visible = false
+	$Boss_2.process_mode = Node.PROCESS_MODE_DISABLED
 	#$Boss_3.visible = false
 	#$Boss_3.process_mode = Node.PROCESS_MODE_DISABLED
+	get_tree().get_first_node_in_group("Barra_boss").max_value = vida_total
 	animation_player.play("Entrar")
 	pass
 	
@@ -29,10 +30,12 @@ func restar_vida_boss(dano):
 func cambiar_fase():
 	match fase:
 		2:
+			$Boss_1.desactivar()
 			$Boss_1.visible = false
 			$Boss_1.process_mode = Node.PROCESS_MODE_DISABLED
 			$Boss_2.visible = true
 			$Boss_2.process_mode = Node.PROCESS_MODE_INHERIT
+			$Boss_2.elegir_ataque.call_deferred()
 		3:
 			$Boss_2.visible = false
 			$Boss_2.process_mode = Node.PROCESS_MODE_DISABLED

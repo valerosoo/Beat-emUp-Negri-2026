@@ -141,7 +141,7 @@ func idle_anim():
 
 func correr():
 	$Pivote/AnimatedSprite2D.play("run")
-	
+
 func caminar():
 	$Pivote/AnimatedSprite2D.play("walk")
 	

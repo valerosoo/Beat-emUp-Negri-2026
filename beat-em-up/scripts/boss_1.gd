@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name  Boss1
 
 enum Estado {IDLE, STUN, ATTACK}
 
@@ -23,6 +24,7 @@ var player
 var stun_id := 0
 var pivote_offset = Vector2.ZERO
 var primer_spawn = true
+var desactivado = false
 
 func _ready():
 	barra_vida = get_tree().get_first_node_in_group("Barra_boss")
@@ -32,7 +34,6 @@ func _ready():
 	barra_vida.value = vida
 	
 func _physics_process(delta):
-	print(get_parent().animacion_inicio_terminada)
 	if !get_parent().animacion_inicio_terminada:
 		return
 	if primer_spawn:
@@ -49,7 +50,6 @@ func _physics_process(delta):
 			pass
 	
 func spawnear_enemigos():
-	print("spawneando enemigos")
 	var e1 = escena_enemigo.instantiate()
 	var e2 = escena_enemigo.instantiate()
 	e1.global_position = spawn1.global_position
@@ -64,7 +64,6 @@ func spawnear_enemigos():
 	
 func enemigo_muerto():
 	enemigos_vivos -= 1
-	print("enemigo muerto, vivos: " + str(enemigos_vivos))
 	if enemigos_vivos <= 0:
 		call_deferred("iniciar_stun")
 	
@@ -89,13 +88,14 @@ func terminar_stun():
 	estado = Estado.IDLE
 	await empujar_jugador()
 	await get_tree().create_timer(1.0).timeout
+	if desactivado: 
+		return
 	call_deferred("spawnear_enemigos")
 	
 func restar_vida(dano):
 	get_parent().restar_vida_boss(dano)
 	if stuneado:
 		golpes_recibidos += 1
-		print("golpe en stun: " + str(golpes_recibidos))
 		if golpes_recibidos >= golpes_para_stun:
 			terminar_stun()
 	
@@ -132,4 +132,12 @@ func girar_sprite():
 	elif dir < 0:
 		sprite.flip_h = true
 		$Pivote.position = Vector2(-pivote_offset.x, pivote_offset.y)
+	
+func desactivar():
+	desactivado = true
+	estado = Estado.IDLE
+	get_tree().call_group("enemigos_boss", "queue_free")
+	enemigos_vivos = 0
+	
+	
 	

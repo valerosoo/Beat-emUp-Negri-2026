@@ -39,6 +39,8 @@ game_over=""
 enemigo_2=""
 nivel=""
 Barra_boss=""
+boss_2=""
+balaVerde=""
 
 [input]
 

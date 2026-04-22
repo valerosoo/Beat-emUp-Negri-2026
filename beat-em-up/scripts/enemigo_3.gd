@@ -22,10 +22,6 @@ func _ready():
 	dano = [10]
 	animation_player.animation_finished.connect(_on_animation_player_finished)
 	await get_tree().process_frame
-	radar.body_entered.connect(_on_radar_entered)
-	radar.body_exited.connect(_on_radar_exited)
-	attack_area_propio.body_entered.connect(_on_attack_entered)
-	attack_area_propio.body_exited.connect(_on_attack_exited)
 	
 func _on_radar_entered(body):
 	print("Radar detectó: ", body.name, " grupos: ", body.get_groups())
