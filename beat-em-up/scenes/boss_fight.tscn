@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bpa46jxf722dc"]
 
 [ext_resource type="Script" uid="uid://diw82n6cbgrc4" path="res://scripts/boss_fight.gd" id="1_x4w2v"]
+[ext_resource type="PackedScene" uid="uid://b6o6rbhkny6uu" path="res://scenes/game_over.tscn" id="2_4ix7a"]
 [ext_resource type="Texture2D" uid="uid://7rx7153krfma" path="res://assets/Mios/Cara_pinguino.jpg" id="2_34kmk"]
 [ext_resource type="Texture2D" uid="uid://v06wwnb3o84h" path="res://assets/Mios/Sky_BossFight.png" id="2_62gkx"]
 [ext_resource type="PackedScene" uid="uid://ckxye0fpkd814" path="res://scenes/barra_vida_boss.tscn" id="2_85w88"]
@@ -122,8 +123,21 @@ _data = {
 &"RESET": SubResource("Animation_2tdpq")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ix7a"]
+size = Vector2(1920, 113)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4ix7a"]
+a = Vector2(1519, 235)
+b = Vector2(-401, 235)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ql2p3"]
+b = Vector2(0, 421)
+
 [node name="BossFight" type="Node2D" unique_id=140681411]
 script = ExtResource("1_x4w2v")
+
+[node name="GameOver" parent="." unique_id=49019461 instance=ExtResource("2_4ix7a")]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2054076931]
 visible = false
@@ -191,5 +205,25 @@ position = Vector2(1845, 900)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1521951229]
 libraries/ = SubResource("AnimationLibrary_62gkx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=571794445]
+collision_layer = 32
+collision_mask = 31
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=840218474]
+position = Vector2(960, 611)
+shape = SubResource("RectangleShape2D_4ix7a")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=2020723718]
+position = Vector2(401, 844)
+shape = SubResource("SegmentShape2D_4ix7a")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1470009615]
+position = Vector2(0, 659)
+shape = SubResource("SegmentShape2D_ql2p3")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=684252948]
+position = Vector2(1920, 659)
+shape = SubResource("SegmentShape2D_ql2p3")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

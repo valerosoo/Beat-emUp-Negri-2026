@@ -181,6 +181,8 @@ func _on_animated_sprite_2d_frame_changed() -> void:
 				player.restar_vida(dano_golpe, self)
 
 func restar_vida(dano):
+	if estado == Estado.DEATH:
+		return
 	if cayendo:
 		return
 	vida -= dano

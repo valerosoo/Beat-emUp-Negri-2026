@@ -9,7 +9,8 @@ class_name Boss3
 @export var balas_por_oleada : int = 6
 @export var tiempo_entre_balas : float = 0.3
 @export var tiempo_entre_oleadas : float = 2.0
-@export var doradas_por_oleada : int = 1
+@export var doradas_por_oleada : int = 3
+@export var bala_verde_danio = 30
 
 var atacando_3 = false
 
@@ -43,9 +44,14 @@ func iniciar_ataque():
 	spawnear_enemigos_costado()
 	
 	for oleada in cantidad_oleadas:
+		if muerto:
+			return
 		await lanzar_oleada()
+		if muerto:
+			return
 		await get_tree().create_timer(tiempo_entre_oleadas).timeout
-	
+	if muerto:
+		return
 	atacando_3 = false
 	estado = Estado.IDLE
 	await get_tree().create_timer(2.0).timeout
@@ -65,9 +71,12 @@ func lanzar_oleada():
 	var indices_dorados = todos.slice(0, doradas_por_oleada)
 	
 	for i in balas_por_oleada:
+		if muerto:
+			return
 		var escena = escena_bala_verde if i in indices_dorados else escena_bala
 		var bala = escena.instantiate()
 		get_parent().add_child(bala)
+		bala.set_collision_mask_value(6, false)
 		bala.duenio = self
 		if es_horizontal:
 			var va_izquierda = randf() < 0.5

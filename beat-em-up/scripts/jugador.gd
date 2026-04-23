@@ -124,7 +124,10 @@ func _on_animated_sprite_2d_animation_finished():
 		if GameManager.puede_ir_gulag:
 			GameManager.puede_ir_gulag = false
 			GameManager.nivel_actual = get_parent().num_nivel
-			get_tree().change_scene_to_file("res://scenes/continue.tscn")
+			if GameManager.nivel_actual > 0:
+				get_tree().change_scene_to_file("res://scenes/continue.tscn")
+			else:
+				get_parent().mostrar_death_screen()
 		else:
 			get_parent().mostrar_death_screen()
 			

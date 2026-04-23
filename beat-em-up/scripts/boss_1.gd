@@ -25,6 +25,8 @@ var stun_id := 0
 var pivote_offset = Vector2.ZERO
 var primer_spawn = true
 var desactivado = false
+var muerto = false
+
 
 func _ready():
 	barra_vida = get_tree().get_first_node_in_group("Barra_boss")
@@ -101,6 +103,7 @@ func restar_vida(dano):
 	
 func verificar_muerte():
 	if vida <= 0:
+		muerto = true
 		estado = Estado.IDLE
 		queue_free()
 		

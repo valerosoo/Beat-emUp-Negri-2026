@@ -4,6 +4,7 @@ var vida_total = 700
 var fase = 1
 @onready var animation_player = $AnimationPlayer
 var animacion_inicio_terminada = false
+@export var num_nivel = -1
 
 func _ready():
 	$Boss_2.visible = false
@@ -45,6 +46,9 @@ func cambiar_fase():
 			$Boss_3.elegir_ataque.call_deferred()
 	
 func boss_muerto():
+	$Boss_3.desactivar()
+	$Boss_3.visible = false
+	$Boss_3.process_mode = Node.PROCESS_MODE_DISABLED
 	pass  # Hacer la animacion del boss muriendo o algo asi
 
 

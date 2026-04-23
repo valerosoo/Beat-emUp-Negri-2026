@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dv31iklx27gsh" path="res://scripts/boss_3.gd" id="1_1oysd"]
 [ext_resource type="Texture2D" uid="uid://cjdqsfndydr05" path="res://assets/Mercenary Penguin/Secuence PNG/aim_transition/Armature_RUN_aim_transition_00.png" id="1_rpoqu"]
 [ext_resource type="Texture2D" uid="uid://bgx7jf5t1teyb" path="res://assets/Mercenary Penguin/Secuence PNG/aim_transition/Armature_RUN_aim_transition_01.png" id="2_1oysd"]
-[ext_resource type="PackedScene" uid="uid://5tlfsga8je61" path="res://scenes/enemigo_3.tscn" id="2_f5yha"]
+[ext_resource type="PackedScene" uid="uid://cm3mnjtcub2f7" path="res://scenes/enemigo_4.tscn" id="2_f5yha"]
 [ext_resource type="Texture2D" uid="uid://ct46ixlea7bep" path="res://assets/Mercenary Penguin/Secuence PNG/aim_transition/Armature_RUN_aim_transition_02.png" id="3_f5yha"]
 [ext_resource type="Texture2D" uid="uid://daqa14xqb68oh" path="res://assets/Mercenary Penguin/Secuence PNG/aim_transition/Armature_RUN_aim_transition_03.png" id="4_mi3t8"]
 [ext_resource type="Texture2D" uid="uid://cf0dvkc2j8jdm" path="res://assets/Mercenary Penguin/Secuence PNG/aim_transition/Armature_RUN_aim_transition_04.png" id="5_pkiwe"]

@@ -72,15 +72,19 @@ func hacer_caer_balas():
 	var x_max = rect.position.x + rect.size.x - 50
 
 	for i in cantidad_balas:
+		if muerto:
+			return
 		var escena = escena_bala_verde if i in indices_dorados else escena_bala
 		var bala = escena.instantiate()
 		get_parent().add_child(bala)
+		bala.set_collision_mask_value(6, false)
 		bala.duenio = self
 		bala.global_position = Vector2(randf_range(x_min, x_max), - 700)
 		bala.direccion_vector = Vector2.DOWN
 		bala.actualizar_rotacion()
 		await get_tree().create_timer(0.25).timeout
-	
+	if muerto:
+		return
 	estado = Estado.IDLE
 	await get_tree().create_timer(2.0).timeout
 	
@@ -88,6 +92,7 @@ func terminar_stun():
 	if !stuneado:
 		return
 	stuneado = false
+	empujar_jugador()
 	golpes_recibidos = 0
 	stun_id += 1
 	estado = Estado.IDLE
