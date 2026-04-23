@@ -8,8 +8,8 @@ var animacion_inicio_terminada = false
 func _ready():
 	$Boss_2.visible = false
 	$Boss_2.process_mode = Node.PROCESS_MODE_DISABLED
-	#$Boss_3.visible = false
-	#$Boss_3.process_mode = Node.PROCESS_MODE_DISABLED
+	$Boss_3.visible = false
+	$Boss_3.process_mode = Node.PROCESS_MODE_DISABLED
 	get_tree().get_first_node_in_group("Barra_boss").max_value = vida_total
 	animation_player.play("Entrar")
 	pass
@@ -37,10 +37,12 @@ func cambiar_fase():
 			$Boss_2.process_mode = Node.PROCESS_MODE_INHERIT
 			$Boss_2.elegir_ataque.call_deferred()
 		3:
+			$Boss_2.desactivar()
 			$Boss_2.visible = false
 			$Boss_2.process_mode = Node.PROCESS_MODE_DISABLED
 			$Boss_3.visible = true
 			$Boss_3.process_mode = Node.PROCESS_MODE_INHERIT
+			$Boss_3.elegir_ataque.call_deferred()
 	
 func boss_muerto():
 	pass  # Hacer la animacion del boss muriendo o algo asi

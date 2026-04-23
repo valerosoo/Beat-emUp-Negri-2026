@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://bpa46jxf722dc"]
 
-[ext_resource type="Texture2D" uid="uid://ddrmnjayb7732" path="res://assets/Mios/keilidh-bradley-bg1.jpg" id="1_mhjqm"]
 [ext_resource type="Script" uid="uid://diw82n6cbgrc4" path="res://scripts/boss_fight.gd" id="1_x4w2v"]
 [ext_resource type="Texture2D" uid="uid://7rx7153krfma" path="res://assets/Mios/Cara_pinguino.jpg" id="2_34kmk"]
+[ext_resource type="Texture2D" uid="uid://v06wwnb3o84h" path="res://assets/Mios/Sky_BossFight.png" id="2_62gkx"]
 [ext_resource type="PackedScene" uid="uid://ckxye0fpkd814" path="res://scenes/barra_vida_boss.tscn" id="2_85w88"]
+[ext_resource type="PackedScene" uid="uid://2u2uythecc7t" path="res://scenes/boss_3.tscn" id="3_7imqq"]
 [ext_resource type="PackedScene" uid="uid://el43f433qnmu" path="res://scenes/barra_vida.tscn" id="3_31neg"]
+[ext_resource type="Texture2D" uid="uid://cduo5spuusjpv" path="res://assets/Mios/Piso_BossFight.png" id="4_7imqq"]
+[ext_resource type="PackedScene" uid="uid://dkb0egef7xlw7" path="res://scenes/bullet.tscn" id="4_r7oq6"]
+[ext_resource type="PackedScene" uid="uid://enn1bif015pa" path="res://scenes/bala_verde.tscn" id="5_4ix7a"]
 [ext_resource type="PackedScene" uid="uid://l535rbpc138a" path="res://scenes/boss_1.tscn" id="5_67f06"]
 [ext_resource type="PackedScene" uid="uid://cpqm2h3d343at" path="res://scenes/boss_2.tscn" id="8_2tdpq"]
 [ext_resource type="PackedScene" uid="uid://tvv4letdju1q" path="res://scenes/jugador.tscn" id="568_i67ca"]
@@ -134,10 +138,22 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=102082494]
+[node name="Sky" type="TextureRect" parent="." unique_id=102082494]
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_mhjqm")
+texture = ExtResource("2_62gkx")
+
+[node name="Boss_3" parent="." unique_id=1266515135 node_paths=PackedStringArray("spawn_izquierda", "spawn_derecha") instance=ExtResource("3_7imqq")]
+position = Vector2(913, 443)
+spawn_izquierda = NodePath("../SpawnIzq")
+spawn_derecha = NodePath("../SpawnDer")
+escena_bala = ExtResource("4_r7oq6")
+escena_bala_verde = ExtResource("5_4ix7a")
+
+[node name="Floor" type="TextureRect" parent="." unique_id=1297396259]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_7imqq")
 
 [node name="Barra_vida_boss" parent="." unique_id=668431123 instance=ExtResource("2_85w88")]
 
@@ -157,11 +173,6 @@ position = Vector2(1697, -450)
 
 [node name="Boss_2" parent="." unique_id=222908220 instance=ExtResource("8_2tdpq")]
 position = Vector2(1592, 751)
-cantidad_balas = 30
-cantidad_balas_doradas = 6
-vida_maxima = 700
-duracion_stun = 15.0
-golpes_para_stun = 6
 
 [node name="Spawn1" type="Marker2D" parent="." unique_id=1447139827]
 position = Vector2(1347, 721)
@@ -171,6 +182,12 @@ position = Vector2(1352, 947)
 
 [node name="DestinoEmpuje" type="Marker2D" parent="." unique_id=1612143350]
 position = Vector2(135, 938)
+
+[node name="SpawnIzq" type="Marker2D" parent="." unique_id=1627580437]
+position = Vector2(75, 900)
+
+[node name="SpawnDer" type="Marker2D" parent="." unique_id=946042095]
+position = Vector2(1845, 900)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1521951229]
 libraries/ = SubResource("AnimationLibrary_62gkx")

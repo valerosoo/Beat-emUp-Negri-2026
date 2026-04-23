@@ -1,11 +1,8 @@
 extends Bala
 class_name BalaVerde
 
-var boss
-
 func _ready():
 	super._ready()
-	boss = get_tree().get_first_node_in_group("boss_2")
 	
 func _physics_process(delta):
 	super._physics_process(delta)
@@ -39,9 +36,9 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	super._on_area_entered(area)
 	
 func redirigir_al_boss():
-	if boss == null:
+	if duenio == null:
 		return
-	direccion_vector = (boss.global_position - global_position).normalized()
+	direccion_vector = (duenio.global_position - global_position).normalized()
 	velocidad = 800
 	actualizar_rotacion()
 	$Area2D.collision_mask = 1 << 1

@@ -22,7 +22,6 @@ func ciclo_ataques():
 		await get_tree().create_timer(1.0).timeout
 	
 func _physics_process(delta):
-	print("ATACANDO:", atacando, " STUN:", stuneado, " ENEMIGOS:", enemigos_vivos)
 	if !get_parent().animacion_inicio_terminada:
 		return
 	girar_sprite()
