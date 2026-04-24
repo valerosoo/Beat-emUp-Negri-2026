@@ -131,6 +131,7 @@ func activar_animacion_final():
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Abrir_entrar":
+		termino_nivel()
 		get_tree().change_scene_to_file("res://scenes/nivel_2.tscn")
 
 func mover_paredes():
@@ -142,3 +143,4 @@ func desactivar_pared_der():
 
 func termino_nivel():
 	ManejadorGuardado.niveles.niveles_desbloqueados += 1
+	ManejadorGuardado.guardar_todo()

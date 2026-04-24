@@ -2,3 +2,4 @@
 -flashes entre animaciones de nivel
 -Animacion de muerte del pinguino desfazada
 -Arreglar las animaciones de los bosses
+-Stats de vida creo que no funcionan bien

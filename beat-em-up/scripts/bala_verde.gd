@@ -41,7 +41,12 @@ func redirigir_al_boss():
 	direccion_vector = (duenio.global_position - global_position).normalized()
 	velocidad = 800
 	actualizar_rotacion()
-	$Area2D.collision_mask = 1 << 1
+	$Area2D.set_collision_mask_value(2, false) 
+	$Area2D.set_collision_mask_value(10, true)   
+	$Area2D.set_collision_mask_value(5, false)
+	set_collision_mask_value(2, false)
+	set_collision_mask_value(10, true)
+	$Area2D.set_collision_mask_value(5, false)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if impactando:

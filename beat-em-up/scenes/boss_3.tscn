@@ -2639,7 +2639,7 @@ flip_h = true
 shape = SubResource("CircleShape2D_n8a7u")
 
 [node name="HurtBox" type="Area2D" parent="." unique_id=2061323231 groups=["HurtBox"]]
-collision_layer = 2
+collision_layer = 514
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1589532817]
 position = Vector2(52.5, -153)

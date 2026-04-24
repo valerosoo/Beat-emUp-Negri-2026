@@ -44,6 +44,7 @@ func _physics_process(delta: float) -> void:
 	pass
 		
 func mostrar_death_screen():
+	ManejadorGuardado.guardar_todo()
 	gameover.mostrar_stats() 
 	gameover.visible = true
 

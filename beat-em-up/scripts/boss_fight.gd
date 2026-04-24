@@ -7,7 +7,11 @@ var animacion_inicio_terminada = false
 @export var num_nivel = -1
 
 func _ready():
-	GameManager.continuar_siguiente_nivel()
+	if GameManager.viene_del_nivel_anterior:
+		GameManager.continuar_siguiente_nivel()
+		GameManager.viene_del_nivel_anterior = false
+	else:
+		GameManager.iniciar_partida()
 	$Victoria.visible = false
 	$Boss_2.visible = false
 	$Boss_2.process_mode = Node.PROCESS_MODE_DISABLED

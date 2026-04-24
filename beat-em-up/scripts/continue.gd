@@ -20,12 +20,20 @@ func _on_timer_timeout() -> void:
 	
 	if tiempo <= 0:
 		$Timer.stop()
-		get_tree().change_scene_to_file("res://scenes/menu.tscn")
+		ir_al_menu()
 
 
 func _on_gulag_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/gulag.tscn")
 
 
-func _on_menu_pressed() -> void:
+func _on_menu_pressed():
+	ir_al_menu()
+
+func ir_al_menu():
+	GameManager.puede_ir_gulag = true
+	GameManager.oleada_actual = 0
+	GameManager.posicion_muerte = Vector2.ZERO
+	GameManager.viene_del_gulag = false
+	GameManager.resetear_stats()
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")

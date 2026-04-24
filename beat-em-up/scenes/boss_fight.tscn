@@ -139,6 +139,7 @@ size = Vector2(93, 411)
 
 [node name="BossFight" type="Node2D" unique_id=140681411]
 script = ExtResource("1_x4w2v")
+num_nivel = 3
 
 [node name="GameOver" parent="." unique_id=49019461 instance=ExtResource("2_4ix7a")]
 visible = false

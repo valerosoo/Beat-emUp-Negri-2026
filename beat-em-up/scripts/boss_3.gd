@@ -100,3 +100,8 @@ func spawnear_enemigos_costado():
 func restar_vida(dano):
 	get_parent().restar_vida_boss(dano) 
 	
+func iniciar_stun():
+	pass
+
+func terminar_stun():
+	pass

@@ -80,6 +80,8 @@ func hacer_caer_balas():
 			return
 		var escena = escena_bala_verde if i in indices_dorados else escena_bala
 		var bala = escena.instantiate()
+		bala.set_collision_mask_value(5, false)  
+		bala.set_collision_mask_value(6, false)
 		get_parent().add_child(bala)
 		bala.set_collision_mask_value(6, false)
 		bala.duenio = self
