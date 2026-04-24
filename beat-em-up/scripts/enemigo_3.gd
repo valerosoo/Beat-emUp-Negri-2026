@@ -185,6 +185,7 @@ func anim_morir():
 
 func verificar_muerte():
 	if vida <= 0:
+		GameManager.registrar_enemigo_asesinado()
 		estado = Estado.DEATH
 		velocity = Vector2.ZERO
 		atacando = false

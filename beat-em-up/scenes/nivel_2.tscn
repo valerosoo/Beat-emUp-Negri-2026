@@ -3346,6 +3346,7 @@ position = Vector2(4309, 920)
 
 [node name="Jugador" parent="." unique_id=1341022144 instance=ExtResource("10_2j5ls")]
 position = Vector2(342, 925)
+vida_maxima = 500
 
 [node name="Taxi" parent="." unique_id=1918281552 instance=ExtResource("10_hylrv")]
 position = Vector2(-500, 800)

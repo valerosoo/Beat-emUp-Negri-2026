@@ -7,6 +7,8 @@ var animacion_inicio_terminada = false
 @export var num_nivel = -1
 
 func _ready():
+	GameManager.continuar_siguiente_nivel()
+	$Victoria.visible = false
 	$Boss_2.visible = false
 	$Boss_2.process_mode = Node.PROCESS_MODE_DISABLED
 	$Boss_3.visible = false
@@ -42,6 +44,8 @@ func cambiar_fase():
 			$Boss_2.visible = false
 			$Boss_2.process_mode = Node.PROCESS_MODE_DISABLED
 			$Boss_3.visible = true
+			$Boss_3.barrera.set_deferred("disabled", true)
+			$Boss_3.barrera_sprite.visible = false
 			$Boss_3.process_mode = Node.PROCESS_MODE_INHERIT
 			$Boss_3.elegir_ataque.call_deferred()
 	
@@ -49,6 +53,9 @@ func boss_muerto():
 	$Boss_3.desactivar()
 	$Boss_3.visible = false
 	$Boss_3.process_mode = Node.PROCESS_MODE_DISABLED
+	$Victoria.mostrar_stats()
+	$Victoria.visible = true
+	get_tree().paused = true
 	pass  # Hacer la animacion del boss muriendo o algo asi
 
 

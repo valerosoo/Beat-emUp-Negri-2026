@@ -35,6 +35,7 @@ func atacar():
 		
 func verificar_muerte():
 	if vida <= 0:
+		GameManager.registrar_enemigo_asesinado()
 		estado = Estado.DEATH
 		$CollisionShape2D.visible = false
 		set_collision_layer(0)

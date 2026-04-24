@@ -285,6 +285,7 @@ script = ExtResource("5_0qj6g")
 [node name="Barra_vida" parent="CanvasLayer" unique_id=359784809 instance=ExtResource("2_31big")]
 
 [node name="GameOver" parent="CanvasLayer" unique_id=49019461 instance=ExtResource("12_vwgcu")]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1989014666]
 visible = false
@@ -435,6 +436,7 @@ scale = Vector2(0.64000005, 0.64000005)
 
 [node name="Jugador" parent="." unique_id=1341022144 instance=ExtResource("5_ag084")]
 position = Vector2(266, 578)
+vida_maxima = 50
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1395724458]
 libraries/ = SubResource("AnimationLibrary_0qj6g")

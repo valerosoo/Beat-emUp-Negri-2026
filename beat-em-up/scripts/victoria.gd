@@ -1,12 +1,9 @@
 extends Node2D
 
 func _on_menu_pressed() -> void:
-	GameManager.resetear_gulag()
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
-func _on_retry_pressed() -> void:
-	GameManager.retry_level()
-	
 func mostrar_stats():
 	GameManager.contando_tiempo = false
 	$VBoxContainer/DanoRecibido.text = "Daño recibido: " + str(GameManager.stats["dano_recibido"])

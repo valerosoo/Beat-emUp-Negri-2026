@@ -60,11 +60,10 @@ func iniciar_ataque():
 func lanzar_oleada():
 	var es_horizontal = randf() < probabilidad_lluvia_horizontal
 	var ancho = get_viewport().get_visible_rect().size.x
-	var alto = get_viewport().get_visible_rect().size.y
-	var x_min = player.global_position.x - ancho / 2 + 50
-	var x_max = player.global_position.x + ancho / 2 - 50
-	var y_min = player.global_position.y - alto / 2 + 100
-	var y_max = player.global_position.y + alto / 2 - 100
+	var x_min = 0
+	var x_max = ancho
+	var y_min = 1080
+	var y_max = get_parent().get_node("StaticBody2D").get_node("Techo").global_position.y
 	
 	var todos = range(balas_por_oleada)
 	todos.shuffle()
@@ -83,7 +82,7 @@ func lanzar_oleada():
 			bala.global_position = Vector2(x_min if va_izquierda else x_max, randf_range(y_min, y_max))
 			bala.direccion_vector = Vector2(1 if va_izquierda else -1, 0)
 		else:
-			bala.global_position = Vector2(randf_range(x_min, x_max), player.global_position.y - 600)
+			bala.global_position = Vector2(randf_range(x_min, x_max), -100)
 			bala.direccion_vector = Vector2.DOWN
 		bala.actualizar_rotacion()
 		await get_tree().create_timer(tiempo_entre_balas).timeout

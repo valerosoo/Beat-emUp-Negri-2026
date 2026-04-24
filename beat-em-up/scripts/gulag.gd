@@ -11,6 +11,7 @@ var cinematica_iniciada = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameManager.continuar_siguiente_nivel()
 	$Gulag_1_map.visible = false
 	$Gulag_1_map.process_mode = Node.PROCESS_MODE_DISABLED
 	$Gulag_2_map.visible = false
@@ -43,6 +44,7 @@ func _physics_process(delta: float) -> void:
 	pass
 		
 func mostrar_death_screen():
+	gameover.mostrar_stats() 
 	gameover.visible = true
 
 func volver_al_nivel():

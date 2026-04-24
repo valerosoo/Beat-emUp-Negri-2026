@@ -25,6 +25,10 @@ var animacion_final_frame = 5300
 var animacion_final_iniciada = false
 
 func _ready() -> void:
+	if GameManager.viene_del_gulag or not GameManager.puede_ir_gulag:
+		GameManager.continuar_siguiente_nivel()
+	else:
+		GameManager.iniciar_partida()
 	game_over.visible = false
 	oleadas = [oleada_1, oleada_2, oleada_3]
 	jugador.entrar.connect(jugador_termino_animacion)
@@ -89,6 +93,7 @@ func eliminar_enemigo():
 		desactivar_pared_der()
 	
 func mostrar_death_screen():
+	game_over.mostrar_stats()
 	game_over.visible = true
 
 func configurar_oleada():
@@ -111,6 +116,7 @@ func liberar_camara():
 	camara.limit_right = 10000000
 	
 func activar_animacion_final():
+	GameManager.viene_del_nivel_anterior = true
 	animacion_final_iniciada = true
 	jugador.set_physics_process(false)
 	

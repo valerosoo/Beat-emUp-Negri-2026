@@ -18,7 +18,11 @@ func _ready():
 	
 func ciclo_ataques():
 	while true:
+		if muerto or desactivado:
+			return
 		await elegir_ataque()
+		if muerto or desactivado:
+			return
 		await get_tree().create_timer(1.0).timeout
 	
 func _physics_process(delta):
@@ -32,10 +36,11 @@ func _physics_process(delta):
 			sprite.play("hit")
 	
 func elegir_ataque():
-	if atacando:
-		return
+	if atacando or muerto or desactivado:
+			return
 	atacando = true
 	ataque_actual = (ataque_actual + 1) % 2
+	await empujar_jugador()
 	if ataque_actual == 0:
 		await spawnear_pinguinos()
 	else:
@@ -56,7 +61,8 @@ func enemigo_muerto():
 	
 func iniciar_lluvia_balas():
 	estado = Estado.ATTACK
-	await empujar_jugador()
+	barrera.set_deferred("disabled", false)
+	barrera_sprite.visible = true
 	sprite.play("shoot_up_3")
 	await sprite.animation_finished
 	await hacer_caer_balas()
@@ -66,11 +72,9 @@ func hacer_caer_balas():
 	todos.shuffle()
 	var indices_dorados = todos.slice(0, cantidad_balas_doradas)
 	
-	var rect = get_viewport().get_visible_rect()
-
-	var x_min = rect.position.x + 50
-	var x_max = rect.position.x + rect.size.x - 50
-
+	var x_min = 0.0
+	var x_max = barrera.global_position.x
+	
 	for i in cantidad_balas:
 		if muerto:
 			return
@@ -91,8 +95,9 @@ func hacer_caer_balas():
 func terminar_stun():
 	if !stuneado:
 		return
+	barrera.set_deferred("disabled", false)
+	barrera_sprite.visible = true
 	stuneado = false
-	empujar_jugador()
 	golpes_recibidos = 0
 	stun_id += 1
 	estado = Estado.IDLE
@@ -118,6 +123,8 @@ func _on_animation_player_animation_finished(anim_name : StringName):
 func iniciar_stun():
 	if stuneado:
 		return
+	barrera.set_deferred("disabled", true)
+	barrera_sprite.visible = false
 	stuneado = true
 	golpes_recibidos = 0
 	estado = Estado.STUN

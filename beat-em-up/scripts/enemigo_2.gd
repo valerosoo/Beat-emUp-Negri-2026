@@ -185,6 +185,7 @@ func restar_vida(dano):
 		return
 	if cayendo:
 		return
+	GameManager.registrar_dano_generado(dano)
 	vida -= dano
 	parpadeo()
 	barra_vida.visible = true
@@ -198,6 +199,7 @@ func sumar_vida(suma):
 	
 func verificar_muerte():
 	if vida <= 0:
+		GameManager.registrar_enemigo_asesinado()
 		estado = Estado.DEATH
 		velocity = Vector2.ZERO
 		atacando = false

@@ -1,5 +1,5 @@
 
-2- Hacer la bossfight, Corregir animaciones y final
+2- Corregir animaciones bossfight y final 
 3- Para el menú de opciones, poner controles, volumen sonido, (resolución si se puede)
 4- Tengo que crear la animación de hit para el enemigo 2
 

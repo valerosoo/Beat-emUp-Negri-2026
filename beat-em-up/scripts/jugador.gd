@@ -174,12 +174,16 @@ func restar_vida(dano, enemigo):
 		return
 		
 	vida -= dano
+	GameManager.registrar_dano_recibido(dano)
 	barra_vida.value = vida
 	parpadeo()
 	verificar_muerte(enemigo)
 	
 func sumar_vida(suma):
 	vida += suma
+	vida = min(vida, vida_maxima)
+	barra_vida.value = vida   
+	GameManager.registrar_vida_recuperada(suma)
 	
 func verificar_muerte(enemigo):
 	if muerto:

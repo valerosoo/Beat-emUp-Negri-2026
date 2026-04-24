@@ -8,6 +8,8 @@ enum Estado {IDLE, STUN, ATTACK}
 @onready var spawn2 = $"../Spawn2"
 @onready var barra_vida
 @onready var destino_empuje = $"../DestinoEmpuje"
+@onready var barrera = get_parent().get_node("StaticBody2D2").get_node("Barrera")
+@onready var barrera_sprite = get_parent().get_node("StaticBody2D2").get_node("Sprite2D")
 
 @export var escena_enemigo : PackedScene
 @export var vida_maxima : int = 700
@@ -29,6 +31,8 @@ var muerto = false
 
 
 func _ready():
+	barrera.set_deferred("disabled", false)
+	barrera_sprite.visible = true
 	barra_vida = get_tree().get_first_node_in_group("Barra_boss")
 	player = get_tree().get_first_node_in_group("jugador")
 	sprite.play("bat_idle")
@@ -72,6 +76,8 @@ func enemigo_muerto():
 func iniciar_stun():
 	if stuneado:
 		return
+	barrera.set_deferred("disabled", true)
+	barrera_sprite.visible = false
 	stuneado = true
 	golpes_recibidos = 0
 	estado = Estado.STUN
@@ -84,6 +90,8 @@ func iniciar_stun():
 func terminar_stun():
 	if !stuneado:
 		return
+	barrera.set_deferred("disabled", false)
+	barrera_sprite.visible = true
 	stuneado = false
 	golpes_recibidos = 0
 	stun_id += 1
@@ -137,6 +145,7 @@ func girar_sprite():
 		$Pivote.position = Vector2(-pivote_offset.x, pivote_offset.y)
 	
 func desactivar():
+	muerto = true
 	desactivado = true
 	estado = Estado.IDLE
 	get_tree().call_group("enemigos_boss", "queue_free")

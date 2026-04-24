@@ -1,6 +1,10 @@
 extends Nivel1
 
 func _ready() -> void:
+	if GameManager.viene_del_nivel_anterior:
+		GameManager.continuar_siguiente_nivel()
+	else:
+		GameManager.iniciar_partida()
 	$Pivote.visible = false
 	var viene_del_gulag = GameManager.viene_del_gulag
 	super()

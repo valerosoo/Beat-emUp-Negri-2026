@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://dompy5un3s056"]
+
+[ext_resource type="FontFile" uid="uid://bu816dpc8fepl" path="res://fonts/ARCADECLASSIC.TTF" id="1_dj4ih"]
+[ext_resource type="Script" uid="uid://brf1thoawxfsq" path="res://scripts/victoria.gd" id="1_iw5au"]
+[ext_resource type="Script" uid="uid://bmhjol7egdak8" path="res://scripts/temblortexto.gd" id="2_iw5au"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dsxom"]
+bg_color = Color(0, 0, 0, 0)
+
+[node name="Victoria" type="Node2D" unique_id=810485456]
+process_mode = 3
+top_level = true
+script = ExtResource("1_iw5au")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1508653182]
+modulate = Color(1, 1, 1, 0.49019608)
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Continue" type="Label" parent="." unique_id=380264993]
+offset_left = 671.0
+offset_top = 150.0
+offset_right = 1249.0
+offset_bottom = 302.0
+theme_override_colors/font_color = Color(0.7294118, 0.5176471, 0.105882354, 1)
+theme_override_fonts/font = ExtResource("1_dj4ih")
+theme_override_font_sizes/font_size = 150
+text = "Ganaste"
+vertical_alignment = 1
+
+[node name="Menu" type="Button" parent="." unique_id=656595930]
+offset_left = 760.0
+offset_top = 856.0
+offset_right = 1160.0
+offset_bottom = 976.0
+theme_override_colors/font_color = Color(0.73120064, 0.5182523, 0.10681784, 1)
+theme_override_colors/font_hover_color = Color(0.4862745, 0.34117648, 0.0627451, 1)
+theme_override_fonts/font = ExtResource("1_dj4ih")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_dsxom")
+text = "Menu"
+script = ExtResource("2_iw5au")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=911308390]
+offset_top = 414.0
+offset_right = 1920.0
+offset_bottom = 783.0
+alignment = 1
+
+[node name="DanoRecibido" type="Label" parent="VBoxContainer" unique_id=1409248803]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7294118, 0.5176471, 0.105882354, 1)
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+
+[node name="DanoGenerado" type="Label" parent="VBoxContainer" unique_id=1794623223]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7294118, 0.5176471, 0.105882354, 1)
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+
+[node name="VidaRecuperada" type="Label" parent="VBoxContainer" unique_id=36404698]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7294118, 0.5176471, 0.105882354, 1)
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+
+[node name="Enemigos" type="Label" parent="VBoxContainer" unique_id=1026257887]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7294118, 0.5176471, 0.105882354, 1)
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+
+[node name="Gulag" type="Label" parent="VBoxContainer" unique_id=1409266577]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7294118, 0.5176471, 0.105882354, 1)
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+
+[node name="Tiempo" type="Label" parent="VBoxContainer" unique_id=1029114486]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7294118, 0.5176471, 0.105882354, 1)
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]

@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://enn1bif015pa" path="res://scenes/bala_verde.tscn" id="5_4ix7a"]
 [ext_resource type="PackedScene" uid="uid://l535rbpc138a" path="res://scenes/boss_1.tscn" id="5_67f06"]
 [ext_resource type="PackedScene" uid="uid://cpqm2h3d343at" path="res://scenes/boss_2.tscn" id="8_2tdpq"]
+[ext_resource type="PackedScene" uid="uid://dompy5un3s056" path="res://scenes/victoria.tscn" id="14_ql2p3"]
 [ext_resource type="PackedScene" uid="uid://tvv4letdju1q" path="res://scenes/jugador.tscn" id="568_i67ca"]
 
 [sub_resource type="Animation" id="Animation_x4w2v"]
@@ -133,6 +134,9 @@ b = Vector2(-401, 235)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ql2p3"]
 b = Vector2(0, 421)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ql2p3"]
+size = Vector2(93, 411)
+
 [node name="BossFight" type="Node2D" unique_id=140681411]
 script = ExtResource("1_x4w2v")
 
@@ -210,7 +214,7 @@ libraries/ = SubResource("AnimationLibrary_62gkx")
 collision_layer = 32
 collision_mask = 31
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=840218474]
+[node name="Techo" type="CollisionShape2D" parent="StaticBody2D" unique_id=840218474]
 position = Vector2(960, 611)
 shape = SubResource("RectangleShape2D_4ix7a")
 
@@ -225,5 +229,21 @@ shape = SubResource("SegmentShape2D_ql2p3")
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D" unique_id=684252948]
 position = Vector2(1920, 659)
 shape = SubResource("SegmentShape2D_ql2p3")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=164928083]
+collision_layer = 32
+collision_mask = 31
+
+[node name="Barrera" type="CollisionShape2D" parent="StaticBody2D2" unique_id=2093970115]
+position = Vector2(1474, 873.5)
+shape = SubResource("RectangleShape2D_ql2p3")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2" unique_id=1903228478]
+position = Vector2(1474, 874)
+scale = Vector2(0.20888862, 0.9155554)
+texture = ExtResource("2_34kmk")
+
+[node name="Victoria" parent="." unique_id=810485456 instance=ExtResource("14_ql2p3")]
+visible = false
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

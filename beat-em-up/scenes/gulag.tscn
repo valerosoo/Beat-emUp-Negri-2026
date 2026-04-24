@@ -10,11 +10,11 @@
 [node name="Gulag" type="Node2D" unique_id=584508315]
 script = ExtResource("1_escic")
 
+[node name="GameOver" parent="." unique_id=49019461 instance=ExtResource("5_81fmd")]
+
 [node name="Gulag_1_map" parent="." unique_id=995768837 instance=ExtResource("2_0hube")]
 
 [node name="Gulag_2_map" parent="." unique_id=1241469000 instance=ExtResource("3_54rvl")]
-
-[node name="GameOver" parent="." unique_id=49019461 instance=ExtResource("5_81fmd")]
 
 [node name="SpawnEnemigo" type="Marker2D" parent="." unique_id=32310597]
 position = Vector2(1820, 900)
