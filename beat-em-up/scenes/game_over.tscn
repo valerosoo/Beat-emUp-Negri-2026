@@ -21,6 +21,7 @@ position = Vector2(960, 200)
 texture = ExtResource("2_7ns25")
 
 [node name="Menu" type="Button" parent="." unique_id=622829937]
+process_mode = 3
 offset_left = 587.0
 offset_top = 900.0
 offset_right = 817.0
@@ -34,6 +35,7 @@ text = "Menu"
 alignment = 0
 
 [node name="Retry" type="Button" parent="." unique_id=222948029]
+process_mode = 3
 offset_left = 1057.0
 offset_top = 900.0
 offset_right = 1343.0

@@ -83,7 +83,11 @@ func iniciar_stun():
 	estado = Estado.STUN
 	stun_id += 1
 	var mi_id = stun_id
+	if !is_inside_tree():
+		return
 	await get_tree().create_timer(duracion_stun).timeout
+	if !is_inside_tree():
+		return
 	if stuneado and stun_id == mi_id:
 		terminar_stun()
 	
@@ -97,7 +101,11 @@ func terminar_stun():
 	stun_id += 1
 	estado = Estado.IDLE
 	await empujar_jugador()
+	if !is_inside_tree():
+		return
 	await get_tree().create_timer(1.0).timeout
+	if !is_inside_tree():
+		return
 	if desactivado: 
 		return
 	call_deferred("spawnear_enemigos")
@@ -106,6 +114,7 @@ func restar_vida(dano):
 	get_parent().restar_vida_boss(dano)
 	if stuneado:
 		golpes_recibidos += 1
+		parpadeo()
 		if golpes_recibidos >= golpes_para_stun:
 			terminar_stun()
 	
@@ -120,7 +129,7 @@ func empujar_jugador():
 	$AnimationPlayer.play("empujar_jugador")
 
 func anim_empujar():
-	pivote_offset = Vector2(122, -77)
+	pivote_offset = Vector2(95, -73)
 	sprite.play(anim_empuje)
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -151,5 +160,11 @@ func desactivar():
 	get_tree().call_group("enemigos_boss", "queue_free")
 	enemigos_vivos = 0
 	
-	
-	
+func parpadeo():
+	sprite.modulate = Color(0.851, 0.0, 0.0, 1)
+	if !is_inside_tree():
+		return
+	await get_tree().create_timer(0.15).timeout
+	if !is_inside_tree():
+		return
+	sprite.modulate = Color (1,1,1,1)

@@ -1,6 +1,4 @@
-0- Sacar el gulag del bossfight, y hacer la logica gameover
 1- Intentar guardar partida
-2- Corregir animaciones bossfight y final 
 3- Para el menú de opciones, poner controles, volumen sonido, (resolución si se puede)
 4- Tengo que crear la animación de hit para el enemigo 2
 

@@ -63,10 +63,13 @@ func iniciar_lluvia_balas():
 	estado = Estado.ATTACK
 	barrera.set_deferred("disabled", false)
 	barrera_sprite.visible = true
-	sprite.play("shoot_up_3")
-	await sprite.animation_finished
+	$AnimationPlayer.play("shoot_up_3_ap")
+	await $AnimationPlayer.animation_finished
 	await hacer_caer_balas()
 	
+func disparar_cielo():
+	sprite.play("shoot_up_3")
+
 func hacer_caer_balas():
 	var todos = range(cantidad_balas)
 	todos.shuffle()
@@ -108,19 +111,25 @@ func empujar_jugador():
 	estado = Estado.ATTACK
 	$AnimationPlayer.play("empujar_jugador")
 	await $AnimationPlayer.animation_finished
+	player.set_physics_process(false)
+	var tween = create_tween()
+	tween.tween_property(player, "global_position", destino_empuje.global_position, 0.4)
+	await tween.finished
+	player.set_physics_process(true)
+	pivote_offset = Vector2.ZERO
+	sprite.play("idle")
 
 func anim_empujar():
-	pivote_offset = Vector2(122, -77)
 	sprite.play(anim_empuje)
 	
 func _on_animation_player_animation_finished(anim_name : StringName):
 	if anim_name == "empujar_jugador":
-		player.set_physics_process(false)
-		var tween = create_tween()
-		tween.tween_property(player, "global_position", destino_empuje.global_position, 0.4)
-		await tween.finished
-		player.set_physics_process(true)
 		pivote_offset = Vector2.ZERO
+		sprite.play("idle")
+	elif anim_name == "shoot_up_3_ap":
+		pivote_offset = Vector2.ZERO 
+		sprite.play("idle")
+	
 
 func iniciar_stun():
 	if stuneado:

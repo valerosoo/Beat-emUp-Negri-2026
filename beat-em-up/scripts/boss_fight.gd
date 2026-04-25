@@ -1,18 +1,23 @@
 extends Node2D
 
+@onready var animation_player = $AnimationPlayer
+@onready var game_over = $CanvasLayer/GameOver
+
+@export var num_nivel = 3
+
+var animacion_inicio_terminada = false
 var vida_total = 700
 var fase = 1
-@onready var animation_player = $AnimationPlayer
-var animacion_inicio_terminada = false
-@export var num_nivel = -1
 
 func _ready():
+	GameManager.puede_ir_gulag = false
 	if GameManager.viene_del_nivel_anterior:
 		GameManager.continuar_siguiente_nivel()
 		GameManager.viene_del_nivel_anterior = false
 	else:
 		GameManager.iniciar_partida()
-	$Victoria.visible = false
+	$CanvasLayer/Victoria.visible = false
+	$CanvasLayer/MenuPausa.visible = false
 	$Boss_2.visible = false
 	$Boss_2.process_mode = Node.PROCESS_MODE_DISABLED
 	$Boss_3.visible = false
@@ -57,8 +62,8 @@ func boss_muerto():
 	$Boss_3.desactivar()
 	$Boss_3.visible = false
 	$Boss_3.process_mode = Node.PROCESS_MODE_DISABLED
-	$Victoria.mostrar_stats()
-	$Victoria.visible = true
+	$CanvasLayer/Victoria.mostrar_stats()
+	$CanvasLayer/Victoria.visible = true
 	get_tree().paused = true
 	pass  # Hacer la animacion del boss muriendo o algo asi
 
@@ -66,3 +71,21 @@ func boss_muerto():
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Entrar":
 		animacion_inicio_terminada = true
+
+func mostrar_death_screen():
+	game_over.mostrar_stats()
+	game_over.visible = true
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		var menu_pausa = get_tree().get_root().find_child("MenuPausa", true, false)
+		if get_tree().paused:
+			get_tree().paused = false
+			get_tree().get_first_node_in_group("jugador").set_physics_process(true)
+			if menu_pausa:
+				menu_pausa.visible = false
+		else:
+			get_tree().paused = true
+			get_tree().get_first_node_in_group("jugador").set_physics_process(false)
+			if menu_pausa:
+				menu_pausa.visible = true

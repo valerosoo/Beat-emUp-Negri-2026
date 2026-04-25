@@ -21,6 +21,8 @@ func _ready():
 func _physics_process(delta):
 	if !get_parent().animacion_inicio_terminada:
 		return
+	barrera.disabled = true
+	barrera_sprite.visible = false
 	girar_sprite()
 	match estado:
 		Estado.IDLE:
@@ -38,8 +40,8 @@ func iniciar_ataque():
 		return
 	atacando_3 = true
 	estado = Estado.ATTACK
-	sprite.play("shoot_up_3")
-	await sprite.animation_finished
+	$AnimationPlayer.play("shoot_up_3_ap")
+	await $AnimationPlayer.animation_finished
 	sprite.play("idle")
 	spawnear_enemigos_costado()
 	
@@ -98,10 +100,17 @@ func spawnear_enemigos_costado():
 	get_parent().add_child(e)
 	
 func restar_vida(dano):
+	parpadeo()
 	get_parent().restar_vida_boss(dano) 
 	
 func iniciar_stun():
 	pass
 
 func terminar_stun():
+	pass
+
+func ciclo_ataques():
+	pass
+
+func iniciar_lluvia_balas():
 	pass

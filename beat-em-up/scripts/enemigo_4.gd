@@ -42,6 +42,8 @@ func verificar_muerte():
 		set_collision_mask(0)
 		soltar_corazon()
 		velocity = Vector2.ZERO
+		pivot_offset = Vector2(-57, 14)
+		girar_sprite()
 		animation_player.play(animaciones["morir"])
 
 var pivot_offset_base = Vector2.ZERO
@@ -51,6 +53,7 @@ func girar_sprite():
 		attack_offset = attack_area.position.x
 	if player == null:
 		return
+	print("pivot_offset: ", pivot_offset, " anim: ", animation_player.current_animation)
 	var dir = player.global_position.x - global_position.x
 	if dir > 0:
 		sprite.flip_h = false
@@ -76,9 +79,27 @@ func anim_run():
 func anim_morir():
 	sprite.play("bat_death")
 	pivot_offset = Vector2(-57, 14)
+	
+func anim_hit():
+	sprite.play("bat_hurt")
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == animaciones["morir"]:
 		queue_free()
 	elif anim_name == "Caer":
 		cayendo = false
+
+func stun():
+	if estado == Estado.DEATH:
+		return
+	var estado_anterior = estado
+	estado = Estado.STUN
+	atacando = false
+	animation_player.play("bat_hurt")
+	pivot_offset = Vector2(-16, 0)
+	girar_sprite()
+	await get_tree().create_timer(duracion_stun).timeout
+	if estado == Estado.DEATH:
+		return
+	estado = estado_anterior
+	pivot_offset = Vector2.ZERO

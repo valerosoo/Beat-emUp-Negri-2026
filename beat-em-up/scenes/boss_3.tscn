@@ -2621,6 +2621,40 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbv2w"]
 size = Vector2(381, 310)
 
+[sub_resource type="Animation" id="Animation_f5yha"]
+resource_name = "shoot_up_3_ap"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"disparar_cielo"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivote:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(137, -278)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mi3t8"]
+_data = {
+&"shoot_up_3_ap": SubResource("Animation_f5yha")
+}
+
 [node name="Boss_3" type="CharacterBody2D" unique_id=1266515135 groups=["enemigo"]]
 collision_layer = 2
 collision_mask = 7
@@ -2628,11 +2662,12 @@ script = ExtResource("1_1oysd")
 escena_enemigo_3 = ExtResource("2_f5yha")
 
 [node name="Pivote" type="Node2D" parent="." unique_id=896280966]
+position = Vector2(137, -278)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivote" unique_id=1945492606]
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_ajbdw")
-animation = &"idle"
+animation = &"shoot_up_3"
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1634545970]
@@ -2644,3 +2679,6 @@ collision_layer = 514
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" unique_id=1589532817]
 position = Vector2(52.5, -153)
 shape = SubResource("RectangleShape2D_hbv2w")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1383582185]
+libraries/ = SubResource("AnimationLibrary_mi3t8")

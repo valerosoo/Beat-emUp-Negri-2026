@@ -149,11 +149,6 @@ func girar_sprite():
 				pivot_offset = Vector2(55, 0)
 			else:
 				pivot_offset = Vector2(0, 0)
-		"death":
-			if sprite.flip_h:
-				pivot_offset = Vector2(58, 11)
-			else:
-				pivot_offset = Vector2(0, 0)
 			
 func anim_idle():
 	sprite.play("idle")
@@ -193,6 +188,16 @@ func verificar_muerte():
 		set_collision_layer(0)
 		set_collision_mask(0)
 		soltar_corazon()
+		if sprite.flip_h:
+			print("H")
+			pivot_offset = Vector2(-10, 11)
+		else:
+			print("G")
+			pivot_offset = Vector2(-58, 11)
+		girar_sprite()
 		animation_player.play(animaciones["morir"])
 		await animation_player.animation_finished
 		queue_free()
+
+func stun():
+	pass

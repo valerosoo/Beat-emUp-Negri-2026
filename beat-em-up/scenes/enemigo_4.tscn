@@ -2541,6 +2541,24 @@ tracks/0/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_y1nf2"]
+resource_name = "bat_hurt"
+length = 0.4
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"anim_hit"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_5mf82"]
 resource_name = "bat_idle_ap"
 tracks/0/type = "method"
@@ -2581,6 +2599,7 @@ _data = {
 &"RESET": SubResource("Animation_oyxo7"),
 &"bat_attack_ap": SubResource("Animation_gx2un"),
 &"bat_death_ap": SubResource("Animation_6vrrc"),
+&"bat_hurt": SubResource("Animation_y1nf2"),
 &"bat_idle_ap": SubResource("Animation_5mf82"),
 &"bat_run_ap": SubResource("Animation_laaof")
 }
@@ -2598,10 +2617,10 @@ animaciones = {
 "morir": "bat_death_ap",
 "quieto": "bat_idle_ap"
 }
-frames_de_ataque = [8]
+frames_de_ataque = [12]
 dano = [10]
-duracion_stun = 0.0
-frames_bloqueo = [6, 7, 8, 9, 10, 11]
+duracion_stun = 1.0
+frames_bloqueo = [6, 7, 8, 9, 10, 11, 12]
 escena_corazon = ExtResource("2_laaof")
 
 [node name="Timer" type="Timer" parent="." unique_id=992690011]
@@ -2611,7 +2630,7 @@ escena_corazon = ExtResource("2_laaof")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivote" unique_id=809818535]
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_8dkf8")
-animation = &"bat_attack"
+animation = &"bat_hurt"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1817280576]
 position = Vector2(0, 59)
@@ -2637,6 +2656,11 @@ position = Vector2(-40, -78)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=861629264]
 libraries/ = SubResource("AnimationLibrary_5mf82")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2031608313]
+visible = false
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("109_fw4n4")
 
 [connection signal="animation_finished" from="Pivote/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="Pivote/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

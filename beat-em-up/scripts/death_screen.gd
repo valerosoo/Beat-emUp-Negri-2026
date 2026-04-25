@@ -1,10 +1,12 @@
 extends Node2D
 
 func _on_menu_pressed() -> void:
+	get_tree().paused = false
 	GameManager.resetear_gulag()
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
 func _on_retry_pressed() -> void:
+	get_tree().paused = false
 	GameManager.retry_level()
 	
 func mostrar_stats():

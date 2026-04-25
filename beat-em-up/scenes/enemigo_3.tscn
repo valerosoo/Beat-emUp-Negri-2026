@@ -2623,7 +2623,7 @@ animaciones = {
 }
 frames_de_ataque = []
 dano = [10]
-duracion_stun = 1.0
+duracion_stun = 0.0
 frames_bloqueo = []
 escena_corazon = ExtResource("3_u0788")
 
@@ -2637,7 +2637,7 @@ position = Vector2(77, -2)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivote" unique_id=809818535]
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_8dkf8")
-animation = &"run"
+animation = &"death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1564021450]
 position = Vector2(-27, 35.5)
