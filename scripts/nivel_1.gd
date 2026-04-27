@@ -160,7 +160,6 @@ func desactivar_pared_der():
 	pared_der.global_position.x = pared_izq.global_position.x
 
 func termino_nivel():
-	GameManager.guardar_stats_jugador()
 	ManejadorGuardado.niveles.niveles_desbloqueados += 1
 	ManejadorGuardado.guardar_todo()
 	GameManager.nivel_actual += 1
