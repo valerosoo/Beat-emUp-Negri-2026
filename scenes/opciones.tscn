@@ -78,15 +78,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Shift" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer" unique_id=63795259]
+[node name="Shift" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer" unique_id=117797075]
+process_mode = 3
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.6432984, 0.6432984, 0.64329934, 1)
 theme_override_fonts/font = ExtResource("2_tvub7")
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_vrcbp")
 text = "Shift"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=864712536]
 layout_mode = 2
@@ -102,15 +102,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="W" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=927335030]
+[node name="W" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1842062479]
+process_mode = 3
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.6432984, 0.6432984, 0.64329934, 1)
 theme_override_fonts/font = ExtResource("2_tvub7")
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_vrcbp")
 text = "W"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=330513667]
 layout_mode = 2
@@ -126,15 +126,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="S" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=1349235619]
+[node name="S" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=599847609]
+process_mode = 3
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.6432984, 0.6432984, 0.64329934, 1)
 theme_override_fonts/font = ExtResource("2_tvub7")
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_vrcbp")
 text = "S"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1396524714]
 layout_mode = 2
@@ -150,15 +150,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="A" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1250211122]
+[node name="A" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=574502748]
+process_mode = 3
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.6432984, 0.6432984, 0.64329934, 1)
 theme_override_fonts/font = ExtResource("2_tvub7")
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_vrcbp")
 text = "A"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1998534668]
 layout_mode = 2
@@ -174,15 +174,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="D" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=2000912726]
+[node name="D" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=1281858858]
+process_mode = 3
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.6432984, 0.6432984, 0.64329934, 1)
 theme_override_fonts/font = ExtResource("2_tvub7")
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_vrcbp")
 text = "D"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer6" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1382822474]
 layout_mode = 2
@@ -198,15 +198,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="SpaceBar" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer6" unique_id=1988464692]
+[node name="Spacebar" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer6" unique_id=1315071899]
+process_mode = 3
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.6432984, 0.6432984, 0.64329934, 1)
 theme_override_fonts/font = ExtResource("2_tvub7")
 theme_override_font_sizes/font_size = 50
-text = "SpaceBar"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
+theme_override_styles/normal = SubResource("StyleBoxFlat_vrcbp")
+text = "Spacebar"
 
 [node name="HBoxContainer7" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1633234952]
 layout_mode = 2
@@ -222,15 +222,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="LeftClick" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=515486001]
+[node name="Leftclick" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=300095509]
+process_mode = 3
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.6432984, 0.6432984, 0.64329934, 1)
 theme_override_fonts/font = ExtResource("2_tvub7")
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_vrcbp")
 text = "Left Click"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer8" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=232934378]
 layout_mode = 2
@@ -246,15 +246,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="RightClick" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=1311586645]
+[node name="Rightclick" type="Button" parent="ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=997771479]
+process_mode = 3
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.6432984, 0.6432984, 0.64329934, 1)
 theme_override_fonts/font = ExtResource("2_tvub7")
 theme_override_font_sizes/font_size = 50
-text = "RightClick"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
+theme_override_styles/normal = SubResource("StyleBoxFlat_vrcbp")
+text = "Right Click"
 
 [node name="HSlider" type="HSlider" parent="." unique_id=1047429154]
 offset_left = 1265.0
@@ -275,5 +275,13 @@ theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = SubResource("StyleBoxFlat_vrcbp")
 text = "Volver"
 
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/HBoxContainer/Shift" to="." method="_on_shift_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/HBoxContainer2/W" to="." method="_on_w_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/HBoxContainer3/S" to="." method="_on_s_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/HBoxContainer4/A" to="." method="_on_a_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/HBoxContainer5/D" to="." method="_on_d_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/HBoxContainer6/Spacebar" to="." method="_on_spacebar_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/HBoxContainer7/Leftclick" to="." method="_on_leftclick_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/HBoxContainer8/Rightclick" to="." method="_on_rightclick_pressed"]
 [connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]

@@ -1,5 +1,8 @@
 extends Node2D
 
+var esperando_input = false
+var accion_a_reasignar = ""
+
 func _ready() -> void:
 	var slider = $HSlider
 	var track_bg = StyleBoxFlat.new()
@@ -30,3 +33,35 @@ func _on_menu_pressed() -> void:
 	else:
 		get_parent().get_node("Control").visible = true
 		visible = false
+
+
+func _on_shift_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_w_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_s_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_a_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_d_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_spacebar_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_leftclick_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_rightclick_pressed() -> void:
+	pass # Replace with function body.
