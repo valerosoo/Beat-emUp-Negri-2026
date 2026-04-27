@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b6o6rbhkny6uu" path="res://scenes/game_over.tscn" id="2_4ix7a"]
 [ext_resource type="Texture2D" uid="uid://7rx7153krfma" path="res://assets/Mios/Cara_pinguino.jpg" id="2_34kmk"]
 [ext_resource type="Texture2D" uid="uid://v06wwnb3o84h" path="res://assets/Mios/Sky_BossFight.png" id="2_62gkx"]
+[ext_resource type="Script" uid="uid://cqmjrrwx5gaud" path="res://scripts/gestor_pausa.gd" id="2_76ywu"]
 [ext_resource type="PackedScene" uid="uid://ckxye0fpkd814" path="res://scenes/barra_vida_boss.tscn" id="2_85w88"]
 [ext_resource type="PackedScene" uid="uid://2u2uythecc7t" path="res://scenes/boss_3.tscn" id="3_7imqq"]
 [ext_resource type="PackedScene" uid="uid://el43f433qnmu" path="res://scenes/barra_vida.tscn" id="3_31neg"]
@@ -142,15 +143,19 @@ size = Vector2(93, 411)
 [node name="BossFight" type="Node2D" unique_id=140681411]
 script = ExtResource("1_x4w2v")
 
+[node name="GestorPausa" type="Node2D" parent="." unique_id=779132381]
+process_mode = 3
+script = ExtResource("2_76ywu")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1544636770]
+
+[node name="MenuPausa" parent="CanvasLayer" unique_id=844394850 groups=["menu_pausa"] instance=ExtResource("4_hllwh")]
+visible = false
 
 [node name="GameOver" parent="CanvasLayer" unique_id=49019461 instance=ExtResource("2_4ix7a")]
 visible = false
 
 [node name="Victoria" parent="CanvasLayer" unique_id=810485456 instance=ExtResource("14_ql2p3")]
-visible = false
-
-[node name="MenuPausa" parent="CanvasLayer" unique_id=844394850 instance=ExtResource("4_hllwh")]
 visible = false
 
 [node name="Barra_vida" parent="CanvasLayer" unique_id=359784809 instance=ExtResource("3_31neg")]

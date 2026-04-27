@@ -1,2 +1,5 @@
-res://scenes/nivel_2.tscn
-res://scripts/nivel_1.gd
+res://scenes/boss_fight.tscn
+res://scenes/nivel_1.tscn
+res://scripts/gestor_pausa.gd
+res://scenes/menu_pausa.tscn
+res://scenes/gulag.tscn

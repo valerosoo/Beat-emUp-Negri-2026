@@ -41,6 +41,7 @@ nivel=""
 Barra_boss=""
 boss_2=""
 balaVerde=""
+menu_pausa=""
 
 [input]
 
