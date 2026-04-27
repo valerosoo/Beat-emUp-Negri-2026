@@ -62,8 +62,14 @@ Avanzá por los niveles derrotando oleadas de enemigos. Cuando todos los enemigo
 | [Play](https://freesound.org/people/pumodi/sounds/150222/) | Freesound |
 | [Golpe](https://freesound.org/people/posdesigndesom/sounds/847838/) | Freesound |
 | [Disparo](https://www.youtube.com/watch?v=lGNwnstqAO4) | YouTube |
-| [Error](https://freesound.org/people/phiIRaco/sounds/551543/)| Freesound |
-| [Continuar](https://freesound.org/people/chocofactory/sounds/700360/)| Freesound |
+| [Error](https://freesound.org/people/phiIRaco/sounds/551543/) | Freesound |
+| [Continuar](https://freesound.org/people/chocofactory/sounds/700360/) | Freesound |
+
+### Video
+
+El video del menú supera el límite de tamaño permitido por GitHub, por lo que no está incluido en el repositorio. Podés descargarlo desde el siguiente enlace — en la descripción del video se explica cómo integrarlo al proyecto:
+
+https://youtu.be/o5kRYa2Tq0c
 
 ## 👤 Autor
 
