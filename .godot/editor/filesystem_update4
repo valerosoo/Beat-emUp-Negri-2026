@@ -1,8 +1,5 @@
-res://scenes/boss_fight.tscn
-res://scenes/nivel_1.tscn
-res://scripts/gestor_pausa.gd
-res://scenes/menu_pausa.tscn
 res://scenes/gulag.tscn
-res://scenes/opciones.tscn
-res://scripts/opciones.gd
-res://scripts/tarjeta.gd
+res://scripts/game_manager.gd
+res://scripts/jugador.gd
+res://scripts/vida_suelta.gd
+res://scenes/vida_suelta.tscn

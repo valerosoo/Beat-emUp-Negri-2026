@@ -12,9 +12,9 @@ func inicializar(vida_maxima_enemigo: int):
 	
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("jugador"):
-		var nueva_vida = min(body.vida + vida_a_curar, body.vida_maxima)
-		body.vida = nueva_vida
-		body.barra_vida.value = nueva_vida
+		#body.vida = nueva_vida
+		body.sumar_vida(vida_a_curar)
+		#body.barra_vida.value = nueva_vida
 		queue_free()
 		
 func idle():
