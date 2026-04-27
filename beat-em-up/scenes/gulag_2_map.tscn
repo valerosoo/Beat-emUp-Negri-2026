@@ -20,6 +20,15 @@ size = Vector2(402.5, 282)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cpoxx"]
 size = Vector2(250, 42)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_cu6at"]
+b = Vector2(1920, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_dt8c2"]
+b = Vector2(0, 1081)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_aol73"]
+b = Vector2(0, 1081)
+
 [node name="Gulag_2_map" type="Node2D" unique_id=1241469000]
 
 [node name="Background" type="Node2D" parent="." unique_id=2098434991]
@@ -81,6 +90,8 @@ stretch_mode = 1
 [node name="Colisiones" type="Node2D" parent="." unique_id=1161163101]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Colisiones" unique_id=1873285976]
+collision_layer = 32
+collision_mask = 31
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/StaticBody2D" unique_id=1786676033]
 position = Vector2(308, 707)
@@ -91,19 +102,48 @@ position = Vector2(667, 665)
 polygon = PackedVector2Array(-51, 32, 37, -62, 37, -42, -51, 52)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Colisiones" unique_id=1622630140]
+collision_layer = 32
+collision_mask = 31
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/StaticBody2D2" unique_id=1846011305]
 position = Vector2(1025.25, 613)
 shape = SubResource("RectangleShape2D_dt8c2")
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Colisiones" unique_id=709048785]
+collision_layer = 32
+collision_mask = 31
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/StaticBody2D3" unique_id=460078234]
 position = Vector2(1715.75, 621)
 shape = SubResource("RectangleShape2D_aol73")
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Colisiones" unique_id=688998857]
+collision_layer = 32
+collision_mask = 31
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/StaticBody2D4" unique_id=964914298]
 position = Vector2(1438, 652)
 shape = SubResource("RectangleShape2D_cpoxx")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Colisiones" unique_id=221692718]
+collision_layer = 32
+collision_mask = 31
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Colisiones/StaticBody2D5" unique_id=2143191863]
+position = Vector2(0, 1080)
+shape = SubResource("SegmentShape2D_cu6at")
+
+[node name="Pared_izq" type="StaticBody2D" parent="Colisiones" unique_id=1262400912]
+collision_layer = 32
+collision_mask = 31
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/Pared_izq" unique_id=1322229539]
+shape = SubResource("SegmentShape2D_dt8c2")
+
+[node name="Pared_der" type="StaticBody2D" parent="Colisiones" unique_id=1336335479]
+collision_layer = 32
+collision_mask = 31
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colisiones/Pared_der" unique_id=1498585497]
+position = Vector2(1920, 0)
+shape = SubResource("SegmentShape2D_aol73")
