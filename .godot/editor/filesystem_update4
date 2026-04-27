@@ -3,3 +3,6 @@ res://scenes/nivel_1.tscn
 res://scripts/gestor_pausa.gd
 res://scenes/menu_pausa.tscn
 res://scenes/gulag.tscn
+res://scenes/opciones.tscn
+res://scripts/opciones.gd
+res://scripts/tarjeta.gd
