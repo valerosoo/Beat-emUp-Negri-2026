@@ -1,0 +1,14 @@
+CollisionShape2D
+StaticBody2D
+ColorRect
+AnimationPlayer
+Node2D
+Sprite2D
+TextureRect
+Marker2D
+NavigationRegion2D
+NavigationObstacle2D
+NavigationAgent2D
+Timer
+Area2D
+AnimatedSprite2D

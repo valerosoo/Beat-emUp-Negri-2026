@@ -67,7 +67,7 @@ Avanzá por los niveles derrotando oleadas de enemigos. Cuando todos los enemigo
 
 ### Video
 
-El video del menú supera el límite de tamaño permitido por GitHub, por lo que no está incluido en el repositorio. Podés descargarlo desde el siguiente enlace — en la descripción del video se explica cómo integrarlo al proyecto:
+Gameplay
 
 https://youtu.be/o5kRYa2Tq0c
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cdjuqcy02mk0p" path="res://scripts/menu.gd" id="1_vjb58"]
 [ext_resource type="FontFile" uid="uid://bu816dpc8fepl" path="res://fonts/ARCADECLASSIC.TTF" id="2_con2f"]
-[ext_resource type="VideoStream" uid="uid://frout776jpf3" path="res://assets/Mios/Gameplay.ogv" id="2_mhnvy"]
+[ext_resource type="Texture2D" uid="uid://bdrxmbpknd8hg" path="res://assets/Mapas/3/Bright/City3.png" id="2_mhnvy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhnvy"]
 bg_color = Color(0, 0, 0, 0)
@@ -10,14 +10,10 @@ bg_color = Color(0, 0, 0, 0)
 [node name="Menu" type="Node2D" unique_id=828316489]
 script = ExtResource("1_vjb58")
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=748709815]
-offset_right = 1920.0
-offset_bottom = 1080.0
-stream = ExtResource("2_mhnvy")
-volume_db = -80.0
-speed_scale = 0.8
-autoplay = true
-loop = true
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1514939714]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_mhnvy")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1525571448]
 offset_right = 1920.0
