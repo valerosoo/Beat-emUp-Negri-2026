@@ -1,6 +1,7 @@
 extends Nivel1
 
 func _ready() -> void:
+	GameManager.sonido_menu_stop()
 	if GameManager.viene_del_nivel_anterior:
 		GameManager.continuar_siguiente_nivel()
 		GameManager.viene_del_nivel_anterior = false
@@ -9,6 +10,8 @@ func _ready() -> void:
 	$Pivote.visible = false
 	var viene_del_gulag = GameManager.viene_del_gulag
 	super()
+	camara.global_position = jugador.global_position
+	camara.reset_smoothing()
 	if viene_del_gulag:
 		get_tree().paused = false 
 		return

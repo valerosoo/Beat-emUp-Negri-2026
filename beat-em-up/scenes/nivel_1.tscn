@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://b6o6rbhkny6uu" path="res://scenes/game_over.tscn" id="12_vwgcu"]
 [ext_resource type="PackedScene" uid="uid://dskmkx8pbdug3" path="res://scenes/taxi.tscn" id="16_r6w1h"]
 [ext_resource type="PackedScene" uid="uid://ch70lpyp54h0u" path="res://scenes/tacho.tscn" id="18_qx8k3"]
+[ext_resource type="AudioStream" uid="uid://c0riapc1cf0t2" path="res://sounds/Level1.mp3" id="20_cokvo"]
 
 [sub_resource type="Resource" id="Resource_0qj6g"]
 script = ExtResource("2_qm6nr")
@@ -281,6 +282,7 @@ oleada_3 = Array[ExtResource("2_qm6nr")]([SubResource("Resource_uli2u"), SubReso
 script = ExtResource("5_0qj6g")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1195519330]
+process_mode = 3
 
 [node name="Barra_vida" parent="CanvasLayer" unique_id=359784809 instance=ExtResource("2_31big")]
 
@@ -436,9 +438,14 @@ scale = Vector2(0.64000005, 0.64000005)
 
 [node name="Jugador" parent="." unique_id=1341022144 instance=ExtResource("5_ag084")]
 position = Vector2(266, 578)
-vida_maxima = 50
+vida_maxima = 100
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1395724458]
 libraries/ = SubResource("AnimationLibrary_0qj6g")
+
+[node name="BackSound" type="AudioStreamPlayer" parent="." unique_id=1801143792]
+stream = ExtResource("20_cokvo")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

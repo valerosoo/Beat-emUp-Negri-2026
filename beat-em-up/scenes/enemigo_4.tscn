@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://cm3mnjtcub2f7"]
 
 [ext_resource type="Script" uid="uid://twll75l8ye6e" path="res://scripts/enemigo_4.gd" id="1_oyxo7"]
+[ext_resource type="AudioStream" uid="uid://b0c0wdh3ewuk5" path="res://sounds/BatHit1.MP3" id="2_6vrrc"]
 [ext_resource type="PackedScene" uid="uid://wxexndvl7xp2" path="res://scenes/vida_suelta.tscn" id="2_laaof"]
+[ext_resource type="AudioStream" uid="uid://djodgegd2sxxb" path="res://sounds/BatHit2.MP3" id="3_y1nf2"]
+[ext_resource type="AudioStream" uid="uid://3mih61ebrout" path="res://sounds/BatHit3.MP3" id="4_2togx"]
 [ext_resource type="Texture2D" uid="uid://cjdqsfndydr05" path="res://assets/Mercenary Penguin/Secuence PNG/aim_transition/Armature_RUN_aim_transition_00.png" id="4_y1nf2"]
 [ext_resource type="Texture2D" uid="uid://bgx7jf5t1teyb" path="res://assets/Mercenary Penguin/Secuence PNG/aim_transition/Armature_RUN_aim_transition_01.png" id="5_2togx"]
 [ext_resource type="Texture2D" uid="uid://ct46ixlea7bep" path="res://assets/Mercenary Penguin/Secuence PNG/aim_transition/Armature_RUN_aim_transition_02.png" id="6_c35hc"]
@@ -2508,6 +2511,7 @@ length = 0.001
 
 [sub_resource type="Animation" id="Animation_gx2un"]
 resource_name = "bat_attack_ap"
+length = 0.7
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -2609,6 +2613,7 @@ collision_layer = 2
 collision_mask = 7
 platform_floor_layers = 4294901760
 script = ExtResource("1_oyxo7")
+sonidos_golpe = Array[AudioStream]([ExtResource("2_6vrrc"), ExtResource("3_y1nf2"), ExtResource("4_2togx")])
 sprite = NodePath("Pivote/AnimatedSprite2D")
 animation_player = NodePath("AnimationPlayer")
 animaciones = {
@@ -2630,7 +2635,7 @@ escena_corazon = ExtResource("2_laaof")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivote" unique_id=809818535]
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_8dkf8")
-animation = &"bat_hurt"
+animation = &"bat_attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1817280576]
 position = Vector2(0, 59)
@@ -2661,6 +2666,10 @@ libraries/ = SubResource("AnimationLibrary_5mf82")
 visible = false
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("109_fw4n4")
+
+[node name="SonidoGolpe" type="AudioStreamPlayer" parent="." unique_id=2105372782]
+volume_db = -10.0
+max_polyphony = 5
 
 [connection signal="animation_finished" from="Pivote/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="Pivote/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

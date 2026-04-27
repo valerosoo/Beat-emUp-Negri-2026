@@ -1,0 +1,279 @@
+[gd_scene format=3 uid="uid://724f6x105oi"]
+
+[ext_resource type="Script" uid="uid://waw5vxv6qtpe" path="res://scripts/opciones.gd" id="1_hegvj"]
+[ext_resource type="FontFile" uid="uid://bu816dpc8fepl" path="res://fonts/ARCADECLASSIC.TTF" id="2_tvub7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vrcbp"]
+bg_color = Color(0, 0, 0, 0)
+
+[node name="Opciones" type="Node2D" unique_id=808165996]
+process_mode = 3
+script = ExtResource("1_hegvj")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1513643595]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=644444733]
+offset_top = 300.0
+offset_right = 1917.0
+offset_bottom = 381.0
+theme_override_constants/separation = 760
+alignment = 1
+
+[node name="Keybinds" type="Label" parent="HBoxContainer" unique_id=2049597530]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7294118, 0.5176471, 0.105882354, 1)
+theme_override_fonts/font = ExtResource("2_tvub7")
+theme_override_font_sizes/font_size = 80
+text = "Keybinds"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Volume" type="Label" parent="HBoxContainer" unique_id=1532294371]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7294118, 0.5176471, 0.105882354, 1)
+theme_override_fonts/font = ExtResource("2_tvub7")
+theme_override_font_sizes/font_size = 80
+text = "Volume"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Continue" type="Label" parent="." unique_id=386658609]
+offset_left = 740.0
+offset_top = 100.0
+offset_right = 1180.0
+offset_bottom = 202.0
+theme_override_colors/font_color = Color(0.7294118, 0.5176471, 0.105882354, 1)
+theme_override_fonts/font = ExtResource("2_tvub7")
+theme_override_font_sizes/font_size = 100
+text = "Opciones"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=56558260]
+offset_left = 208.0
+offset_top = 500.0
+offset_right = 751.0
+offset_bottom = 963.0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1441444671]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=234725933]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Sprint" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer" unique_id=2110190591]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7294118, 0.5176471, 0.105882354, 1)
+theme_override_fonts/font = ExtResource("2_tvub7")
+theme_override_font_sizes/font_size = 50
+text = "Sprint"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Shift" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer" unique_id=63795259]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_tvub7")
+theme_override_font_sizes/font_size = 50
+text = "Shift"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=864712536]
+layout_mode = 2
+theme_override_constants/separation = 131
+
+[node name="Up" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1252827471]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7294118, 0.5176471, 0.105882354, 1)
+theme_override_fonts/font = ExtResource("2_tvub7")
+theme_override_font_sizes/font_size = 50
+text = "Up"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="W" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=927335030]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_tvub7")
+theme_override_font_sizes/font_size = 50
+text = "W"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=330513667]
+layout_mode = 2
+theme_override_constants/separation = 75
+
+[node name="Down" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=1299971518]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7294118, 0.5176471, 0.105882354, 1)
+theme_override_fonts/font = ExtResource("2_tvub7")
+theme_override_font_sizes/font_size = 50
+text = "Down"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="S" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=1349235619]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_tvub7")
+theme_override_font_sizes/font_size = 50
+text = "S"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1396524714]
+layout_mode = 2
+theme_override_constants/separation = 75
+
+[node name="Left" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=896416772]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7294118, 0.5176471, 0.105882354, 1)
+theme_override_fonts/font = ExtResource("2_tvub7")
+theme_override_font_sizes/font_size = 50
+text = "Left"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="A" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer4" unique_id=1250211122]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_tvub7")
+theme_override_font_sizes/font_size = 50
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1998534668]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Right" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=209709870]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7294118, 0.5176471, 0.105882354, 1)
+theme_override_fonts/font = ExtResource("2_tvub7")
+theme_override_font_sizes/font_size = 50
+text = "Right"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="D" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer5" unique_id=2000912726]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_tvub7")
+theme_override_font_sizes/font_size = 50
+text = "D"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1382822474]
+layout_mode = 2
+theme_override_constants/separation = 75
+
+[node name="Jump" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer6" unique_id=1976249617]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7294118, 0.5176471, 0.105882354, 1)
+theme_override_fonts/font = ExtResource("2_tvub7")
+theme_override_font_sizes/font_size = 50
+text = "Jump"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SpaceBar" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer6" unique_id=1988464692]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_tvub7")
+theme_override_font_sizes/font_size = 50
+text = "SpaceBar"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=1633234952]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="Attack" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=608902816]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7294118, 0.5176471, 0.105882354, 1)
+theme_override_fonts/font = ExtResource("2_tvub7")
+theme_override_font_sizes/font_size = 50
+text = "Attack"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LeftClick" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer7" unique_id=515486001]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_tvub7")
+theme_override_font_sizes/font_size = 50
+text = "Left Click"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="ScrollContainer/VBoxContainer" unique_id=232934378]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Block" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=1723033069]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7294118, 0.5176471, 0.105882354, 1)
+theme_override_fonts/font = ExtResource("2_tvub7")
+theme_override_font_sizes/font_size = 50
+text = "Block"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RightClick" type="Label" parent="ScrollContainer/VBoxContainer/HBoxContainer8" unique_id=1311586645]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_tvub7")
+theme_override_font_sizes/font_size = 50
+text = "RightClick"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HSlider" type="HSlider" parent="." unique_id=1047429154]
+offset_left = 1265.0
+offset_top = 500.0
+offset_right = 1765.0
+offset_bottom = 516.0
+
+[node name="Menu" type="Button" parent="." unique_id=1471444583]
+process_mode = 3
+offset_left = 1520.0
+offset_top = 960.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_colors/font_color = Color(0.73120064, 0.5182523, 0.10681784, 1)
+theme_override_colors/font_hover_color = Color(0.4862745, 0.34117648, 0.0627451, 1)
+theme_override_fonts/font = ExtResource("2_tvub7")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_vrcbp")
+text = "Volver"
+
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]

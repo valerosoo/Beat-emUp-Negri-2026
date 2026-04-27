@@ -1,5 +1,8 @@
 extends Enemigo
 
+@export var sonidos_golpe : Array[AudioStream]
+@onready var sonido_golpe = $SonidoGolpe
+
 var pivot_offset = Vector2.ZERO
 
 func _ready():
@@ -53,7 +56,6 @@ func girar_sprite():
 		attack_offset = attack_area.position.x
 	if player == null:
 		return
-	print("pivot_offset: ", pivot_offset, " anim: ", animation_player.current_animation)
 	var dir = player.global_position.x - global_position.x
 	if dir > 0:
 		sprite.flip_h = false
@@ -103,3 +105,14 @@ func stun():
 		return
 	estado = estado_anterior
 	pivot_offset = Vector2.ZERO
+
+func _on_animated_sprite_2d_frame_changed() -> void:
+	super._on_animated_sprite_2d_frame_changed()
+	if sprite.frame == 12 and atacando:
+		reproducir_golpe()
+
+func reproducir_golpe():
+	if sonidos_golpe.is_empty():
+		return
+	sonido_golpe.stream = sonidos_golpe[randi() % sonidos_golpe.size()]
+	sonido_golpe.play()

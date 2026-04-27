@@ -568,6 +568,7 @@
 [ext_resource type="Texture2D" uid="uid://78h3mjtlojwl" path="res://assets/Mercenary Penguin/Secuence PNG/Run/Run/Armature_RUN_15.png" id="564_uuqf0"]
 [ext_resource type="PackedScene" uid="uid://j4ti6amkd447" path="res://scenes/barra_vida_enemigo.tscn" id="565_3o80e"]
 [ext_resource type="Texture2D" uid="uid://dcu63i0o8ta8s" path="res://assets/Mercenary Penguin/Sprite Sheets/shot.png" id="565_wl07l"]
+[ext_resource type="AudioStream" uid="uid://t0fjn00nj6x0" path="res://sounds/Shoot.mp3" id="569_6goxe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3jga"]
 atlas = ExtResource("565_wl07l")
@@ -2566,7 +2567,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_i3jga"]
 resource_name = "shoot_ap"
-length = 0.8
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -2613,6 +2613,7 @@ script = ExtResource("1_36ssi")
 escena_bala = ExtResource("2_i3jga")
 sprite = NodePath("Pivote/AnimatedSprite2D")
 animation_player = NodePath("AnimationPlayer")
+escena_original = null
 speed = 110
 distancia_para_atacar = 1185
 animaciones = {
@@ -2672,6 +2673,10 @@ texture = ExtResource("549_t1sxf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=209345095]
 libraries/ = SubResource("AnimationLibrary_u0788")
+
+[node name="SonidoDisparo" type="AudioStreamPlayer" parent="." unique_id=1395751069]
+stream = ExtResource("569_6goxe")
+volume_db = -30.0
 
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_on_attack_exited"]

@@ -6,6 +6,7 @@ class_name Nivel1
 @onready var game_over = $CanvasLayer/GameOver
 @onready var pared_izq = $Colisiones/Pared_izq
 @onready var pared_der = $Colisiones/Pared_der
+@onready var backsound = $BackSound
 
 @export var num_nivel: int = 1
 @export var oleada_1 : Array[ResourceOleadas] = []
@@ -25,6 +26,8 @@ var animacion_final_frame = 5300
 var animacion_final_iniciada = false
 
 func _ready() -> void:
+	backsound.play()
+	GameManager.sonido_menu_stop()
 	if GameManager.viene_del_gulag or not GameManager.puede_ir_gulag:
 		GameManager.continuar_siguiente_nivel()
 	else:
@@ -43,7 +46,7 @@ func _ready() -> void:
 		oleada = GameManager.oleada_actual
 		jugador.global_position = GameManager.posicion_muerte
 		configurar_oleada()
-		get_tree().paused = true
+		jugador.set_physics_process(false)
 		esperando_animacion = true
 	
 func _physics_process(delta: float) -> void:
@@ -109,6 +112,7 @@ func jugador_termino_animacion():
 		return
 	if esperando_animacion:
 		esperando_animacion = false
+		jugador.set_physics_process(true)
 		spawnear_oleada()
 	
 func liberar_camara():

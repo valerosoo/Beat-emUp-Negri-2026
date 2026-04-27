@@ -4,6 +4,8 @@ class_name  Tarjeta
 @onready var hover = $ColorRect
 @onready var label = $Label
 @onready var imagen = $TextureRect
+@onready var sonido_error = $SonidoError
+@onready var sonido_play = $SonidoPlay
 
 @export var nivel = 1
 @export var imagen_nivel : Texture2D
@@ -15,6 +17,9 @@ func _ready() -> void:
 	label.text = "Nivel " + str(nivel)
 	imagen.texture = imagen_nivel
 	$Candado.visible = false
+	print("señal pressed conectada: ", pressed.get_connections())
+	print("Nivel: ", nivel, " desbloqueados: ", ManejadorGuardado.niveles.niveles_desbloqueados)
+	print("bloqueado: ", nivel > ManejadorGuardado.niveles.niveles_desbloqueados)
 	
 	if nivel > ManejadorGuardado.niveles.niveles_desbloqueados:
 		disabled = true
@@ -32,10 +37,17 @@ func _on_mouse_entered():
 func _on_mouse_exited():
 	if !bloqueado:
 		imagen.modulate = Color(1,1,1)
-	
+
 func _on_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/nivel_1.tscn")
+	if !bloqueado:
+		sonido_play.play()
+		await sonido_play.finished
+		await get_tree().create_timer(0.5).timeout
+		get_tree().change_scene_to_file("res://scenes/nivel_1.tscn")
 	
-func _on_tarjeta_nivel_2_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/nivel_2.tscn")
-	
+func _on_pressed_nivel_2() -> void:
+	if !bloqueado:
+		sonido_play.play()
+		await sonido_play.finished
+		await get_tree().create_timer(0.5).timeout
+		get_tree().change_scene_to_file("res://scenes/nivel_2.tscn")

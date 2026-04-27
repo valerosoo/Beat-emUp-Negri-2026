@@ -590,6 +590,7 @@
 [ext_resource type="Texture2D" uid="uid://g2wwta5545xj" path="res://assets/crackoverlaysprites_pzrQOe4uRc/PNGS/crack_03.png" id="584_v0lnu"]
 [ext_resource type="Texture2D" uid="uid://bkntondxtgefh" path="res://assets/crackoverlaysprites_pzrQOe4uRc/PNGS/crack_04.png" id="585_qou1x"]
 [ext_resource type="Texture2D" uid="uid://d3xfgghiifyl5" path="res://assets/terrain/terrain.png" id="586_v0lnu"]
+[ext_resource type="AudioStream" uid="uid://bvl3bydr5k1ab" path="res://sounds/Level2.mp3" id="591_n5l3q"]
 
 [sub_resource type="Resource" id="Resource_6dnhc"]
 script = ExtResource("2_aiekk")
@@ -3346,6 +3347,7 @@ position = Vector2(3653, 888)
 
 [node name="Jugador" parent="." unique_id=1341022144 instance=ExtResource("10_2j5ls")]
 position = Vector2(342, 925)
+vida_maxima = 100
 
 [node name="Taxi" parent="." unique_id=1918281552 instance=ExtResource("10_hylrv")]
 position = Vector2(-500, 800)
@@ -3404,5 +3406,11 @@ region_rect = Rect2(488.93265, 69.73561, 81.897064, 79.61153)
 
 [node name="AnimationPlayerTemblor" type="AnimationPlayer" parent="." unique_id=279121397]
 libraries/ = SubResource("AnimationLibrary_f4ccu")
+
+[node name="BackSound" type="AudioStreamPlayer" parent="." unique_id=1922122305]
+stream = ExtResource("591_n5l3q")
+volume_db = -20.0
+autoplay = true
+parameters/looping = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

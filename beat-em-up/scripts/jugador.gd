@@ -5,6 +5,7 @@ signal entrar
 
 @onready var attack_offset = $Pivote/AttackArea.position.x
 @onready var barra_vida
+@onready var sonido_golpe = $PunchSound
 
 @export var walk_speed: int = 200
 @export var run_speed: int = 300
@@ -166,13 +167,14 @@ func _on_animated_sprite_2d_frame_changed():
 	
 	if frame in frames_de_ataque:
 		activar_hitbox_golpeo()
+		sonido_golpe.play()
 	else:
 		desactivar_hitbox_golpeo()
 
 func restar_vida(dano, enemigo):
 	if $Pivote/Escudo.monitoring == true:
 		return
-		
+	GameManager.sonido_hurt()
 	vida -= dano
 	GameManager.registrar_dano_recibido(dano)
 	barra_vida.value = vida
@@ -224,6 +226,8 @@ func bloquear():
 	for area in $Pivote/Escudo.get_overlapping_areas():
 		if area.is_in_group("AttackArea") and area.get_parent().is_in_group("enemigo"):
 			var enemigo = area.get_parent()
+			if not is_instance_valid(enemigo):
+				continue
 			if enemigo.estado != Enemigo.Estado.DEATH and enemigo.atacando:
 				if enemigo.sprite.frame in enemigo.frames_bloqueo:
 					enemigo.stun()

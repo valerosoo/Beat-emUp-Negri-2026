@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dsps7uqaowdvx" path="res://scripts/menu_pausa.gd" id="1_v2jgs"]
 [ext_resource type="FontFile" uid="uid://bu816dpc8fepl" path="res://fonts/ARCADECLASSIC.TTF" id="2_1cdjc"]
+[ext_resource type="PackedScene" uid="uid://724f6x105oi" path="res://scenes/opciones.tscn" id="3_1cdjc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ajpfe"]
 bg_color = Color(0, 0, 0, 0)
@@ -10,12 +11,22 @@ bg_color = Color(0, 0, 0, 0)
 process_mode = 3
 script = ExtResource("1_v2jgs")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1388857172]
+[node name="Opciones2" parent="." unique_id=808165996 instance=ExtResource("3_1cdjc")]
+
+[node name="Control" type="Control" parent="." unique_id=1186767197]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1388857172]
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 0.78431374)
 
-[node name="Continue" type="Label" parent="." unique_id=315039771]
+[node name="Continue" type="Label" parent="Control" unique_id=315039771]
+layout_mode = 0
 offset_left = 763.0
 offset_top = 150.0
 offset_right = 1176.0
@@ -26,7 +37,9 @@ theme_override_font_sizes/font_size = 150
 text = "Pausa"
 vertical_alignment = 1
 
-[node name="Opciones" type="Button" parent="." unique_id=112460380]
+[node name="Opciones" type="Button" parent="Control" unique_id=112460380]
+process_mode = 3
+layout_mode = 0
 offset_left = 740.0
 offset_top = 700.0
 offset_right = 1180.0
@@ -38,7 +51,8 @@ theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajpfe")
 text = "Opciones"
 
-[node name="Menu" type="Button" parent="." unique_id=1480388724]
+[node name="Menu" type="Button" parent="Control" unique_id=1480388724]
+layout_mode = 0
 offset_left = 760.0
 offset_top = 850.0
 offset_right = 1160.0
@@ -50,7 +64,8 @@ theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajpfe")
 text = "Menu"
 
-[node name="Continuar" type="Button" parent="." unique_id=198108503]
+[node name="Continuar" type="Button" parent="Control" unique_id=198108503]
+layout_mode = 0
 offset_left = 712.0
 offset_top = 550.0
 offset_right = 1207.0
@@ -62,6 +77,6 @@ theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxFlat_ajpfe")
 text = "Continuar"
 
-[connection signal="pressed" from="Opciones" to="." method="_on_opciones_pressed"]
-[connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]
-[connection signal="pressed" from="Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="Control/Opciones" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="Control/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="Control/Continuar" to="." method="_on_continuar_pressed"]

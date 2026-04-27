@@ -6,6 +6,8 @@ class_name Boss2
 @export var cantidad_balas : int = 30
 @export var cantidad_balas_doradas : int = 6
 
+@onready var sonido_disparo = $SonidoDisparo
+
 var ataque_actual = 0
 var atacando = false
 var danio_bala
@@ -145,3 +147,6 @@ func iniciar_stun():
 	if stuneado and stun_id == mi_id:
 		terminar_stun()
 		
+
+func f_sonido_disparo():
+	sonido_disparo.play()

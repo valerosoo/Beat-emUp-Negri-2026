@@ -186,6 +186,7 @@ func restar_vida(dano):
 	if cayendo:
 		return
 	GameManager.registrar_dano_generado(dano)
+	GameManager.sonido_hurt()
 	vida -= dano
 	parpadeo()
 	barra_vida.visible = true

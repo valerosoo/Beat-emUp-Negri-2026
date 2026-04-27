@@ -15,4 +15,5 @@ func _input(event: InputEvent) -> void:
 		_on_menu_pressed()
 
 func _on_menu_pressed() -> void:
+	GameManager.sonido_menu_select()
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")

@@ -13,3 +13,4 @@ func _input(event: InputEvent) -> void:
 			get_tree().paused = true
 			get_tree().get_first_node_in_group("jugador").set_physics_process(false)
 			get_parent().get_node("CanvasLayer/MenuPausa").visible = true
+			

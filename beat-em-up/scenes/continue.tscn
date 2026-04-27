@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ccjxv8mqx3e82" path="res://assets/death_screens/death1.png" id="2_gwety"]
 [ext_resource type="FontFile" uid="uid://bu816dpc8fepl" path="res://fonts/ARCADECLASSIC.TTF" id="3_wfw3d"]
 [ext_resource type="Script" uid="uid://bmhjol7egdak8" path="res://scripts/temblortexto.gd" id="4_wtkkp"]
+[ext_resource type="AudioStream" uid="uid://235ycs6mfala" path="res://sounds/Continue.mp3" id="5_oj3o3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0sy7l"]
 bg_color = Color(0, 0, 0, 0)
@@ -71,6 +72,11 @@ theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxFlat_0sy7l")
 text = "Menu"
 script = ExtResource("4_wtkkp")
+
+[node name="ContinueSound" type="AudioStreamPlayer" parent="." unique_id=465743285]
+stream = ExtResource("5_oj3o3")
+volume_db = -15.0
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Gulag" to="." method="_on_gulag_pressed"]

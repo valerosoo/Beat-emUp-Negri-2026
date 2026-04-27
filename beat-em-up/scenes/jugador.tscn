@@ -77,6 +77,7 @@
 [ext_resource type="Texture2D" uid="uid://badlk164f51cd" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_walk_0015.png" id="68_jm126"]
 [ext_resource type="Texture2D" uid="uid://8tp157jwfgfl" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_walk_0016.png" id="69_mkon8"]
 [ext_resource type="Texture2D" uid="uid://j6er8q58cnm3" path="res://assets/Bubble/bubble_sheet.png" id="70_145tk"]
+[ext_resource type="AudioStream" uid="uid://1o3ulr42b8bx" path="res://sounds/Punch.MP3" id="78_mpm4s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhgvq"]
 radius = 14.0
@@ -739,6 +740,10 @@ frame_progress = 0.94846153
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivote/Escudo" unique_id=92720129]
 position = Vector2(-2.5, 35)
 shape = SubResource("RectangleShape2D_pwri8")
+
+[node name="PunchSound" type="AudioStreamPlayer" parent="." unique_id=1444979869]
+stream = ExtResource("78_mpm4s")
+volume_db = -10.0
 
 [connection signal="animation_finished" from="Pivote/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="Pivote/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

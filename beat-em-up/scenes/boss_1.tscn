@@ -566,6 +566,7 @@
 [ext_resource type="Texture2D" uid="uid://b1bn5ab60kro0" path="res://assets/Mercenary Penguin/Secuence PNG/Run/Run Shot/Armature_RUN-and-SHOT_14.png" id="562_wiruj"]
 [ext_resource type="Texture2D" uid="uid://clhfjebtr5gsi" path="res://assets/Mercenary Penguin/Secuence PNG/Run/Run Shot/Armature_RUN-and-SHOT_15.png" id="563_4rwet"]
 [ext_resource type="Texture2D" uid="uid://dcu63i0o8ta8s" path="res://assets/Mercenary Penguin/Sprite Sheets/shot.png" id="564_eiskh"]
+[ext_resource type="AudioStream" uid="uid://b0c0wdh3ewuk5" path="res://sounds/BatHit1.MP3" id="567_j601h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3jga"]
 atlas = ExtResource("564_eiskh")
@@ -2509,11 +2510,14 @@ tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
 "method": &"anim_empujar"
+}, {
+"args": [],
+"method": &"sonido_bate"
 }]
 }
 
@@ -2551,5 +2555,9 @@ shape = SubResource("RectangleShape2D_d3jeh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1533215997]
 libraries/ = SubResource("AnimationLibrary_j601h")
+
+[node name="SonidoBate" type="AudioStreamPlayer" parent="." unique_id=1943926306]
+stream = ExtResource("567_j601h")
+volume_db = -5.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

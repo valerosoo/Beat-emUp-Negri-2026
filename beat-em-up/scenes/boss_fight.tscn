@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://l535rbpc138a" path="res://scenes/boss_1.tscn" id="5_67f06"]
 [ext_resource type="PackedScene" uid="uid://cpqm2h3d343at" path="res://scenes/boss_2.tscn" id="8_2tdpq"]
 [ext_resource type="PackedScene" uid="uid://dompy5un3s056" path="res://scenes/victoria.tscn" id="14_ql2p3"]
+[ext_resource type="AudioStream" uid="uid://boqyppawg3lyg" path="res://sounds/Bossfight.mp3" id="16_4mjmg"]
 [ext_resource type="PackedScene" uid="uid://tvv4letdju1q" path="res://scenes/jugador.tscn" id="568_i67ca"]
 
 [sub_resource type="Animation" id="Animation_x4w2v"]
@@ -144,7 +145,6 @@ script = ExtResource("1_x4w2v")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1544636770]
 
 [node name="GameOver" parent="CanvasLayer" unique_id=49019461 instance=ExtResource("2_4ix7a")]
-process_mode = 3
 visible = false
 
 [node name="Victoria" parent="CanvasLayer" unique_id=810485456 instance=ExtResource("14_ql2p3")]
@@ -189,7 +189,7 @@ texture = ExtResource("4_7imqq")
 
 [node name="Jugador" parent="." unique_id=1341022144 instance=ExtResource("568_i67ca")]
 position = Vector2(132, -200)
-vida_maxima = 200
+vida_maxima = 100
 
 [node name="Boss_1" parent="." unique_id=718371346 instance=ExtResource("5_67f06")]
 position = Vector2(1697, -450)
@@ -247,5 +247,10 @@ shape = SubResource("RectangleShape2D_ql2p3")
 position = Vector2(1474, 874)
 scale = Vector2(0.20888862, 0.9155554)
 texture = ExtResource("2_34kmk")
+
+[node name="Bossfight" type="AudioStreamPlayer" parent="." unique_id=891198617]
+stream = ExtResource("16_4mjmg")
+volume_db = -30.0
+autoplay = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

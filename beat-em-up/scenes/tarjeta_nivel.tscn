@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://dwtm5crw2re52" path="res://scripts/tarjeta.gd" id="1_by07s"]
 [ext_resource type="Texture2D" uid="uid://d21skpk8nkvvn" path="res://assets/Mios/CandadoNiveles.png" id="2_by07s"]
 [ext_resource type="FontFile" uid="uid://bu816dpc8fepl" path="res://fonts/ARCADECLASSIC.TTF" id="3_b18ld"]
+[ext_resource type="AudioStream" uid="uid://ba13vylixn40r" path="res://sounds/ErrorSelect.wav" id="4_tkvjn"]
+[ext_resource type="AudioStream" uid="uid://cjyr2oax0xtxi" path="res://sounds/Play (mp3cut.net).mp3" id="5_b18ld"]
 
 [node name="Button" type="Button" unique_id=392754529]
 offset_right = 500.0
@@ -32,6 +34,14 @@ theme_override_font_sizes/font_size = 30
 text = "Nivel 1"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SonidoError" type="AudioStreamPlayer" parent="." unique_id=1664500917]
+stream = ExtResource("4_tkvjn")
+volume_db = -10.0
+
+[node name="SonidoPlay" type="AudioStreamPlayer" parent="." unique_id=1233449226]
+stream = ExtResource("5_b18ld")
+volume_db = -10.0
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

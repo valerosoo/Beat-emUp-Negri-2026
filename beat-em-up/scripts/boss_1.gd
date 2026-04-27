@@ -10,6 +10,7 @@ enum Estado {IDLE, STUN, ATTACK}
 @onready var destino_empuje = $"../DestinoEmpuje"
 @onready var barrera = get_parent().get_node("StaticBody2D2").get_node("Barrera")
 @onready var barrera_sprite = get_parent().get_node("StaticBody2D2").get_node("Sprite2D")
+@onready var bate_sound = $SonidoBate
 
 @export var escena_enemigo : PackedScene
 @export var vida_maxima : int = 700
@@ -168,3 +169,6 @@ func parpadeo():
 	if !is_inside_tree():
 		return
 	sprite.modulate = Color (1,1,1,1)
+	
+func sonido_bate():
+	bate_sound.play()

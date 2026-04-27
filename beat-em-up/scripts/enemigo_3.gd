@@ -4,6 +4,7 @@ class_name Pinguino_AK
 @onready var spawn_bala = $SpawnBala
 @onready var radar = $Radar
 @onready var attack_area_propio = $AttackArea
+@onready var sonido_disparo = $SonidoDisparo
 
 @export var escena_bala : PackedScene
 @export var cadencia: float = 0.0
@@ -115,6 +116,7 @@ func disparar():
 	var direccion = (player.global_position - spawn_bala.global_position).normalized()
 	bala.direccion_vector = direccion
 	bala.actualizar_rotacion()
+	sonido_disparo.play()
 	
 func girar_sprite():
 	if attack_offset == null:

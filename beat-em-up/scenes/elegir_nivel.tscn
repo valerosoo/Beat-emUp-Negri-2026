@@ -45,5 +45,5 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_7i8yf")
 text = "Volver"
 
 [connection signal="pressed" from="TarjetaNivel1" to="TarjetaNivel1" method="_on_pressed"]
-[connection signal="pressed" from="TarjetaNivel2" to="TarjetaNivel1" method="_on_tarjeta_nivel_2_pressed"]
+[connection signal="pressed" from="TarjetaNivel2" to="TarjetaNivel1" method="_on_pressed_nivel_2"]
 [connection signal="pressed" from="Menu" to="." method="_on_menu_pressed"]
