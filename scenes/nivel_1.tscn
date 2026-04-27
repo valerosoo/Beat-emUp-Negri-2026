@@ -300,7 +300,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="MenuPausa" parent="CanvasLayer" unique_id=844394850 instance=ExtResource("7_co0c6")]
+[node name="MenuPausa" parent="CanvasLayer" unique_id=844394850 groups=["menu_pausa"] instance=ExtResource("7_co0c6")]
 visible = false
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=82167195]

@@ -40,11 +40,13 @@ func _on_pressed() -> void:
 		sonido_play.play()
 		await sonido_play.finished
 		await get_tree().create_timer(0.5).timeout
-		get_tree().change_scene_to_file("res://scenes/nivel_1.tscn")
+		if get_tree():
+			get_tree().change_scene_to_file("res://scenes/nivel_1.tscn")
 	
 func _on_pressed_nivel_2() -> void:
 	if !bloqueado:
 		sonido_play.play()
 		await sonido_play.finished
 		await get_tree().create_timer(0.5).timeout
-		get_tree().change_scene_to_file("res://scenes/nivel_2.tscn")
+		if get_tree():
+			get_tree().change_scene_to_file("res://scenes/nivel_2.tscn")

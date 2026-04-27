@@ -1,0 +1,10 @@
+res://scenes/boss_fight.tscn
+res://scripts/boss_fight.gd
+res://scripts/jugador.gd
+res://scenes/boss_3.tscn
+res://scripts/boss_3.gd
+res://scenes/bala_verde.tscn
+res://scripts/bala_verde.gd
+res://scripts/boss_2.gd
+res://scripts/boss_1.gd
+res://scripts/enemigo_2.gd

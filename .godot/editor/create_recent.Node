@@ -1,3 +1,6 @@
+CanvasLayer
+Button
+TextureRect
 Sprite2D
 Control
 Node2D
@@ -7,8 +10,5 @@ VBoxContainer
 ScrollContainer
 AudioStreamPlayer
 AnimationPlayer
-CanvasLayer
 Label
 StaticBody2D
-CollisionShape2D
-Area2D

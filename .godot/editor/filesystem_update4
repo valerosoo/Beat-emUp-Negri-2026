@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 res://scenes/menu.tscn
 res://scenes/bala_verde.tscn
 res://scenes/barra_vida_enemigo.tscn
@@ -44,3 +45,10 @@ res://scripts/taxi.gd
 res://scripts/temblortexto.gd
 res://scripts/victoria.gd
 res://scripts/vida_suelta.gd
+=======
+res://scenes/boss_fight.tscn
+res://scenes/nivel_1.tscn
+res://scripts/gestor_pausa.gd
+res://scenes/menu_pausa.tscn
+res://scenes/gulag.tscn
+>>>>>>> test
