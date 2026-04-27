@@ -23,10 +23,41 @@ color = Color(0, 0, 0, 0.7764706)
 position = Vector2(960, 200)
 texture = ExtResource("2_7ns25")
 
+[node name="Menu" type="Button" parent="." unique_id=622829937]
+process_mode = 3
+offset_left = 587.0
+offset_top = 900.0
+offset_right = 817.0
+offset_bottom = 1002.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.73120064, 0.5182523, 0.10681784, 1)
+theme_override_colors/font_hover_color = Color(0.4862745, 0.34117648, 0.0627451, 1)
+theme_override_fonts/font = ExtResource("3_gwety")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_wfw3d")
+text = "Menu"
+alignment = 0
+
+[node name="Retry" type="Button" parent="." unique_id=222948029]
+process_mode = 3
+offset_left = 1057.0
+offset_top = 900.0
+offset_right = 1343.0
+offset_bottom = 1002.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(0.73120064, 0.5182523, 0.10681784, 1)
+theme_override_colors/font_hover_color = Color(0.4862745, 0.34117648, 0.0627451, 1)
+theme_override_fonts/font = ExtResource("3_gwety")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_wfw3d")
+text = "Retry"
+alignment = 0
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=983180654]
 offset_top = 414.0
 offset_right = 1920.0
 offset_bottom = 783.0
+mouse_filter = 2
 alignment = 1
 
 [node name="DanoRecibido" type="Label" parent="VBoxContainer" unique_id=648229207]
@@ -64,36 +95,6 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.7294118, 0.5176471, 0.105882354, 1)
 theme_override_font_sizes/font_size = 25
 horizontal_alignment = 1
-
-[node name="Menu" type="Button" parent="." unique_id=622829937]
-process_mode = 3
-offset_left = 587.0
-offset_top = 900.0
-offset_right = 817.0
-offset_bottom = 1002.0
-mouse_filter = 1
-theme_override_colors/font_color = Color(0.73120064, 0.5182523, 0.10681784, 1)
-theme_override_colors/font_hover_color = Color(0.4862745, 0.34117648, 0.0627451, 1)
-theme_override_fonts/font = ExtResource("3_gwety")
-theme_override_font_sizes/font_size = 100
-theme_override_styles/normal = SubResource("StyleBoxFlat_wfw3d")
-text = "Menu"
-alignment = 0
-
-[node name="Retry" type="Button" parent="." unique_id=222948029]
-process_mode = 3
-offset_left = 1057.0
-offset_top = 900.0
-offset_right = 1343.0
-offset_bottom = 1002.0
-mouse_filter = 1
-theme_override_colors/font_color = Color(0.73120064, 0.5182523, 0.10681784, 1)
-theme_override_colors/font_hover_color = Color(0.4862745, 0.34117648, 0.0627451, 1)
-theme_override_fonts/font = ExtResource("3_gwety")
-theme_override_font_sizes/font_size = 100
-theme_override_styles/normal = SubResource("StyleBoxFlat_wfw3d")
-text = "Retry"
-alignment = 0
 
 [node name="GameOverSound" type="AudioStreamPlayer" parent="." unique_id=1218067165]
 stream = ExtResource("4_racf3")

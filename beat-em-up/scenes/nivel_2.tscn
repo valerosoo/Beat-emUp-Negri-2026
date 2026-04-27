@@ -3259,6 +3259,7 @@ y_sort_enabled = true
 y_sort_enabled = true
 offset_right = 6986.0
 offset_bottom = 1080.0
+mouse_filter = 2
 texture = ExtResource("10_n5l3q")
 stretch_mode = 1
 
@@ -3266,6 +3267,7 @@ stretch_mode = 1
 y_sort_enabled = true
 offset_right = 6986.0
 offset_bottom = 1080.0
+mouse_filter = 2
 texture = ExtResource("11_245ks")
 stretch_mode = 1
 
@@ -3273,6 +3275,7 @@ stretch_mode = 1
 y_sort_enabled = true
 offset_right = 6986.0
 offset_bottom = 1080.0
+mouse_filter = 2
 texture = ExtResource("12_mhrql")
 stretch_mode = 1
 
@@ -3280,6 +3283,7 @@ stretch_mode = 1
 y_sort_enabled = true
 offset_right = 6986.0
 offset_bottom = 1080.0
+mouse_filter = 2
 texture = ExtResource("13_upuk5")
 stretch_mode = 1
 
@@ -3287,6 +3291,7 @@ stretch_mode = 1
 y_sort_enabled = true
 offset_right = 6986.0
 offset_bottom = 1080.0
+mouse_filter = 2
 texture = ExtResource("15_2m2kn")
 stretch_mode = 1
 

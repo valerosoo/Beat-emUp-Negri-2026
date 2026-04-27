@@ -52,11 +52,15 @@ func _ready() -> void:
 func _process(delta):
 	if contando_tiempo:
 		stats["tiempo"] += delta
-		Input.flush_buffered_events()
 
 func retry_level():
+	print("retry_level llamado desde: ", get_stack())
 	resetear_gulag()
-	var nivel_a_resetear = "res://scenes/nivel_" + str(GameManager.nivel_actual) + ".tscn"
+	var nivel_a_resetear
+	if GameManager.nivel_actual == 3:
+		nivel_a_resetear = "res://scenes/bossfight.tscn"
+	else:
+		nivel_a_resetear = "res://scenes/nivel_" + str(GameManager.nivel_actual) + ".tscn"
 	get_tree().change_scene_to_file(nivel_a_resetear)
 
 func volver_al_nivel():

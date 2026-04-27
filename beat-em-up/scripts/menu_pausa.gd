@@ -21,6 +21,11 @@ func _on_continuar_pressed() -> void:
 func _on_menu_pressed() -> void:
 	GameManager.sonido_menu_select()
 	get_tree().paused = false
+	get_tree().get_first_node_in_group("jugador").set_physics_process(true)
+	GameManager.puede_ir_gulag = true
+	GameManager.viene_del_gulag = false
+	GameManager.viene_del_nivel_anterior = false
+	GameManager.oleada_actual = 0
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
 func _on_opciones_pressed() -> void:

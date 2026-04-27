@@ -19,30 +19,35 @@ size = Vector2(1920, 406)
 [node name="Sky" type="TextureRect" parent="Background" unique_id=1191507248]
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 2
 texture = ExtResource("1_7nsmg")
 stretch_mode = 1
 
 [node name="Buildings" type="TextureRect" parent="Background" unique_id=287362364]
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 2
 texture = ExtResource("2_5d1wn")
 stretch_mode = 1
 
 [node name="Wall2" type="TextureRect" parent="Background" unique_id=1897176603]
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 2
 texture = ExtResource("3_aw7mx")
 stretch_mode = 1
 
 [node name="Wall1" type="TextureRect" parent="Background" unique_id=78917841]
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 2
 texture = ExtResource("4_7i0qr")
 stretch_mode = 1
 
 [node name="Road" type="TextureRect" parent="Background" unique_id=772386526]
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 2
 texture = ExtResource("5_opt2g")
 stretch_mode = 1
 

@@ -26,6 +26,9 @@ var animacion_final_frame = 5300
 var animacion_final_iniciada = false
 
 func _ready() -> void:
+	GameManager.nivel_actual = num_nivel
+	get_tree().paused = false
+	esperando_animacion = false
 	backsound.play()
 	GameManager.sonido_menu_stop()
 	if GameManager.viene_del_gulag or not GameManager.puede_ir_gulag:
@@ -49,6 +52,18 @@ func _ready() -> void:
 		jugador.set_physics_process(false)
 		esperando_animacion = true
 	
+	await get_tree().process_frame
+	print("oleada: ", oleada, " activacion: ", jugador_oleadas_activacion[oleada], " camara_bloqueada: ", camara_bloqueada)
+	if camara_bloqueada:
+		var nueva_pos = Vector2(jugador_oleadas_activacion[oleada], jugador.global_position.y)
+		print("seteando camara a: ", nueva_pos)
+		camara.global_position = nueva_pos
+	else:
+		camara.global_position = jugador.global_position
+	camara.reset_smoothing()
+	await get_tree().process_frame
+	print("camara despues: ", camara.global_position)
+
 func _physics_process(delta: float) -> void:
 	if esperando_animacion:
 		return
@@ -83,7 +98,6 @@ func spawnear_enemigo(enemigo_packedScene, spawn_nodePath):
 	enemigo.tree_exited.connect(eliminar_enemigo)
 	
 	if enemigo.is_in_group("enemigo_2"):
-		print("Frames: " + str(enemigo.frames_de_ataque))
 		enemigo.anim_caida()
 	
 func eliminar_enemigo():
@@ -148,3 +162,4 @@ func desactivar_pared_der():
 func termino_nivel():
 	ManejadorGuardado.niveles.niveles_desbloqueados += 1
 	ManejadorGuardado.guardar_todo()
+	GameManager.nivel_actual += 1

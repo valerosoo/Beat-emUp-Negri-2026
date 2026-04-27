@@ -10,13 +10,18 @@ func _ready() -> void:
 	$Pivote.visible = false
 	var viene_del_gulag = GameManager.viene_del_gulag
 	super()
-	camara.global_position = jugador.global_position
+	get_tree().paused = false
+	await get_tree().process_frame
+	if camara_bloqueada:
+		camara.global_position = Vector2(jugador_oleadas_activacion[oleada], jugador.global_position.y)
+	else:
+		camara.global_position = jugador.global_position
 	camara.reset_smoothing()
-	if viene_del_gulag:
-		get_tree().paused = false 
+	if viene_del_gulag:  
 		return
 	esperando_animacion = true
 	$AnimationPlayer.play("Abrir_salir")
+	GameManager.nivel_actual = num_nivel
 	
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Abrir_salir":
@@ -35,6 +40,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 func activar_animacion_final():
 	animacion_final_iniciada = true
 	GameManager.viene_del_nivel_anterior = true
+	GameManager.nivel_actual += 1
 	jugador.set_physics_process(false)
 	$CanvasLayer/Barra_vida.visible = false
 	var tween = create_tween()

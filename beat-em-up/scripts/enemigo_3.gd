@@ -25,7 +25,6 @@ func _ready():
 	await get_tree().process_frame
 	
 func _on_radar_entered(body):
-	print("Radar detectó: ", body.name, " grupos: ", body.get_groups())
 	if body.is_in_group("jugador"):
 		jugador_en_radar = true
 		if !jugador_en_attack:
@@ -41,7 +40,6 @@ func _on_radar_exited(body):
 		puede_disparar = true
 	
 func _on_attack_entered(body):
-	print("AttackArea detectó: ", body.name)
 	if body.is_in_group("jugador"):
 		jugador_en_attack = true
 		estado = Estado.ATTACK
@@ -191,10 +189,8 @@ func verificar_muerte():
 		set_collision_mask(0)
 		soltar_corazon()
 		if sprite.flip_h:
-			print("H")
 			pivot_offset = Vector2(-10, 11)
 		else:
-			print("G")
 			pivot_offset = Vector2(-58, 11)
 		girar_sprite()
 		animation_player.play(animaciones["morir"])

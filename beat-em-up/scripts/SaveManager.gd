@@ -9,7 +9,6 @@ var niveles = {
 func _ready() -> void:
 	cargar()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -21,17 +20,14 @@ func guardar_niveles_desbloqueados():
 
 func cargar():
 	if not FileAccess.file_exists("user://save.json"):
-		print("No existe archivo de guardado")
 		return
 	var archivo = FileAccess.open("user://save.json", FileAccess.READ)
 	var json = JSON.new()
 	var error = json.parse(archivo.get_as_text())
 	if error == OK:
-		print("Cargado: ", json.data)
 		if json.data.has("niveles"):
 			niveles = json.data["niveles"]
 			niveles["niveles_desbloqueados"] = int(niveles["niveles_desbloqueados"])
-			print("Niveles desbloqueados: ", niveles["niveles_desbloqueados"])
 		if json.data.has("stats"):
 			GameManager.stats = json.data["stats"]
 			GameManager.contando_tiempo = false
@@ -48,7 +44,5 @@ func guardar_todo():
 			"tiempo": GameManager.stats["tiempo"]
 		}
 	}
-	print("Guardando: ", datos)
 	var archivo = FileAccess.open("user://save.json", FileAccess.WRITE)
 	archivo.store_string(JSON.stringify(datos))
-	print("Guardado en: ", ProjectSettings.globalize_path("user://save.json"))

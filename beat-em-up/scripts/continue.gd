@@ -7,7 +7,6 @@ var tiempo=10
 func _ready() -> void:
 	var nivel = GameManager.nivel_actual
 	var ruta = "res://assets/death_screens/death" + str(nivel) + ".png"
-	print(ruta)
 	
 	img.texture = load(ruta)
 	

@@ -29,6 +29,7 @@ anchors_preset = -1
 anchor_right = 1.761
 anchor_bottom = 1.7500001
 offset_right = -0.0060043335
+mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_p3gqx")
 theme_override_styles/fill = SubResource("StyleBoxFlat_031fe")
 show_percentage = false

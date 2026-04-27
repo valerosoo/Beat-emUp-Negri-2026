@@ -1,5 +1,1 @@
-1- Agregar sonidos
-2- Intentar guardar partida
-3- Para el menú de opciones, poner controles, volumen sonido, (resolución si se puede)
-4- Tengo que crear la animación de hit para el enemigo 2
-
+1-Arreglar las colisiones de los gulag

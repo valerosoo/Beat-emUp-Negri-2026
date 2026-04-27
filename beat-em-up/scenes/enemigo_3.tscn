@@ -2613,7 +2613,6 @@ script = ExtResource("1_36ssi")
 escena_bala = ExtResource("2_i3jga")
 sprite = NodePath("Pivote/AnimatedSprite2D")
 animation_player = NodePath("AnimationPlayer")
-escena_original = null
 speed = 110
 distancia_para_atacar = 1185
 animaciones = {
@@ -2665,11 +2664,6 @@ collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Radar" unique_id=1550233150]
 shape = SubResource("CircleShape2D_i3jga")
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=684041084]
-visible = false
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("549_t1sxf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=209345095]
 libraries/ = SubResource("AnimationLibrary_u0788")

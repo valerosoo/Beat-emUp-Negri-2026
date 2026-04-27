@@ -2662,11 +2662,6 @@ position = Vector2(-40, -78)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=861629264]
 libraries/ = SubResource("AnimationLibrary_5mf82")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2031608313]
-visible = false
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("109_fw4n4")
-
 [node name="SonidoGolpe" type="AudioStreamPlayer" parent="." unique_id=2105372782]
 volume_db = -10.0
 max_polyphony = 5

@@ -17,9 +17,6 @@ func _ready() -> void:
 	label.text = "Nivel " + str(nivel)
 	imagen.texture = imagen_nivel
 	$Candado.visible = false
-	print("señal pressed conectada: ", pressed.get_connections())
-	print("Nivel: ", nivel, " desbloqueados: ", ManejadorGuardado.niveles.niveles_desbloqueados)
-	print("bloqueado: ", nivel > ManejadorGuardado.niveles.niveles_desbloqueados)
 	
 	if nivel > ManejadorGuardado.niveles.niveles_desbloqueados:
 		disabled = true

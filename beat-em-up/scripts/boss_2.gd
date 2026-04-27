@@ -22,8 +22,12 @@ func ciclo_ataques():
 	while true:
 		if muerto or desactivado:
 			return
+		if !is_inside_tree():
+			return
 		await elegir_ataque()
 		if muerto or desactivado:
+			return
+		if !is_inside_tree():
 			return
 		await get_tree().create_timer(1.0).timeout
 	
@@ -94,6 +98,8 @@ func hacer_caer_balas():
 		bala.direccion_vector = Vector2.DOWN
 		bala.actualizar_rotacion()
 		await get_tree().create_timer(0.25).timeout
+		if !is_inside_tree():
+			return
 	if muerto:
 		return
 	estado = Estado.IDLE
@@ -144,6 +150,8 @@ func iniciar_stun():
 	stun_id += 1
 	var mi_id = stun_id
 	await get_tree().create_timer(duracion_stun).timeout
+	if !is_instance_valid(self) or !is_inside_tree():
+		return
 	if stuneado and stun_id == mi_id:
 		terminar_stun()
 		

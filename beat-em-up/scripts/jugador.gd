@@ -241,7 +241,6 @@ func bloquear():
 func _on_escudo_area_entered(area: Area2D) -> void:
 	if area.is_in_group("AttackArea") and area.get_parent().is_in_group("enemigo"):
 		var enemigo = area.get_parent()
-		print("frame: ", enemigo.sprite.frame, " atacando: ", enemigo.atacando, " estado: ", enemigo.estado)
 		if enemigo.estado == Enemigo.Estado.DEATH:
 			return
 		if enemigo.atacando:

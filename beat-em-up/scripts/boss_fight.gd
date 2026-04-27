@@ -10,6 +10,7 @@ var vida_total = 700
 var fase = 1
 
 func _ready():
+	GameManager.nivel_actual = num_nivel
 	GameManager.puede_ir_gulag = false
 	if GameManager.viene_del_nivel_anterior:
 		GameManager.continuar_siguiente_nivel()

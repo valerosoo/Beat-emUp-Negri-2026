@@ -36,12 +36,3 @@ func mostrar_stats():
 	else:
 		$VBoxContainer/Gulag.text = "Fue al gulag: No"
 	$VBoxContainer/Tiempo.text = "Tiempo: " + GameManager.tiempo_formateado()
-
-func _unhandled_input(event):
-	if event is InputEventMouseButton and event.pressed:
-		if $Menu.get_global_rect().has_point(event.position):
-			print("forzando menu")
-			_on_menu_pressed()
-		if $Retry.get_global_rect().has_point(event.position):
-			print("forzando retry")
-			_on_retry_pressed()

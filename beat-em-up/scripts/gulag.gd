@@ -37,7 +37,6 @@ func _ready() -> void:
 	enemigo.aplicar_buff(GameManager.gulag.buff)
 		
 	enemigo.tree_exited.connect(iniciar_cinematica)
-	print("señal conectada")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -53,7 +52,6 @@ func volver_al_nivel():
 	GameManager.volver_al_nivel()
 
 func iniciar_cinematica():
-	print("iniciar_cinematica llamada")
 	if !cinematica_iniciada:
 		cinematica_iniciada = true
 		if get_tree() != null:

@@ -285,6 +285,7 @@ script = ExtResource("5_0qj6g")
 process_mode = 3
 
 [node name="Barra_vida" parent="CanvasLayer" unique_id=359784809 instance=ExtResource("2_31big")]
+mouse_filter = 2
 
 [node name="GameOver" parent="CanvasLayer" unique_id=49019461 instance=ExtResource("12_vwgcu")]
 visible = false
@@ -296,6 +297,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="MenuPausa" parent="CanvasLayer" unique_id=844394850 instance=ExtResource("7_co0c6")]
@@ -375,30 +377,35 @@ shape = SubResource("SegmentShape2D_cokvo")
 [node name="Sky" type="TextureRect" parent="Background" unique_id=1403650291]
 offset_right = 10647.0
 offset_bottom = 1080.0
+mouse_filter = 2
 texture = ExtResource("1_gq86h")
 stretch_mode = 1
 
 [node name="Buildings" type="TextureRect" parent="Background" unique_id=286791756]
 offset_right = 10647.0
 offset_bottom = 1080.0
+mouse_filter = 2
 texture = ExtResource("2_hrsa5")
 stretch_mode = 1
 
 [node name="Wall2" type="TextureRect" parent="Background" unique_id=1895059666]
 offset_right = 10645.0
 offset_bottom = 1080.0
+mouse_filter = 2
 texture = ExtResource("5_gnqo2")
 stretch_mode = 1
 
 [node name="Wall1" type="TextureRect" parent="Background" unique_id=2112526336]
 offset_right = 10647.0
 offset_bottom = 1080.0
+mouse_filter = 2
 texture = ExtResource("6_vwgcu")
 stretch_mode = 1
 
 [node name="Road" type="TextureRect" parent="Background" unique_id=415003642]
 offset_right = 10647.0
 offset_bottom = 1080.0
+mouse_filter = 2
 texture = ExtResource("4_67o6f")
 stretch_mode = 1
 

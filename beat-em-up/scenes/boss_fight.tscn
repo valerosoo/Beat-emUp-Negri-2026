@@ -153,6 +153,8 @@ visible = false
 [node name="MenuPausa" parent="CanvasLayer" unique_id=844394850 instance=ExtResource("4_hllwh")]
 visible = false
 
+[node name="Barra_vida" parent="CanvasLayer" unique_id=359784809 instance=ExtResource("3_31neg")]
+
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2054076931]
 visible = false
 modulate = Color(0, 0, 0, 0)
@@ -169,6 +171,7 @@ color = Color(0, 0, 0, 1)
 [node name="Sky" type="TextureRect" parent="." unique_id=102082494]
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 texture = ExtResource("2_62gkx")
 
 [node name="Boss_3" parent="." unique_id=1266515135 node_paths=PackedStringArray("spawn_izquierda", "spawn_derecha") instance=ExtResource("3_7imqq")]
@@ -181,11 +184,10 @@ escena_bala_verde = ExtResource("5_4ix7a")
 [node name="Floor" type="TextureRect" parent="." unique_id=1297396259]
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 texture = ExtResource("4_7imqq")
 
 [node name="Barra_vida_boss" parent="." unique_id=668431123 instance=ExtResource("2_85w88")]
-
-[node name="Barra_vida" parent="." unique_id=359784809 instance=ExtResource("3_31neg")]
 
 [node name="Jugador" parent="." unique_id=1341022144 instance=ExtResource("568_i67ca")]
 position = Vector2(132, -200)

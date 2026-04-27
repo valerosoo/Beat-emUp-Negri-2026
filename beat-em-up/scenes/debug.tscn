@@ -1,22 +1,17 @@
 [gd_scene format=3 uid="uid://c3ixy5aj6d3xc"]
 
 [ext_resource type="Script" uid="uid://bahrtehua1exv" path="res://scripts/game.gd" id="1_kayp2"]
-[ext_resource type="PackedScene" uid="uid://tvv4letdju1q" path="res://scenes/jugador.tscn" id="2_j2wbo"]
-[ext_resource type="PackedScene" uid="uid://el43f433qnmu" path="res://scenes/barra_vida.tscn" id="3_t48sv"]
-[ext_resource type="PackedScene" uid="uid://ccg6lrj5u3yni" path="res://scenes/ruedas.tscn" id="4_svo7y"]
-[ext_resource type="PackedScene" uid="uid://5tlfsga8je61" path="res://scenes/enemigo_3.tscn" id="5_5ph7u"]
+[ext_resource type="Texture2D" uid="uid://oqd0hyu1xnjb" path="res://assets/Mapas/2/Bright/City2.png" id="2_3vd64"]
+[ext_resource type="Texture2D" uid="uid://booflyshh6qy5" path="res://assets/Stick Figure Character Sprites 2D/Fighter sprites/fighter_death_0061.png" id="3_hqhvd"]
 
 [node name="Game" type="Node2D" unique_id=1125492244]
 y_sort_enabled = true
 script = ExtResource("1_kayp2")
 
-[node name="Jugador" parent="." unique_id=658956116 instance=ExtResource("2_j2wbo")]
-position = Vector2(176, 185)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=72537323]
+position = Vector2(960, 540)
+texture = ExtResource("2_3vd64")
 
-[node name="Barra_vida" parent="." unique_id=560939158 instance=ExtResource("3_t48sv")]
-
-[node name="Ruedas" parent="." unique_id=601711903 instance=ExtResource("4_svo7y")]
-position = Vector2(531, 204)
-
-[node name="CharacterBody2D2" parent="." unique_id=1405356426 instance=ExtResource("5_5ph7u")]
-position = Vector2(1190, 533)
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=822998942]
+position = Vector2(766, 703)
+texture = ExtResource("3_hqhvd")
