@@ -80,8 +80,8 @@
 [ext_resource type="AudioStream" uid="uid://1o3ulr42b8bx" path="res://sounds/Punch.MP3" id="78_mpm4s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhgvq"]
-radius = 14.0
-height = 50.0
+radius = 11.0
+height = 42.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wv7ot"]
 animations = [{
@@ -630,10 +630,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_squte"]
-size = Vector2(86, 68)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwri8"]
-size = Vector2(85, 129)
+size = Vector2(86, 84)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8m2a0"]
 atlas = ExtResource("70_145tk")
@@ -675,8 +672,14 @@ animations = [{
 }],
 "loop": false,
 "name": &"destroy",
-"speed": 8.0
+"speed": 6.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpm4s"]
+size = Vector2(73, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwri8"]
+size = Vector2(53, 76)
 
 [node name="Jugador" type="CharacterBody2D" unique_id=1341022144 groups=["jugador"]]
 process_mode = 3
@@ -684,10 +687,12 @@ position = Vector2(100, 0)
 collision_mask = 678
 script = ExtResource("1_pwri8")
 vida_maxima = 500
+tiempo_escudo = 1.0
 tiempo_para_otro_escudo = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1682055202]
-position = Vector2(0, 74)
+position = Vector2(-3, 94)
+rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_vhgvq")
 
 [node name="Portal" type="AnimatedSprite2D" parent="." unique_id=1946178435]
@@ -716,15 +721,8 @@ collision_mask = 2
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivote/AttackArea" unique_id=94784550]
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_squte")
-
-[node name="HurtBox" type="Area2D" parent="Pivote" unique_id=1761381808 groups=["HurtBox"]]
-collision_layer = 16
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivote/HurtBox" unique_id=523776523]
-position = Vector2(-2.5, 35)
-shape = SubResource("RectangleShape2D_pwri8")
 
 [node name="Escudo" type="Area2D" parent="Pivote" unique_id=575811295]
 collision_mask = 2
@@ -739,7 +737,17 @@ frame_progress = 0.94846153
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pivote/Escudo" unique_id=92720129]
 position = Vector2(-2.5, 35)
+shape = SubResource("RectangleShape2D_mpm4s")
+debug_color = Color(0, 0.6507415, 0.092763536, 0.41960785)
+
+[node name="HurtBox" type="Area2D" parent="Pivote" unique_id=1761381808 groups=["HurtBox"]]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivote/HurtBox" unique_id=523776523]
+position = Vector2(-2.5, 35)
 shape = SubResource("RectangleShape2D_pwri8")
+debug_color = Color(0.99372774, 0, 0.23750013, 0.74509805)
 
 [node name="PunchSound" type="AudioStreamPlayer" parent="." unique_id=1444979869]
 stream = ExtResource("78_mpm4s")
