@@ -1,2 +1,5 @@
 *.mkv
 *.ogv
+
+# Godot cache (se regenera automáticamente)
+.godot/
